@@ -1,5 +1,5 @@
 {
-  "name": "j-com",
+  "name": "j-stagram",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -24,6 +24,7 @@
     "eslint": "^8.56.0",
     "eslint-config-next": "14.0.4",
     "prettier": "^3.2.4",
+    "sass": "^1.70.0",
     "typescript": "^5"
   }
 }
