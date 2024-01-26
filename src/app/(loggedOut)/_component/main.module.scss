@@ -1,0 +1,26 @@
+.main {
+  display: flex;
+  width: 100dvw;
+  min-height: 100dvh;
+  color: darkred;
+  background-color: #fff;
+
+  .left,
+  .right {
+    border: 1px solid gray;
+  }
+
+  .left {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    border: 1px solid red;
+  }
+
+}
