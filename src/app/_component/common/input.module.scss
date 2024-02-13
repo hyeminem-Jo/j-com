@@ -1,0 +1,62 @@
+.field {
+  width: 100%;
+
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+
+    &.checkbox {
+      flex-direction: row;
+      align-items: center;
+      .error {
+        display: inline-block;
+        margin-top: 0;
+        margin-left: 5px;
+      }
+      label {
+        margin-left: 2px;
+      }
+    }
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+
+    label {
+      &:not([for='term']) {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 600;
+        font-size: 18px;
+      }
+
+      &[for='term'] {
+        order: 2;
+      }
+    }
+
+    input {
+      &[type='checkbox'] {
+        order: 1;
+      }
+
+      &:not([type='checkbox']) {
+        width: 100%;
+        margin-top: 10px;
+        padding: 15px 10px;
+      }
+    }
+
+    .error {
+      display: block;
+      margin-top: 5px;
+      order: 3;
+      color: crimson;
+
+      em {
+        margin-right: 3px;
+      }
+    }
+  }
+}

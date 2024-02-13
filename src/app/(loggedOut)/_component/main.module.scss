@@ -5,11 +5,6 @@
   color: darkred;
   background-color: #fff;
 
-  .left,
-  .right {
-    border: 1px solid gray;
-  }
-
   .left {
     flex: 1;
     display: flex;
@@ -19,8 +14,8 @@
   .right {
     flex: 1;
     display: flex;
-    align-items: center;
-    border: 1px solid red;
+    justify-content: center;
+    flex-direction: column;
   }
 
 }
