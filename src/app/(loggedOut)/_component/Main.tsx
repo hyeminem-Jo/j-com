@@ -6,6 +6,8 @@ import Input from '@/app/_component/common/Input'
 import { useForm } from 'react-hook-form'
 import Button from '@/app/_component/common/Button'
 import SignupOrLoginForm from '@/app/_component/common/SignupOrLoginForm'
+import ButtonGroup from '@/app/_component/common/ButtonGroup'
+import Link from 'next/link'
 import phoneImage from '../../../../public/phone.png'
 import logo from '../../../../public/logo.png'
 
@@ -47,9 +49,14 @@ export default function Main() {
               required: '비밀번호를 입력해주세요',
             }}
           />
-          <Button type="submit" size="md" color="primary">
-            로그인
-          </Button>
+          <ButtonGroup>
+            <Button type="submit" size="md" color="primary">
+              로그인
+            </Button>
+            <Link href="" size="md" color="primary">
+              회원가입
+            </Link>
+          </ButtonGroup>
         </SignupOrLoginForm>
       </div>
     </div>
