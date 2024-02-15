@@ -53,7 +53,7 @@ export default function Main() {
             <Button type="submit" size="md" color="primary">
               로그인
             </Button>
-            <Link href="" size="md" color="primary">
+            <Link href="signup" size="md" color="primary">
               회원가입
             </Link>
           </ButtonGroup>
