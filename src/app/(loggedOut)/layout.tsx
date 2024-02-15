@@ -1,10 +1,10 @@
 import { ReactNode } from 'react'
-// import styles from '@/app/(beforeLogin)/_component/main.module.css'
+import style from '@/app/(loggedOut)/_component/main.module.scss'
 
 type Props = { children: ReactNode; modal: ReactNode }
 export default function Layout({ children, modal }: Props) {
   return (
-    <div>
+    <div className={style.container}>
       {children}
       {modal}
     </div>

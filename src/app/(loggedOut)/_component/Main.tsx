@@ -20,7 +20,7 @@ export default function Main() {
   })
 
   return (
-    <div className={styles.main}>
+    <>
       <div className={styles.left}>
         <Image src={phoneImage} width={450} alt="logo" />
       </div>
@@ -53,12 +53,12 @@ export default function Main() {
             <Button type="submit" size="md" color="primary">
               로그인
             </Button>
-            <Link href="signup" size="md" color="primary">
-              회원가입
+            <Link href="signup" className={styles.goSignup}>
+              회원가입 하러가기
             </Link>
           </ButtonGroup>
         </SignupOrLoginForm>
       </div>
-    </div>
+    </>
   )
 }
