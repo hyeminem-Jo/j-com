@@ -1,3 +1,7 @@
-export default function Home() {
-  return <main>홈페이지(loggedIn)</main>
+import React from 'react'
+
+function HomePage() {
+  return <div>홈</div>
 }
+
+export default HomePage

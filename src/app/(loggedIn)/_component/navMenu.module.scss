@@ -1,0 +1,22 @@
+.menuList {
+
+  a {
+    display: block;
+  }
+
+  .menuItem {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid;
+    &:hover {
+     background-color: rgba(0, 0, 0, .05);
+    }
+    span {
+      padding-left: 16px;
+    }
+  }
+}
+

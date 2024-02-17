@@ -27,7 +27,9 @@ function Input({
 
   return (
     <div className={style.field}>
-      <div className={`${type === 'checkbox' ? 'checkbox' : ''} input-form`}>
+      <div
+        className={`${type === 'checkbox' ? 'checkbox' : ''} ${style.inputForm}`}
+      >
         {label && <label htmlFor={name}>{label}</label>}
         <input
           id={name}
@@ -40,7 +42,7 @@ function Input({
           {...rest}
         />
         {error && (
-          <span className="error">
+          <span className={style.error}>
             <em>*</em>
             {error.message}
           </span>
