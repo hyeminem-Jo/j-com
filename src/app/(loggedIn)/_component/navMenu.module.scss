@@ -1,5 +1,11 @@
 .menuList {
 
+  li {
+    &:not(:first-child) {
+      margin-top: 5px;
+    }
+  }
+
   a {
     display: block;
   }
@@ -10,7 +16,6 @@
     width: 100%;
     padding: 10px;
     border-radius: 8px;
-    border: 1px solid;
     &:hover {
      background-color: rgba(0, 0, 0, .05);
     }

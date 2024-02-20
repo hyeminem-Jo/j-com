@@ -2,25 +2,27 @@
 
 import Link from 'next/link'
 import { useSelectedLayoutSegment } from 'next/navigation'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import style from './navMenu.module.scss'
 
 function NavMenu() {
   const segment = useSelectedLayoutSegment()
   const [currentSegment, setCurrentSegment] = useState('')
-  // console.log('segment :', segment)
-  // console.log('currentSegment: ', currentSegment)
 
   useEffect(() => {
-    if (segment !== currentSegment) {
-      setCurrentSegment(segment)
-    }
+    setCurrentSegment(segment)
   }, [segment])
 
   const segmentHandler = (url) => {
-    setCurrentSegment(url)
-    if (currentSegment === 'search') {
-      setCurrentSegment(segment)
+    // 'search' 나 'alarm' 버튼의 경우 자기 자신을 다시 한번 더 누를때 현재 페이지(segment) 기준으로 버튼 활성화
+    // 'search' <-> 'alarm' 버튼을 연달아 누르면 현재 페이지(segment) 기준 버튼 활성화 x
+    if (
+      (currentSegment === 'search' || currentSegment === 'alarm') &&
+      url === currentSegment
+    ) {
+      setCurrentSegment(segment) // 검색이나 알림을 누를시 기존의 segment 로 변환
+    } else {
+      setCurrentSegment(url)
     }
   }
 
@@ -107,7 +109,7 @@ function NavMenu() {
                       y2="21.643"
                     />
                   </svg>
-                  <span style={{ fontWeight: 'bold' }}>검색(true)</span>
+                  <span style={{ fontWeight: 'bold' }}>검색</span>
                 </>
               ) : (
                 <>
@@ -141,7 +143,7 @@ function NavMenu() {
                       y2="22"
                     />
                   </svg>
-                  <span>검색(false)</span>
+                  <span>검색</span>
                 </>
               )}
             </div>
@@ -202,6 +204,103 @@ function NavMenu() {
                     />
                   </svg>
                   <span>탐색 탭</span>
+                </>
+              )}
+            </div>
+          </Link>
+        </li>
+        <li>
+          <Link href="/message" onClick={() => segmentHandler('message')}>
+            <div className={style.menuItem}>
+              {currentSegment === 'message' ? (
+                <>
+                  <svg
+                    aria-label="Direct"
+                    className="x1lliihq x1n2onr6 x5n08af"
+                    fill="currentColor"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <title>Direct</title>
+                    <path
+                      d="M22.91 2.388a.69.69 0 0 0-.597-.347l-20.625.002a.687.687 0 0 0-.482 1.178L7.26 9.16a.686.686 0 0 0 .778.128l7.612-3.657a.723.723 0 0 1 .937.248.688.688 0 0 1-.225.932l-7.144 4.52a.69.69 0 0 0-.3.743l2.102 8.692a.687.687 0 0 0 .566.518.655.655 0 0 0 .103.008.686.686 0 0 0 .59-.337L22.903 3.08a.688.688 0 0 0 .007-.692"
+                      fillRule="evenodd"
+                    />
+                  </svg>
+                  <span style={{ fontWeight: 'bold' }}>메시지</span>
+                </>
+              ) : (
+                <>
+                  <svg
+                    aria-label="Direct"
+                    className="x1lliihq x1n2onr6 x5n08af"
+                    fill="currentColor"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <title>Direct</title>
+                    <line
+                      fill="none"
+                      stroke="currentColor"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      x1="22"
+                      x2="9.218"
+                      y1="3"
+                      y2="10.083"
+                    />
+                    <polygon
+                      fill="none"
+                      points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
+                      stroke="currentColor"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                    />
+                  </svg>
+                  <span>메시지</span>
+                </>
+              )}
+            </div>
+          </Link>
+        </li>
+        <li>
+          <Link href="#" onClick={() => segmentHandler('alarm')}>
+            <div className={style.menuItem}>
+              {currentSegment === 'alarm' ? (
+                <>
+                  <svg
+                    aria-label="알림"
+                    className="x1lliihq x1n2onr6 x5n08af"
+                    fill="currentColor"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <title>알림</title>
+                    <path d="M17.075 1.987a5.852 5.852 0 0 0-5.07 2.66l-.008.012-.01-.014a5.878 5.878 0 0 0-5.062-2.658A6.719 6.719 0 0 0 .5 8.952c0 3.514 2.581 5.757 5.077 7.927.302.262.607.527.91.797l1.089.973c2.112 1.89 3.149 2.813 3.642 3.133a1.438 1.438 0 0 0 1.564 0c.472-.306 1.334-1.07 3.755-3.234l.978-.874c.314-.28.631-.555.945-.827 2.478-2.15 5.04-4.372 5.04-7.895a6.719 6.719 0 0 0-6.425-6.965Z" />
+                  </svg>
+                  <span style={{ fontWeight: 'bold' }}>알림</span>
+                </>
+              ) : (
+                <>
+                  <svg
+                    aria-label="알림"
+                    className="x1lliihq x1n2onr6 x5n08af"
+                    fill="currentColor"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <title>알림</title>
+                    <path d="M16.792 3.904A4.989 4.989 0 0 1 21.5 9.122c0 3.072-2.652 4.959-5.197 7.222-2.512 2.243-3.865 3.469-4.303 3.752-.477-.309-2.143-1.823-4.303-3.752C5.141 14.072 2.5 12.167 2.5 9.122a4.989 4.989 0 0 1 4.708-5.218 4.21 4.21 0 0 1 3.675 1.941c.84 1.175.98 1.763 1.12 1.763s.278-.588 1.11-1.766a4.17 4.17 0 0 1 3.679-1.938m0-2a6.04 6.04 0 0 0-4.797 2.127 6.052 6.052 0 0 0-4.787-2.127A6.985 6.985 0 0 0 .5 9.122c0 3.61 2.55 5.827 5.015 7.97.283.246.569.494.853.747l1.027.918a44.998 44.998 0 0 0 3.518 3.018 2 2 0 0 0 2.174 0 45.263 45.263 0 0 0 3.626-3.115l.922-.824c.293-.26.59-.519.885-.774 2.334-2.025 4.98-4.32 4.98-7.94a6.985 6.985 0 0 0-6.708-7.218Z" />
+                  </svg>
+                  <span>알림</span>
                 </>
               )}
             </div>
