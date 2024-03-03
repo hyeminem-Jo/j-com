@@ -1,4 +1,3 @@
-import React from 'react'
 import Main from '@/app/(loggedOut)/_component/Main'
 
 function Page() {

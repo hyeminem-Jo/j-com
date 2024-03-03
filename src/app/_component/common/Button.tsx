@@ -36,5 +36,3 @@ export function TextButton({ children, type, onClick, ...rest }) {
     </button>
   )
 }
-
-// export default Button

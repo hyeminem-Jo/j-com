@@ -1,10 +1,9 @@
 'use client'
 
-import SignupForm from '@/app/(loggedOut)/_component/SignupForm'
 import { useRouter } from 'next/navigation'
-import style from './signupModal.module.scss'
+import style from './modal.module.scss'
 
-function SignupModal() {
+function Modal({ children, title }) {
   const router = useRouter()
   const onClickClose = () => {
     router.back()
@@ -15,7 +14,7 @@ function SignupModal() {
     <div className={style.modalBg}>
       <div className={style.modal}>
         <div className={style.modalHeader}>
-          회원가입 하기
+          {title}
           <button className={style.closeBtn} onClick={onClickClose}>
             <svg
               width={24}
@@ -29,10 +28,10 @@ function SignupModal() {
             </svg>
           </button>
         </div>
-        <SignupForm />
+        {children}
       </div>
     </div>
   )
 }
 
-export default SignupModal
+export default Modal

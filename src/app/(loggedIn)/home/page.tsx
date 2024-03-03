@@ -1,7 +1,8 @@
 import React from 'react'
+import Main from '@/app/(loggedIn)/_component/Main'
 
 function HomePage() {
-  return <div>홈</div>
+  return <Main />
 }
 
 export default HomePage
