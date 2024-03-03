@@ -1,0 +1,48 @@
+.profileButton {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 8px;
+
+  .profileButtonInner {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px 8px 8px;
+    border-radius: 50px;
+    &:hover {
+      background-color: rgba(0, 0, 0, .05);
+    }
+
+    .profileImage {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      border: 1px solid #ddd;
+      overflow: hidden;
+    }
+
+    .userName {
+      margin-left: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      span {
+        max-width: 150px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        word-break: break-all;
+      }
+
+      .userId {
+        font-weight: 600;
+      }
+      .userNickname {
+        margin-top: 3px;
+        color: #aaa;
+      }
+    }
+  }
+
+}
+

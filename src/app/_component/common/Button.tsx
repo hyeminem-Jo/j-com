@@ -1,7 +1,6 @@
-import React from 'react'
 import style from './button.module.scss'
 
-function Button({
+export function Button({
   children,
   disabled,
   type = 'button',
@@ -25,4 +24,17 @@ function Button({
   )
 }
 
-export default Button
+export function TextButton({ children, type, onClick, ...rest }) {
+  return (
+    <button
+      type={type}
+      onClick={onClick}
+      className={style.textButton}
+      {...rest}
+    >
+      {children}
+    </button>
+  )
+}
+
+// export default Button

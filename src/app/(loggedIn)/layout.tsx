@@ -1,6 +1,8 @@
 import NavMenu from '@/app/(loggedIn)/_component/NavMenu'
 import Link from 'next/link'
 import Image from 'next/image'
+import ProfileButton from '@/app/(loggedIn)/_component/ProfileButton'
+import FollowerRecommend from '@/app/(loggedIn)/_component/FollowerRecommend'
 import style from './layout.module.scss'
 import logo from '../../../public/logo.png'
 
@@ -21,7 +23,8 @@ export default function AfterLoginLayout({ children }) {
         <div className={style.rightWrapperInner}>
           <main className={style.main}>{children}</main>
           <section className={style.rightSection}>
-            친구들있는 오른쪽 섹션
+            <ProfileButton isMyProfile />
+            <FollowerRecommend isMyProfile={false} />
           </section>
         </div>
       </div>

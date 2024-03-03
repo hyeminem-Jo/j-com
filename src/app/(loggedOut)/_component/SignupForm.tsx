@@ -3,7 +3,7 @@
 import { useForm } from 'react-hook-form'
 import { useCallback, useEffect } from 'react'
 import Input from '@/app/_component/common/Input'
-import Button from '@/app/_component/common/Button'
+import { Button } from '@/app/_component/common/Button'
 import style from './signupForm.module.scss'
 
 function SignupForm() {

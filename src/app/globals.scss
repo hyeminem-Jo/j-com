@@ -103,6 +103,9 @@ span {
 
 button {
   border: none;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: transparent;
 }
 
 @media (prefers-color-scheme: dark) {

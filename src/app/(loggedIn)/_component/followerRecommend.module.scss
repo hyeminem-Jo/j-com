@@ -1,0 +1,20 @@
+.followerRecommend {
+  margin-top: 20px;
+  .followerRecommendInner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 8px 8px 16px;
+    margin-bottom: 5px;
+    .title {
+      color: dimgray;
+    }
+    .viewAll {
+      font-size: 14px;
+      font-weight: 600;
+      &:hover{
+        opacity: 0.8;
+      }
+    }
+  }
+}
