@@ -28,7 +28,7 @@ function Modal({ children, title }) {
             </svg>
           </button>
         </div>
-        {children}
+        <div className={style.modalContent}>{children}</div>
       </div>
     </div>
   )

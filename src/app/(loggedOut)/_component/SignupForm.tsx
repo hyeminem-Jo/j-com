@@ -119,6 +119,7 @@ function SignupForm() {
       <Button type="submit" size="md" color="secondary">
         가입하기
       </Button>
+      기
     </form>
   )
 }
