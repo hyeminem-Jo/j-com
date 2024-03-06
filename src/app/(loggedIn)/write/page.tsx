@@ -1,13 +1,10 @@
-import Modal from '@/app/_component/common/Modal'
-import PostForm from '@/app/(loggedIn)/_component/PostForm'
+import Home from "@/app/(loggedIn)/home/page";
 
-function Write() {
+function Page() {
+  // write 모달이 열린채로 새로고침 했을 때 뜰 기본 페이지
   return (
-    // <Modal title="게시글 쓰기">
-    //   <PostForm />
-    // </Modal>
-    <div>홈</div>
+    <Home />
   )
 }
 
-export default Write
+export default Page
