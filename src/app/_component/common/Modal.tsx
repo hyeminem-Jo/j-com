@@ -15,7 +15,11 @@ function Modal({ children, title }) {
       <div className={style.modal}>
         <div className={style.modalHeader}>
           {title}
-          <button className={style.closeBtn} onClick={onClickClose}>
+          <button
+            type="button"
+            className={style.closeBtn}
+            onClick={onClickClose}
+          >
             <svg
               width={24}
               viewBox="0 0 24 24"

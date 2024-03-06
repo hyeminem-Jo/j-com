@@ -2,8 +2,8 @@
 
 import { ChangeEventHandler, FormEventHandler, useRef, useState } from 'react'
 import { Button } from '@/app/_component/common/Button'
-import style from './postForm.module.scss'
 import cx from 'classnames'
+import style from './postForm.module.scss'
 
 function PostForm() {
   const imageRef = useRef<HTMLInputElement>(null)
@@ -38,7 +38,7 @@ function PostForm() {
   }
 
   const clickNext = () => {
-    if(step === 2) return
+    if (step === 2) return
     setStep((prev) => prev + 1)
   }
 
@@ -63,22 +63,22 @@ function PostForm() {
               <line
                 fill="none"
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 x1="2.909"
                 x2="22.001"
                 y1="12.004"
                 y2="12.004"
-              ></line>
+              />
               <polyline
                 fill="none"
                 points="9.276 4.726 2.001 12.004 9.276 19.274"
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-              ></polyline>
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+              />
             </svg>
           </button>
         )}
@@ -129,9 +129,9 @@ function PostForm() {
           </div>
         )}
         {isUploaded && (
-          <div>
-            <div>이미지</div>
-            <div>사진이 업로드됨</div>
+          <div className={style.formWrap}>
+            <div className={style.formImage}>이미지</div>
+            <div className={style.formArea}>사진이 업로드됨</div>
             {step === 2 && <div>게시글 폼</div>}
           </div>
         )}
