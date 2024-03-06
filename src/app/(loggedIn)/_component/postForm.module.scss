@@ -1,10 +1,43 @@
 .postForm {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: calc(100% - 40px);
+  width: 500px;
+
+  &.postStep {
+    width: 900px;
+  }
+
+  .postStep {
+    //border: 1px solid red;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+
+    button {
+      padding: 0 15px;
+    }
+
+    .prevBtn {}
+    .nextBtn {
+      font-weight: 500;
+      text-align: center;
+      color: darkgoldenrod;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+  }
+
+  .postFormInner {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   .desc {
+    margin-top: -50px;
     text-align: center;
   }
 
