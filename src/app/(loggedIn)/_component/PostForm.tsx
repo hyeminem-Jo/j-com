@@ -38,6 +38,7 @@ function PostForm() {
   }
 
   const clickNext = () => {
+    if(step === 2) return
     setStep((prev) => prev + 1)
   }
 
@@ -131,7 +132,7 @@ function PostForm() {
           <div>
             <div>이미지</div>
             <div>사진이 업로드됨</div>
-            {step === 2 && <div>게시글 쓰기</div>}
+            {step === 2 && <div>게시글 폼</div>}
           </div>
         )}
       </div>
