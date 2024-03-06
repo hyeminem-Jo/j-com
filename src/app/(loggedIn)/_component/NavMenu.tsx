@@ -305,7 +305,7 @@ function NavMenu() {
           </Link>
         </li>
         <li>
-          <Link href="write" onClick={() => segmentHandler('write')}>
+          <Link href="write">
             <div className={style.menuItem}>
               <svg
                 aria-label="새로운 게시물"
