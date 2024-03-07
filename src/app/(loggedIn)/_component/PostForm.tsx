@@ -4,13 +4,16 @@ import { ChangeEventHandler, FormEventHandler, useRef, useState } from 'react'
 import { Button } from '@/app/_component/common/Button'
 import cx from 'classnames'
 import style from './postForm.module.scss'
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+import '@/app/(loggedIn)/_component/slickPostForm.scss'
+import Image from 'next/image'
 
 function PostForm() {
   const imageRef = useRef<HTMLInputElement>(null)
-  const [step, setStep] = useState(1)
-  const [prevBtn, setPrevBtn] = useState(false)
-  const [nextBtn, setNextBtn] = useState(false)
-  const [isUploaded, setIsUploaded] = useState(false)
+  const [step, setStep] = useState(2)
+  const [isUploaded, setIsUploaded] = useState(true)
 
   // 더미데이터
   const me = {
@@ -18,6 +21,22 @@ function PostForm() {
     nickname: '혜진',
     image: '/profile_image.jpg',
   }
+
+  // 이미지 데이터
+  const imageArr = [
+    {
+      src: 'https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/22/da16af9b60070a4f7f7a5be7dcc98faf.jpeg',
+      alt: '똥개1',
+    },
+    {
+      src: 'https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/34/ca41e7f0f2232370d83d2ed6a4db3802.jpeg',
+      alt: '똥개2',
+    },
+    {
+      src: 'https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/158/a240b2bbb6c2a2b17aed88242233ee40.jpeg',
+      alt: '똥개3',
+    },
+  ]
 
   const onSubmit: FormEventHandler = (e) => {
     e.preventDefault()
@@ -40,6 +59,15 @@ function PostForm() {
   const clickNext = () => {
     if (step === 2) return
     setStep((prev) => prev + 1)
+  }
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
   }
 
   return (
@@ -84,7 +112,17 @@ function PostForm() {
         )}
         {isUploaded && (
           <button type="button" className={style.nextBtn} onClick={clickNext}>
-            {step === 1 ? '다음' : '공유하기'}
+            {step === 1 ? (
+              <button
+                type="button"
+                className={style.nextBtn}
+                onClick={clickNext}
+              >
+                {step === 1 ? '다음' : '공유하기'}
+              </button>
+            ) : (
+              '공유하기'
+            )}
           </button>
         )}
       </div>
@@ -130,9 +168,23 @@ function PostForm() {
         )}
         {isUploaded && (
           <div className={style.formWrap}>
-            <div className={style.formImage}>이미지</div>
-            <div className={style.formArea}>사진이 업로드됨</div>
-            {step === 2 && <div>게시글 폼</div>}
+            <div className={style.formImageWrap}>
+              {/*이미지*/}
+              <Slider {...settings}>
+                {imageArr.map((img, index) => (
+                  <div className={style.image}>
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      width={550}
+                      height={600}
+                      objectFit="cover"
+                    />
+                  </div>
+                ))}
+              </Slider>
+            </div>
+            {step === 2 && <div className={style.formArea}>게시글 폼</div>}
           </div>
         )}
       </div>

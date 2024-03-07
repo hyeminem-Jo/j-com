@@ -1,6 +1,6 @@
 .postForm {
   height: calc(100% - 40px);
-  width: 500px;
+  width: 550px;
 
   &.postStep {
     width: 900px;
@@ -38,15 +38,26 @@
     .postImage {
 
     }
-    .postImage {
-
-    }
     .formWrap {
 
-      .formImage {}
+        display: flex;
+      border: 1px solid;
+      width: 100%;
+      height: 100%;
+      .formImageWrap {
+        width: 550px;
+        //border: 1px solid gold;
+
+        .image {
+          img {
+            object-fit: cover;
+          }
+        }
+      }
 
       .formArea {
-
+        flex: 1;
+        //border: 1px solid green;
       }
     }
   }
