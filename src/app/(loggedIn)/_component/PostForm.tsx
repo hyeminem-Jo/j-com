@@ -63,7 +63,7 @@ function PostForm() {
 
   const settings = {
     dots: true,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -111,19 +111,24 @@ function PostForm() {
           </button>
         )}
         {isUploaded && (
-          <button type="button" className={style.nextBtn} onClick={clickNext}>
+          <>
             {step === 1 ? (
               <button
                 type="button"
                 className={style.nextBtn}
                 onClick={clickNext}
               >
-                {step === 1 ? '다음' : '공유하기'}
+                다음
               </button>
             ) : (
-              '공유하기'
+              <button
+                type="submit"
+                className={style.nextBtn}
+              >
+                공유하기
+              </button>
             )}
-          </button>
+          </>
         )}
       </div>
       <div className={style.postFormInner}>
@@ -169,20 +174,32 @@ function PostForm() {
         {isUploaded && (
           <div className={style.formWrap}>
             <div className={style.formImageWrap}>
-              {/*이미지*/}
-              <Slider {...settings}>
-                {imageArr.map((img, index) => (
-                  <div className={style.image}>
-                    <Image
-                      src={img.src}
-                      alt={img.alt}
-                      width={550}
-                      height={600}
-                      objectFit="cover"
-                    />
-                  </div>
-                ))}
-              </Slider>
+              {/*업로드 할 이미지*/}
+              {imageArr.length > 1 ? (
+                <Slider {...settings}>
+                  {imageArr.map((img, index) => (
+                    <div className={style.image}>
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        width={550}
+                        height={600}
+                        objectFit="cover"
+                      />
+                    </div>
+                  ))}
+                </Slider>
+              ) : (
+                <div className={style.image}>
+                  <Image
+                    src={imageArr[0].src}
+                    alt={imageArr[0].alt}
+                    width={550}
+                    height={600}
+                    objectFit="cover"
+                  />
+                </div>
+              )}
             </div>
             {step === 2 && <div className={style.formArea}>게시글 폼</div>}
           </div>
