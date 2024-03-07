@@ -8,10 +8,13 @@ import style from './navMenu.module.scss'
 function NavMenu() {
   const segment = useSelectedLayoutSegment()
   const [currentSegment, setCurrentSegment] = useState('')
-  // const [isOpenPostForm, setIsOpenPostForm] = useState(false)
 
   useEffect(() => {
-    setCurrentSegment(segment)
+    if (segment === 'write') {
+      setCurrentSegment('home')
+    } else {
+      setCurrentSegment(segment)
+    }
   }, [segment])
 
   const segmentHandler = (url) => {

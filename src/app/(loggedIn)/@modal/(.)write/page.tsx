@@ -1,3 +1,5 @@
+'use client'
+
 import Modal from '@/app/_component/common/Modal'
 import PostForm from '@/app/(loggedIn)/_component/PostForm'
 

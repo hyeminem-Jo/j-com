@@ -1,13 +1,17 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
+import {useRouter } from 'next/navigation'
 import style from './modal.module.scss'
 
 function Modal({ children, title }) {
   const router = useRouter()
+
   const onClickClose = () => {
-    router.back()
-    // TODO: 뒤로가기가 /home이 아니면 /home으로 보내기
+    if (window.history.length === 2) {
+      router.push('home') // write 페이지를 url 로 접근시 닫힘 버튼을 누르면 home 으로 이동
+    } else {
+      router.back()
+    }
   }
 
   return (
