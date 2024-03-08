@@ -1,6 +1,6 @@
 'use client'
 
-import { ChangeEventHandler, FormEventHandler, useRef, useState } from 'react'
+import {ChangeEventHandler, FormEventHandler, useCallback, useRef, useState} from 'react'
 import { Button } from '@/app/_component/common/Button'
 import cx from 'classnames'
 import style from './postForm.module.scss'
@@ -9,8 +9,23 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import '@/app/(loggedIn)/_component/slickPostForm.scss'
 import Image from 'next/image'
+import {useForm} from "react-hook-form";
+import TextArea from "@/app/_component/common/TextArea";
 
 function PostForm() {
+  const {
+    watch,
+    control,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    mode: 'onChange',
+    defaultValues: {
+      post: ''
+    },
+  })
+
   const imageRef = useRef<HTMLInputElement>(null)
   const [step, setStep] = useState(2)
   const [isUploaded, setIsUploaded] = useState(true)
@@ -38,9 +53,19 @@ function PostForm() {
     },
   ]
 
-  const onSubmit: FormEventHandler = (e) => {
-    e.preventDefault()
-  }
+
+  const onSubmit = useCallback(
+    (data) => {
+      console.log(data)
+      alert(data)
+      reset()
+    },
+    [watch()],
+  )
+
+  // const onSubmit: FormEventHandler = (e) => {
+  //   e.preventDefault()
+  // }
 
   const uploadBtn = () => {
     imageRef.current?.click()
@@ -73,7 +98,7 @@ function PostForm() {
   return (
     <form
       className={cx(style.postForm, step === 2 && style.postStep)}
-      onSubmit={onSubmit}
+      onSubmit={handleSubmit(onSubmit)}
     >
       <div className={style.postStep}>
         {isUploaded && (
@@ -201,7 +226,16 @@ function PostForm() {
                 </div>
               )}
             </div>
-            {step === 2 && <div className={style.formArea}>게시글 폼</div>}
+            {step === 2 && <div className={style.formArea}>
+              게시글 폼
+              <TextArea
+                name="post"
+                control={control}
+                maxLength="1000"
+                placeholder="문구를 입력하세요..."
+                rows="5"
+              />
+            </div>}
           </div>
         )}
       </div>

@@ -10,7 +10,7 @@ function Input({
   required = false,
   type = 'text',
   label = '',
-  maxLength = false ?? 0,
+  maxLength = 0,
   placeholder = '',
   onChange = () => {},
   disabled,

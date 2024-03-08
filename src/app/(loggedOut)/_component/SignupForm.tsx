@@ -55,6 +55,7 @@ function SignupForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={style.signupForm}>
+      {/* TODO: rule 대신 yup 라이브러리 쓰기 */}
       <Input
         name="user"
         control={control}
