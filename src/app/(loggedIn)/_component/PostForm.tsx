@@ -231,13 +231,12 @@ function PostForm() {
               )}
             </div>
             {step === 2 && <div className={style.formArea}>
-              게시글 폼
               <Textarea
                 name="post"
                 control={control}
                 maxLength="1000"
                 placeholder="문구를 입력하세요..."
-                rows="5"
+                rows="15"
               />
             </div>}
           </div>

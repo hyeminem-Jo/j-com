@@ -39,7 +39,7 @@ function Textarea({
         id={name}
         value={field.value}
         // value={field.value || ''}
-        // className={cx(style.textArea, resize && style.noResize)}
+        className={cx(resize && style.noResize)}
         onChange={field.onChange}
         maxLength={maxLength || 500}
         placeholder={placeholder}
