@@ -35,7 +35,8 @@ function Input({
           id={name}
           type={type}
           className="input"
-          value={field.value || ''}
+          value={field.value}
+          // value={field.value || ''}
           onChange={field.onChange}
           placeholder={placeholder}
           disabled={disabled}

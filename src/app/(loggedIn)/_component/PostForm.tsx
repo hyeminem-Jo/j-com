@@ -1,6 +1,6 @@
 'use client'
 
-import {ChangeEventHandler, FormEventHandler, useCallback, useRef, useState} from 'react'
+import {ChangeEventHandler, FormEventHandler, useCallback, useEffect, useRef, useState} from 'react'
 import { Button } from '@/app/_component/common/Button'
 import cx from 'classnames'
 import style from './postForm.module.scss'
@@ -10,7 +10,7 @@ import 'slick-carousel/slick/slick-theme.css'
 import '@/app/(loggedIn)/_component/slickPostForm.scss'
 import Image from 'next/image'
 import {useForm} from "react-hook-form";
-import TextArea from "@/app/_component/common/TextArea";
+import Textarea from "@/app/_component/common/Textarea";
 
 function PostForm() {
   const {
@@ -53,6 +53,10 @@ function PostForm() {
     },
   ]
 
+
+  useEffect(() => {
+    console.log(watch('post'))
+  }, [watch('post')])
 
   const onSubmit = useCallback(
     (data) => {
@@ -228,7 +232,7 @@ function PostForm() {
             </div>
             {step === 2 && <div className={style.formArea}>
               게시글 폼
-              <TextArea
+              <Textarea
                 name="post"
                 control={control}
                 maxLength="1000"

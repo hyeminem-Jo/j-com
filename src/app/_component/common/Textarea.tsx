@@ -1,10 +1,11 @@
 'use client'
 
 import { useController } from 'react-hook-form'
-import style from './textArea.module.scss'
+import style from './textareaPost.module.scss'
 import cx from "classnames";
+import {useEffect} from "react";
 
-function TextArea({
+function Textarea({
    control,
    name = '',
    rules = {},
@@ -36,8 +37,10 @@ function TextArea({
       )}
       <textarea
         id={name}
+        value={field.value}
+        // value={field.value || ''}
         // className={cx(style.textArea, resize && style.noResize)}
-        // value={field.value}
+        onChange={field.onChange}
         maxLength={maxLength || 500}
         placeholder={placeholder}
         disabled={disabled}
@@ -48,4 +51,4 @@ function TextArea({
   )
 }
 
-export default TextArea
+export default Textarea
