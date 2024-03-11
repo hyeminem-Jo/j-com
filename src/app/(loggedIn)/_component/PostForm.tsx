@@ -27,8 +27,8 @@ function PostForm() {
   })
 
   const imageRef = useRef<HTMLInputElement>(null)
-  const [step, setStep] = useState(2)
-  const [isUploaded, setIsUploaded] = useState(true)
+  const [step, setStep] = useState(1)
+  const [isUploaded, setIsUploaded] = useState(false)
 
   // 더미데이터
   const me = {
@@ -53,12 +53,7 @@ function PostForm() {
     },
   ]
 
-
-  useEffect(() => {
-    console.log(watch('post'))
-  }, [watch('post')])
-
-  const onSubmit = useCallback(
+  const onSubmit: FormEventHandler<HTMLFormElement> = useCallback(
     (data) => {
       console.log(data)
       alert(data)
@@ -66,10 +61,6 @@ function PostForm() {
     },
     [watch()],
   )
-
-  // const onSubmit: FormEventHandler = (e) => {
-  //   e.preventDefault()
-  // }
 
   const uploadBtn = () => {
     imageRef.current?.click()
@@ -85,7 +76,9 @@ function PostForm() {
     }
   }
 
-  const clickNext = () => {
+  const clickNext = (e) => {
+    e.preventDefault(); // step 이 2로 바뀌면서 리렌더링되고 '공유하기' 버튼이 누른것으로 인식되어 제출되는데 이를 방지
+    console.log(step)
     if (step === 2) return
     setStep((prev) => prev + 1)
   }
