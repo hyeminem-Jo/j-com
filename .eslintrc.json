@@ -9,6 +9,7 @@
     "project": "./tsconfig.json"
   },
   "rules": {
+    "react/self-closing-comp": "off", // 빈 태그 자동 닫기 해제
     "react/react-in-jsx-scope": "off",
     "import/prefer-default-export": "off",
     "no-nested-ternary": "off" // 삼항 연산자 중첩 금지 권장 에러 해제
