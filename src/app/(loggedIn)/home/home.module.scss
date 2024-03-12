@@ -1,0 +1,18 @@
+.main {
+  border: 1px solid gold;
+  display: flex;
+  justify-content: center;
+
+  .mainInner {
+    max-width: 100%;
+    width: min(470px, 100vw); // TODO: 반응형을 만들지 않을 때 다시 수정 요함
+    border: 1px solid blue;
+
+    .checkAllPosts {
+
+      .checkImage {
+
+      }
+    }
+  }
+}
