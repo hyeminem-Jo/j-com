@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from "next/link";
 import Image from "next/image";
-import style from './profileButton.module.scss'
+import profileButtonStyle from './profileButton.module.scss'
+import style from './storyTab.module.scss'
 
 const StoryTab = () => {
   const users = [ // 내가 팔로우한 유저들
@@ -32,17 +33,18 @@ const StoryTab = () => {
     },
   ]
   return (
-    <ul style={{ width: '100%', textAlign: 'center' }}>
-      {users.map((user) => (
-        <li style={{ marginLeft: '10px' }}>
-          <Link href="#">
-            <div className={style.profileImage}>
-              <Image src={user.image} width={60} height={60} alt={`${user.id}-profile-image`} />
-            </div>
-          </Link>
-        </li>
-      ))}
-    </ul>
+    <div className={style.storyTab}>
+      {/* TODO: react-slick 으로 만들기 */}
+      <ul className={style.storyTabList}>
+        {users.map((user) => (
+          <li className={style.storyTabListItem} key={user.id}>
+            <Link href="#" className={style.profileImage}>
+              <Image src={user.image} width={50} height={50} alt={`${user.id}-profile-image`} />
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
