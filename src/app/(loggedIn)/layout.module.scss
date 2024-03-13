@@ -6,7 +6,6 @@
   .leftWrapper {
     display: flex;
     justify-content: flex-end;
-    border: 2px solid red;
     flex-grow: 1;
     .leftSection {
       width: 275px;
@@ -15,7 +14,6 @@
         width: inherit;
         height: 100dvh;
         padding: 8px 12px 20px;
-        border: 1px solid #eee;
         z-index: 10;
         > a {
           display: block;
@@ -28,16 +26,14 @@
   .rightWrapper {
     width: 990px;
     height: 100dvh;
-    border: 1px solid blue;
     flex-grow: 1;
     .rightWrapperInner {
       display: flex;
-      border: 2px solid green;
       .main {
         width: 630px;
         height: 200dvh;
         margin-top: 20px;
-        background-color: #eee;
+        border: 1px solid #ddd;
       }
       .rightSection {
         width: 300px;

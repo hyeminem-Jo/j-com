@@ -1,7 +1,7 @@
 import ProfileButton from '@/app/(loggedIn)/_component/ProfileButton'
 import style from './followerRecommend.module.scss'
 
-function FollowerRecommend({ isMyProfile }) {
+function FollowerRecommend({ users }) {
   return (
     <div className={style.followerRecommend}>
       <div className={style.followerRecommendInner}>
@@ -10,8 +10,8 @@ function FollowerRecommend({ isMyProfile }) {
           모두 보기
         </a>
       </div>
-      {[0, 0, 0, 0, 0].map(() => (
-        <ProfileButton isMyProfile={isMyProfile} />
+      {users.map((user) => (
+        <ProfileButton user={user} />
       ))}
     </div>
   )

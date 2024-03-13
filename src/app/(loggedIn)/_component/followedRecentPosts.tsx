@@ -1,7 +1,15 @@
-import React from 'react'
+import Post from "@/app/(loggedIn)/_component/Post";
 
 function FollowedRecentPosts() {
-  return <div>팔로우 한것 중 최근 게시물</div>
+  return (
+    <>
+      팔로우 한것 중 최근 게시물
+      <Post />
+      <Post />
+      <Post />
+      <Post />
+    </>
+  )
 }
 
 export default FollowedRecentPosts
