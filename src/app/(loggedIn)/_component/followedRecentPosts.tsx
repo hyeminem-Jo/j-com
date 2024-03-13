@@ -1,9 +1,9 @@
-import Post from "@/app/(loggedIn)/_component/Post";
+import Post from '@/app/(loggedIn)/_component/Post'
 
 function FollowedRecentPosts() {
   return (
     <>
-      팔로우 한것 중 최근 게시물
+      {/* 팔로우 한것 중 최근 게시물 */}
       <Post />
       <Post />
       <Post />

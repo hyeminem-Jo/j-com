@@ -1,11 +1,12 @@
-import React from 'react';
-import Link from "next/link";
-import Image from "next/image";
+import React from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 import profileButtonStyle from './profileButton.module.scss'
 import style from './storyTab.module.scss'
 
-const StoryTab = () => {
-  const users = [ // 내가 팔로우한 유저들
+function StoryTab() {
+  const users = [
+    // 내가 팔로우한 유저들
     {
       id: 'h._seung',
       nickname: '랍뷰희승',
@@ -39,13 +40,19 @@ const StoryTab = () => {
         {users.map((user) => (
           <li className={style.storyTabListItem} key={user.id}>
             <Link href="#" className={style.profileImage}>
-              <Image src={user.image} width={50} height={50} alt={`${user.id}-profile-image`} />
+              <Image
+                src={user.image}
+                width={60}
+                height={60}
+                alt={`${user.id}-profile-image`}
+              />
             </Link>
+            <div className={style.userName}>{user.id}</div>
           </li>
         ))}
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default StoryTab;
+export default StoryTab

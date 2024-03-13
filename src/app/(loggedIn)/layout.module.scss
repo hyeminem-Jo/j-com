@@ -8,12 +8,13 @@
     justify-content: flex-end;
     flex-grow: 1;
     .leftSection {
-      width: 275px;
+      width: 230px;
       .leftFixed {
         position: fixed;
         width: inherit;
         height: 100dvh;
         padding: 8px 12px 20px;
+        border-right: 1px solid #ccc;
         z-index: 10;
         > a {
           display: block;
@@ -27,13 +28,14 @@
     width: 990px;
     height: 100dvh;
     flex-grow: 1;
+
     .rightWrapperInner {
       display: flex;
       .main {
         width: 630px;
         height: 200dvh;
         margin-top: 20px;
-        border: 1px solid #ddd;
+        //border: 1px solid #ddd;
       }
       .rightSection {
         width: 300px;

@@ -1,4 +1,4 @@
-import Post from "@/app/(loggedIn)/_component/Post";
+import Post from '@/app/(loggedIn)/_component/Post'
 
 function RecommendedPosts() {
   const style = {
@@ -6,8 +6,9 @@ function RecommendedPosts() {
     borderTop: '1px solid #ccc',
   }
   const fontStyle = {
-    fontSize: '24px',
-    fontWeight: '700',
+    fontSize: '20px',
+    fontWeight: '600',
+    marginBottom: '15px',
   }
   return (
     <div style={style}>

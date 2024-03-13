@@ -19,10 +19,15 @@ function ProfileButton({ user, isMe }) {
     <div className={style.profileButton}>
       <button type="button" className={style.profileButtonInner}>
         <div className={style.profileImage}>
-          <Image src={user.image} width={50} height={50} alt={`${user.id}-profile-image`} />
+          <Image
+            src={user.image}
+            width={50}
+            height={50}
+            alt={`${user.id}-profile-image`}
+          />
         </div>
         <div className={style.userName}>
-          <span className={style.userId}>@{user.id}</span>
+          <span className={style.userId}>{user.id}</span>
           <span className={style.userNickname}>{user.nickname}</span>
         </div>
       </button>
