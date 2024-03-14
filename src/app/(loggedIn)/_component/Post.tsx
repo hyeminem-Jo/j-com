@@ -1,11 +1,11 @@
-import React, {FormEventHandler, useCallback} from 'react'
+import { FormEventHandler, useCallback } from 'react'
 import Image from 'next/image'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import 'dayjs/locale/ko'
+import CommentForm from '@/app/(loggedIn)/_component/CommentForm'
+import ActionButton from '@/app/(loggedIn)/_component/ActionButton'
 import style from './post.module.scss'
-import CommentForm from "@/app/(loggedIn)/_component/CommentForm";
-import ActionButton from "@/app/(loggedIn)/_component/ActionButton";
 
 dayjs.locale('ko')
 dayjs.extend(relativeTime)
@@ -36,20 +36,21 @@ function Post() {
     Comments: [
       {
         User: {
-          id: "h._seung",
+          id: 'h._seung',
         },
-        content: "모찌리도후가 먹고싶엉",
+        content: '모찌리도후가 먹고싶엉',
       },
       {
         User: {
-          id: "veenoo",
+          id: 'veenoo',
         },
-        content: "술먹자",
+        content: '술먹자',
       },
     ],
+    numOfLike: 5,
   }
 
-  const { User, content, createdAt, Images, Comments } = target
+  const { User, content, createdAt, Images, Comments, numOfLike } = target
 
   return (
     <article className={style.post}>
@@ -84,22 +85,24 @@ function Post() {
           </svg>
         </button>
       </div>
-      <div className={style.postImage}></div>
+      <div className={style.postImage}>
+        <Image
+          src={Images[0].src}
+          alt={Images[0].alt}
+          layout="fill"
+          objectFit="cover"
+        />
+      </div>
       <div className={style.postBottom}>
         <ActionButton />
-        <div className={style.like}></div>
+        <div className={style.like}>좋아요 {numOfLike}개</div>
         <div className={style.postContent}>
           <span>{User.id}</span>
-          <p>{content}</p>
+          <p className={style.desc}>{content}</p>
         </div>
-        <ul className={style.comments}>
-          {Comments.map((comment) => (
-            <li className={style.commentItem}>
-              <span className={style.user}>{comment.User.id}</span>
-              <p className={style.content}>{comment.content}</p>
-            </li>
-          ))}
-        </ul>
+        <button type="button" className={style.moreComment}>
+          댓글 {Comments.length}개 {Comments.length > 1 && '모두 '}보기
+        </button>
         <CommentForm />
       </div>
     </article>

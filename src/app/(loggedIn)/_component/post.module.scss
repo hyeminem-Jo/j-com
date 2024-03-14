@@ -44,29 +44,34 @@
   }
 
   .postImage {
-    height: 300px;
+    position: relative;
+    width: 100%;
+    min-height: 400px;
     background-color: #eee;
   }
 
   .postBottom {
     .like {
-
+      font-weight: 600;
     }
     .postContent {
+      display: flex;
+      align-items: center;
+      margin-top: 5px;
 
-    }
-    .comments {
-
-      .commentItem {
-
-        .user {}
-        .content {}
+      span {
+        font-size: 14px;
+        font-weight: 600;
       }
-
+      .desc {
+        font-size: 15px;
+        margin-left: 5px;
+      }
     }
-    .commentForm {
-
+    .moreComment {
+      margin: 10px 0 2px;
+      font-size: 15px;
+      color: gray;
     }
-
   }
 }

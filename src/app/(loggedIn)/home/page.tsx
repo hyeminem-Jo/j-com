@@ -3,13 +3,13 @@ import RecommendedPosts from '@/app/(loggedIn)/_component/RecommendedPosts'
 import Link from 'next/link'
 import Image from 'next/image'
 import linkStyle from '@/app/_component/common/button.module.scss'
+import StoryTab from '@/app/(loggedIn)/_component/StoryTab'
 import style from './home.module.scss'
 import checkAllPost from '../../../../public/check-all-post-icon.png'
-import StoryTab from "@/app/(loggedIn)/_component/StoryTab";
 
 function HomePage() {
   return (
-    <main className={style.main}>
+    <div className={style.main}>
       <StoryTab />
       <div className={style.mainInner}>
         {/* 팔로우한 최근 게시물 (최근 3일 동안 새롭게 올라온 게시물) */}
@@ -28,7 +28,7 @@ function HomePage() {
         {/* 추천 게시물 */}
         <RecommendedPosts />
       </div>
-    </main>
+    </div>
   )
 }
 
