@@ -13,9 +13,9 @@ function Textarea({
    placeholder = '',
    className = '',
    disabled = false,
-   // size = 'sm',
+   size = '',
    resize = false,
-   maxLength = 0,
+   maxLength = 500,
    rows = 3,
    ...rest
 }) {
@@ -39,9 +39,9 @@ function Textarea({
         id={name}
         value={field.value}
         // value={field.value || ''}
-        className={cx(resize && style.noResize)}
+        className={cx(!resize && style.noResize, size === 'sm' && style.sm)}
         onChange={field.onChange}
-        maxLength={maxLength || 500}
+        maxLength={maxLength}
         placeholder={placeholder}
         disabled={disabled}
         rows={rows}

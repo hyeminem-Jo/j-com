@@ -1,9 +1,7 @@
 .textAreaForm {
   width: 100%;
 
-  .textAreaLabel {
-
-  }
+  .textAreaLabel {}
 
   textarea {
     width: 100%;
@@ -18,6 +16,14 @@
 
     &.noResize {
       resize: none;
+    }
+
+    &.sm {
+      padding: 5px 0;
+      font-size: 12px;
+      &::placeholder {
+        font-size: 12px;
+      }
     }
   }
 

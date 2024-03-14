@@ -1,9 +1,11 @@
-import React from 'react'
+import React, {FormEventHandler, useCallback} from 'react'
 import Image from 'next/image'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import 'dayjs/locale/ko'
 import style from './post.module.scss'
+import CommentForm from "@/app/(loggedIn)/_component/CommentForm";
+import ActionButton from "@/app/(loggedIn)/_component/ActionButton";
 
 dayjs.locale('ko')
 dayjs.extend(relativeTime)
@@ -17,10 +19,38 @@ function Post() {
     },
     content: '리액트 공부는 재밌어...',
     createdAt: new Date(),
-    Images: [],
+    Images: [
+      {
+        src: 'https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/22/da16af9b60070a4f7f7a5be7dcc98faf.jpeg',
+        alt: '똥개1',
+      },
+      {
+        src: 'https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/34/ca41e7f0f2232370d83d2ed6a4db3802.jpeg',
+        alt: '똥개2',
+      },
+      {
+        src: 'https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/158/a240b2bbb6c2a2b17aed88242233ee40.jpeg',
+        alt: '똥개3',
+      },
+    ],
+    Comments: [
+      {
+        User: {
+          id: "h._seung",
+        },
+        content: "모찌리도후가 먹고싶엉",
+      },
+      {
+        User: {
+          id: "veenoo",
+        },
+        content: "술먹자",
+      },
+    ],
   }
 
-  const { User, content, createdAt, Images } = target
+  const { User, content, createdAt, Images, Comments } = target
+
   return (
     <article className={style.post}>
       <div className={style.postUser}>
@@ -56,10 +86,21 @@ function Post() {
       </div>
       <div className={style.postImage}></div>
       <div className={style.postBottom}>
+        <ActionButton />
         <div className={style.like}></div>
-        <div className={style.postContent}></div>
-        <div className={style.comments}></div>
-        <div className={style.commentForm}></div>
+        <div className={style.postContent}>
+          <span>{User.id}</span>
+          <p>{content}</p>
+        </div>
+        <ul className={style.comments}>
+          {Comments.map((comment) => (
+            <li className={style.commentItem}>
+              <span className={style.user}>{comment.User.id}</span>
+              <p className={style.content}>{comment.content}</p>
+            </li>
+          ))}
+        </ul>
+        <CommentForm />
       </div>
     </article>
   )

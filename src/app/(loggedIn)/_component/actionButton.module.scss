@@ -1,0 +1,18 @@
+.actionButton {
+  display: flex;
+  margin: 8px -7px;
+
+  .actionButtonItem {
+    &:last-child {
+      flex: 1;
+      text-align: right;
+    }
+    &:not(:first-child):hover {
+      opacity: .5;
+    }
+
+    button {
+      padding: 7px;
+    }
+  }
+}
