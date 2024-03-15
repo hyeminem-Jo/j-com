@@ -1,3 +1,5 @@
+'use client'
+
 import { FormEventHandler, useCallback } from 'react'
 import Image from 'next/image'
 import dayjs from 'dayjs'
@@ -5,6 +7,10 @@ import relativeTime from 'dayjs/plugin/relativeTime'
 import 'dayjs/locale/ko'
 import CommentForm from '@/app/(loggedIn)/_component/CommentForm'
 import ActionButton from '@/app/(loggedIn)/_component/ActionButton'
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+import '@/app/(loggedIn)/_component/slickPostForm.scss'
 import style from './post.module.scss'
 
 dayjs.locale('ko')
@@ -52,6 +58,15 @@ function Post() {
 
   const { User, content, createdAt, Images, Comments, numOfLike } = target
 
+  const settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+  }
+
   return (
     <article className={style.post}>
       <div className={style.postUser}>
@@ -85,17 +100,43 @@ function Post() {
           </svg>
         </button>
       </div>
-      <div className={style.postImage}>
-        <Image
-          src={Images[0].src}
-          alt={Images[0].alt}
-          layout="fill"
-          objectFit="cover"
-        />
+      <div>
+        {Images.length > 1 ? (
+          <Slider {...settings}>
+            {/*<div>*/}
+            {/*  1*/}
+            {/*</div>*/}
+            {/*<div>*/}
+            {/*  2*/}
+            {/*</div>*/}
+            {Images.map((img) => (
+              <div>
+                <div className={style.postImage}>
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
+              </div>
+            ))}
+          </Slider>
+        ) : (
+          <div className={style.postImage}>
+            <Image
+              src={Images[0].src}
+              alt={Images[0].alt}
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+        )}
       </div>
       <div className={style.postBottom}>
         <ActionButton />
         <div className={style.like}>좋아요 {numOfLike}개</div>
+        {/* TODO: 좋아요 수가 천단위가 넘어가면 ',' 붙이기 => util 함수로 빼기 */}
         <div className={style.postContent}>
           <span>{User.id}</span>
           <p className={style.desc}>{content}</p>
