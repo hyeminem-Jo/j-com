@@ -1,6 +1,5 @@
 'use client'
 
-import { FormEventHandler, useCallback } from 'react'
 import Image from 'next/image'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
@@ -10,7 +9,8 @@ import ActionButton from '@/app/(loggedIn)/_component/ActionButton'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import '@/app/(loggedIn)/_component/slickPostForm.scss'
+import '@/app/(loggedIn)/_component/slickPost.scss'
+import '@/app/(loggedIn)/_component/slickPostPagination.scss'
 import style from './post.module.scss'
 
 dayjs.locale('ko')
@@ -100,15 +100,11 @@ function Post() {
           </svg>
         </button>
       </div>
-      <div>
-        {Images.length > 1 ? (
+      {Images.length > 1 ? (
+        <div className={style.sliderWrap}>
+          {/* TODO: Slider 를 따로 컴포넌트화 시킨 후, Post 컴포넌트는 다시 서버컴포넌트로 되돌리기 ('use client' 삭제) */}
+          {/* TODO: pagination 이 있는 경우 useState 를 사용해 isPagination 로 조건부 prop 넣어주기 */}
           <Slider {...settings}>
-            {/*<div>*/}
-            {/*  1*/}
-            {/*</div>*/}
-            {/*<div>*/}
-            {/*  2*/}
-            {/*</div>*/}
             {Images.map((img) => (
               <div>
                 <div className={style.postImage}>
@@ -122,17 +118,17 @@ function Post() {
               </div>
             ))}
           </Slider>
-        ) : (
-          <div className={style.postImage}>
-            <Image
-              src={Images[0].src}
-              alt={Images[0].alt}
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
-        )}
-      </div>
+        </div>
+      ) : (
+        <div className={style.postImage}>
+          <Image
+            src={Images[0].src}
+            alt={Images[0].alt}
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
+      )}
       <div className={style.postBottom}>
         <ActionButton />
         <div className={style.like}>좋아요 {numOfLike}개</div>

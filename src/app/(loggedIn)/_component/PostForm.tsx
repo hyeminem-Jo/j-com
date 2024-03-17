@@ -1,16 +1,23 @@
 'use client'
 
-import {ChangeEventHandler, FormEventHandler, useCallback, useEffect, useRef, useState} from 'react'
+import {
+  ChangeEventHandler,
+  FormEventHandler,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import { Button } from '@/app/_component/common/Button'
 import cx from 'classnames'
-import style from './postForm.module.scss'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import '@/app/(loggedIn)/_component/slickPostForm.scss'
+import '@/app/(loggedIn)/_component/slickPost.scss'
 import Image from 'next/image'
-import {useForm} from "react-hook-form";
-import Textarea from "@/app/_component/common/Textarea";
+import { useForm } from 'react-hook-form'
+import Textarea from '@/app/_component/common/Textarea'
+import style from './postForm.module.scss'
 
 function PostForm() {
   const {
@@ -22,7 +29,7 @@ function PostForm() {
   } = useForm({
     mode: 'onChange',
     defaultValues: {
-      post: ''
+      post: '',
     },
   })
 
@@ -77,7 +84,7 @@ function PostForm() {
   }
 
   const clickNext = (e) => {
-    e.preventDefault(); // step 이 2로 바뀌면서 리렌더링되고 '공유하기' 버튼이 누른것으로 인식되어 제출되는데 이를 방지
+    e.preventDefault() // step 이 2로 바뀌면서 리렌더링되고 '공유하기' 버튼이 누른것으로 인식되어 제출되는데 이를 방지
     console.log(step)
     if (step === 2) return
     setStep((prev) => prev + 1)
@@ -143,10 +150,7 @@ function PostForm() {
                 다음
               </button>
             ) : (
-              <button
-                type="submit"
-                className={style.nextBtn}
-              >
+              <button type="submit" className={style.nextBtn}>
                 공유하기
               </button>
             )}
@@ -196,7 +200,7 @@ function PostForm() {
         {isUploaded && (
           <div className={style.formWrap}>
             <div className={style.formImageWrap}>
-              {/*업로드 할 이미지*/}
+              {/* 업로드 할 이미지 */}
               {imageArr.length > 1 ? (
                 <Slider {...settings}>
                   {imageArr.map((img, index) => (
@@ -223,15 +227,17 @@ function PostForm() {
                 </div>
               )}
             </div>
-            {step === 2 && <div className={style.formArea}>
-              <Textarea
-                name="post"
-                control={control}
-                maxLength="1000"
-                placeholder="문구를 입력하세요..."
-                rows="15"
-              />
-            </div>}
+            {step === 2 && (
+              <div className={style.formArea}>
+                <Textarea
+                  name="post"
+                  control={control}
+                  maxLength="1000"
+                  placeholder="문구를 입력하세요..."
+                  rows="15"
+                />
+              </div>
+            )}
           </div>
         )}
       </div>

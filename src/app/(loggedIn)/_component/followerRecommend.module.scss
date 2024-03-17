@@ -4,13 +4,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 8px 8px 16px;
+    padding: 8px 0 8px 8px;
     margin-bottom: 5px;
     .title {
+      opacity: .8;
+      font-size: 15px;
       color: dimgray;
     }
     .viewAll {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
       &:hover{
         opacity: 0.8;

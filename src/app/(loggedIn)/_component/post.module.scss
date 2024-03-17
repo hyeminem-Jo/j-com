@@ -19,7 +19,6 @@
         width: 40px;
         height: 40px;
         border-radius: 50%;
-        border: 1px solid #ddd;
         overflow: hidden;
         img {
           object-fit: cover;
@@ -43,10 +42,15 @@
     }
   }
 
+  .sliderWrap {
+    height: 400px;
+    overflow: hidden;
+  }
+
   .postImage {
     position: relative;
     width: 100%;
-    min-height: 400px;
+    height: 400px;
     background-color: #eee;
   }
 

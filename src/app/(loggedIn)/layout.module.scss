@@ -4,11 +4,12 @@
   background-color: #fff;
 
   .leftWrapper {
-    display: flex;
-    justify-content: flex-end;
-    flex-grow: 1;
+    //display: flex;
+    //justify-content: flex-end;
+    //flex-grow: 1;
+
     .leftSection {
-      width: 230px;
+      width: 245px;
       .leftFixed {
         position: fixed;
         width: inherit;
@@ -29,19 +30,10 @@
     height: 100dvh;
     flex-grow: 1;
 
-    .rightWrapperInner {
+    .main {
       display: flex;
-      .main {
-        width: 630px;
-        height: 200dvh;
-        margin-top: 20px;
-        //border: 1px solid #ddd;
-      }
-      .rightSection {
-        width: 300px;
-        height: 100dvh;
-        margin-top: 26px;
-      }
+      justify-content: center;
+      margin-top: 20px;
     }
   }
 }

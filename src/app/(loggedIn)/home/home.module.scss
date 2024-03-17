@@ -1,15 +1,12 @@
-.main {
+.mainSection {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  //flex-direction: column;
+  //align-items: center;
   padding-bottom: 100px;
 
-  .mainHeader {}
-
-  .mainInner {
+  .leftSection {
     max-width: 100%;
     width: min(470px, 100vw); // TODO: 반응형을 만들지 않을 때 다시 수정 요함
-
     .checkAllPosts {
       display: flex;
       flex-direction: column;
@@ -31,4 +28,10 @@
       }
     }
   }
+}
+
+.rightSection {
+  width: 330px;
+  height: 100dvh;
+  padding-left: 64px;
 }

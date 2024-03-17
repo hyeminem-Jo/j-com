@@ -1,7 +1,6 @@
 .profileButton {
   display: flex;
   justify-content: space-between;
-  padding: 0 8px;
 
   .profileButtonInner {
     display: flex;
@@ -40,10 +39,12 @@
 
       .userId {
         font-weight: 600;
+        font-size: 15px;
       }
       .userNickname {
         margin-top: 3px;
-        color: #aaa;
+        font-size: 14px;
+        color: gray;
       }
     }
   }
