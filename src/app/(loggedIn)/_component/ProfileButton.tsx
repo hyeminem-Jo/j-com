@@ -4,6 +4,7 @@ import { TextButton } from '@/app/_component/common/Button'
 import Image from 'next/image'
 import style from './profileButton.module.scss'
 import userImage from '../../../../public/user.jpg'
+import Link from "next/link";
 
 function ProfileButton({ user, isMe }) {
   // const me = {
@@ -17,7 +18,7 @@ function ProfileButton({ user, isMe }) {
 
   return (
     <div className={style.profileButton}>
-      <button type="button" className={style.profileButtonInner}>
+      <Link href="#" className={style.profileLink}>
         <div className={style.profileImage}>
           <Image
             src={user.image}
@@ -30,7 +31,7 @@ function ProfileButton({ user, isMe }) {
           <span className={style.userId}>{user.id}</span>
           <span className={style.userNickname}>{user.nickname}</span>
         </div>
-      </button>
+      </Link>
       {isMe ? (
         <TextButton onClick={onLogout}>전환</TextButton>
       ) : (

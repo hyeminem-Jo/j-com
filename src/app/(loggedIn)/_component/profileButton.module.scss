@@ -2,13 +2,14 @@
   display: flex;
   justify-content: space-between;
 
-  .profileButtonInner {
+  .profileLink {
+    flex: 1;
     display: flex;
     align-items: center;
     padding: 8px 12px 8px 8px;
     border-radius: 50px;
     &:hover {
-      background-color: rgba(0, 0, 0, .05);
+      background-color: rgba(0, 0, 0, .04);
     }
 
     .profileImage {
