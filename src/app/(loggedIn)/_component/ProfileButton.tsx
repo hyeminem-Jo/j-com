@@ -1,35 +1,26 @@
 'use client'
 
 import { TextButton } from '@/app/_component/common/Button'
-import Image from 'next/image'
+import Link from 'next/link'
+import CircleProfile from '@/app/(loggedIn)/_component/CircleProfile'
 import style from './profileButton.module.scss'
-import userImage from '../../../../public/user.jpg'
-import Link from "next/link";
 
-function ProfileButton({ user, isMe }) {
-  // const me = {
-  //   // 임시로 내 정보 있는것처럼
-  //   id: 'h._jinny',
-  //   nickname: '혜진',
-  //   image: '/profile_image.jpg',
-  // }
-
+function ProfileButton({ user, isMe, ring }) {
   const onLogout = () => {}
 
   return (
     <div className={style.profileButton}>
       <Link href="#" className={style.profileLink}>
-        <div className={style.profileImage}>
-          <Image
-            src={user.image}
-            width={50}
-            height={50}
-            alt={`${user.id}-profile-image`}
-          />
-        </div>
+        <CircleProfile
+          src={user?.image}
+          width={50}
+          height={50}
+          alt={user?.id}
+          ring={isMe || ring}
+        />
         <div className={style.userName}>
-          <span className={style.userId}>{user.id}</span>
-          <span className={style.userNickname}>{user.nickname}</span>
+          <span className={style.userId}>{user?.id}</span>
+          <span className={style.userNickname}>{user?.nickname}</span>
         </div>
       </Link>
       {isMe ? (

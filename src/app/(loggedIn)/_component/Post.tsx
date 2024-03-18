@@ -11,6 +11,7 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import '@/app/(loggedIn)/_component/slickPost.scss'
 import '@/app/(loggedIn)/_component/slickPostPagination.scss'
+import CircleProfile from '@/app/(loggedIn)/_component/CircleProfile'
 import style from './post.module.scss'
 
 dayjs.locale('ko')
@@ -71,15 +72,13 @@ function Post() {
     <article className={style.post}>
       <div className={style.postUser}>
         <div className={style.user}>
-          <span className={style.profileImage}>
-            <Image
-              src={User.image}
-              width={40}
-              height={40}
-              alt={`${User.id}-profile-image`}
-            />
-          </span>
-          <strong className={style.userName}>{User.id}</strong>
+          <CircleProfile
+            src={User?.image}
+            width={40}
+            height={40}
+            alt={User?.id}
+          />
+          <strong className={style.userName}>{User?.id}</strong>
           <span className={style.dot}>•</span>
           <span className={style.date}>{dayjs(createdAt).fromNow(true)}</span>
         </div>
@@ -109,8 +108,8 @@ function Post() {
               <div>
                 <div className={style.postImage}>
                   <Image
-                    src={img.src}
-                    alt={img.alt}
+                    src={img?.src}
+                    alt={img?.alt}
                     layout="fill"
                     objectFit="cover"
                   />
@@ -122,8 +121,8 @@ function Post() {
       ) : (
         <div className={style.postImage}>
           <Image
-            src={Images[0].src}
-            alt={Images[0].alt}
+            src={Images[0]?.src}
+            alt={Images[0]?.alt}
             layout="fill"
             objectFit="cover"
           />
