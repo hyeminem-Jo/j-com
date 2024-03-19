@@ -102,10 +102,10 @@ export default function Profile() {
             <div className={style.profileUserInfoTop}>
               <strong className={style.name}>{me?.id}</strong>
               <div className={style.btns}>
-                <Button type="submit" size="sm" color="secondary">
+                <Button type="submit" size="md" color="secondary">
                   프로필 편집
                 </Button>
-                <Button type="submit" size="sm" color="secondary">
+                <Button type="submit" size="md" color="secondary">
                   보관된 스토리 보기
                 </Button>
               </div>
