@@ -1,13 +1,15 @@
 import Image from 'next/image'
 
-function CircleProfile({ src, alt, width, height, ring, active }) {
+function CircleProfile({ src, alt, width, height, ring, active, border }) {
   const style = {
     profileImage: {
       width: `${width}px`,
       height: `${height}px`,
       borderRadius: '50%',
-      border: ring ? 'none' : '1px solid #ddd',
-      outline: ring ? `2px solid ${active ? 'orange' : '#ddd'}` : 'none',
+      // border: ring ? 'none' : border || '1px solid #ddd',
+      outline: ring
+        ? `2px solid ${active ? 'orange' : '#ddd'}`
+        : border || '1px solid #ddd',
       outlineOffset: ring ? '2px' : 'none',
       overflow: 'hidden',
     },

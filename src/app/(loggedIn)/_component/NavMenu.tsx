@@ -3,9 +3,19 @@
 import Link from 'next/link'
 import { useSelectedLayoutSegment } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import CircleProfile from '@/app/(loggedIn)/_component/CircleProfile'
 import style from './navMenu.module.scss'
 
 function NavMenu() {
+  const me = {
+    // 임시 정보
+    id: 'h._jinny',
+    nickname: '혜진',
+    image: '/profile_image.jpg',
+    following: 123,
+    follower: 53,
+  }
+
   const segment = useSelectedLayoutSegment()
   const [currentSegment, setCurrentSegment] = useState('')
 
@@ -355,6 +365,26 @@ function NavMenu() {
             </div>
           </Link>
           {/* TODO: PostForm 컴포넌트 바깥으로 뺀 후 zustand 를 이용하여 state 관리  */}
+        </li>
+        <li>
+          <Link href={`${me?.id}`} onClick={() => segmentHandler(`${me?.id}`)}>
+            <div className={style.menuItem}>
+              <CircleProfile
+                src={me?.image}
+                width={24}
+                height={24}
+                alt={me?.id}
+                border="2px solid #000"
+              />
+              <span
+                style={{
+                  fontWeight: currentSegment === me?.id ? 'bold' : 'normal',
+                }}
+              >
+                프로필
+              </span>
+            </div>
+          </Link>
         </li>
       </ul>
     </nav>
