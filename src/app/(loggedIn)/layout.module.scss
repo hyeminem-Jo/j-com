@@ -26,11 +26,14 @@
   }
 
   .rightWrapper {
-    width: 990px;
+    //width: 990px;
+    display: flex;
+    justify-content: center;
     height: 100dvh;
     flex-grow: 1;
 
     .main {
+      width: 935px;
       display: flex;
       justify-content: center;
       margin-top: 20px;

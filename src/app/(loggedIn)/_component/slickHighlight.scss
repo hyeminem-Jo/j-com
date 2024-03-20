@@ -1,0 +1,23 @@
+.highlightSlider {
+  .slick-list {
+    padding: 10px;
+
+    .slick-slide {
+      width: 125px !important;
+      height: 128px;
+      //border: 1px solid red;
+    }
+  }
+  .slick-arrow {
+    z-index: 10;
+
+    &.slick-next {
+      right: 5px;
+      border: 1px solid blue;
+    }
+    &.slick-prev {
+      left: 5px;
+      border: 1px solid red;
+    }
+  }
+}

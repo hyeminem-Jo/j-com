@@ -1,18 +1,12 @@
-'use client'
-
 import Image from 'next/image'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import 'dayjs/locale/ko'
 import CommentForm from '@/app/(loggedIn)/_component/CommentForm'
 import ActionButton from '@/app/(loggedIn)/_component/ActionButton'
-import Slider from 'react-slick'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
-import '@/app/(loggedIn)/_component/slickPost.scss'
-import '@/app/(loggedIn)/_component/slickPostPagination.scss'
 import CircleProfile from '@/app/(loggedIn)/_component/CircleProfile'
 import style from './post.module.scss'
+import PostFormSlider from "@/app/(loggedIn)/_component/PostFormSlider";
 
 dayjs.locale('ko')
 dayjs.extend(relativeTime)
@@ -59,15 +53,6 @@ function Post() {
 
   const { User, content, createdAt, Images, Comments, numOfLike } = target
 
-  const settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true,
-  }
-
   return (
     <article className={style.post}>
       <div className={style.postUser}>
@@ -103,20 +88,18 @@ function Post() {
         <div className={style.sliderWrap}>
           {/* TODO: Slider 를 따로 컴포넌트화 시킨 후, Post 컴포넌트는 다시 서버컴포넌트로 되돌리기 ('use client' 삭제) */}
           {/* TODO: pagination 이 있는 경우 useState 를 사용해 isPagination 로 조건부 prop 넣어주기 */}
-          <Slider {...settings}>
+          <PostFormSlider>
             {Images.map((img) => (
-              <div>
-                <div className={style.postImage}>
-                  <Image
-                    src={img?.src}
-                    alt={img?.alt}
-                    layout="fill"
-                    objectFit="cover"
-                  />
-                </div>
+              <div className={style.postImage}>
+                <Image
+                  src={img?.src}
+                  alt={img?.alt}
+                  layout="fill"
+                  objectFit="cover"
+                />
               </div>
             ))}
-          </Slider>
+          </PostFormSlider>
         </div>
       ) : (
         <div className={style.postImage}>

@@ -2,6 +2,7 @@ import Link from 'next/link'
 import CircleProfile from '@/app/(loggedIn)/_component/CircleProfile'
 import { Button } from '@/app/_component/common/Button'
 import style from './profile.module.scss'
+import HighlightSlider from "@/app/(loggedIn)/_component/HighlightSlider";
 
 export default function Profile() {
   const me = {
@@ -11,6 +12,17 @@ export default function Profile() {
     image: '/profile_image.jpg',
     following: 123,
     follower: 53,
+    highlightImages: [
+      {src: '/profile_image.jpg', id: 1},
+      {src: '/user.jpg', id: 2},
+      {src: '/user.jpg', id: 3},
+      {src: '/user.jpg', id: 4},
+      {src: '/user.jpg', id: 5},
+      {src: '/user.jpg', id: 6},
+      {src: '/user.jpg', id: 7},
+      {src: '/user.jpg', id: 8},
+      {src: '/user.jpg', id: 9},
+    ]
   }
 
   const myPost = [
@@ -85,7 +97,7 @@ export default function Profile() {
   ]
 
   return (
-    <main className={style.profile}>
+    <section className={style.profile}>
       <header className={style.profileTop}>
         <div className={style.profileUser}>
           <div className={style.profileUserImage}>
@@ -160,6 +172,21 @@ export default function Profile() {
         </div>
         <div className={style.profileHighlights}></div>
       </header>
-    </main>
+      <div className={style.profileHighlights}>
+        <HighlightSlider highlightImages={me?.highlightImages}>
+          {me?.highlightImages?.map((image) => (
+            <div>
+              <CircleProfile
+                src={image?.src}
+                width={70}
+                height={70}
+                alt={image?.id}
+                ring
+              />
+            </div>
+          ))}
+        </HighlightSlider>
+      </div>
+    </section>
   )
 }
