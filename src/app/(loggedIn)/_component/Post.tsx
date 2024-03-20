@@ -5,8 +5,8 @@ import 'dayjs/locale/ko'
 import CommentForm from '@/app/(loggedIn)/_component/CommentForm'
 import ActionButton from '@/app/(loggedIn)/_component/ActionButton'
 import CircleProfile from '@/app/(loggedIn)/_component/CircleProfile'
+import SliderWrapper from '@/app/(loggedIn)/_component/SliderWrapper'
 import style from './post.module.scss'
-import PostFormSlider from "@/app/(loggedIn)/_component/PostFormSlider";
 
 dayjs.locale('ko')
 dayjs.extend(relativeTime)
@@ -86,9 +86,11 @@ function Post() {
       </div>
       {Images.length > 1 ? (
         <div className={style.sliderWrap}>
-          {/* TODO: Slider 를 따로 컴포넌트화 시킨 후, Post 컴포넌트는 다시 서버컴포넌트로 되돌리기 ('use client' 삭제) */}
-          {/* TODO: pagination 이 있는 경우 useState 를 사용해 isPagination 로 조건부 prop 넣어주기 */}
-          <PostFormSlider>
+          <SliderWrapper
+            slidesToShow={1}
+            slidesToScroll={1}
+            className="slickPost slickPostPagination"
+          >
             {Images.map((img) => (
               <div className={style.postImage}>
                 <Image
@@ -99,7 +101,7 @@ function Post() {
                 />
               </div>
             ))}
-          </PostFormSlider>
+          </SliderWrapper>
         </div>
       ) : (
         <div className={style.postImage}>

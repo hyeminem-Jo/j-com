@@ -1,13 +1,12 @@
 .storyTab {
-  width: 100%;
+  width: 630px;
   margin-bottom: 20px;
 
   .storyTabList {
-    display: flex;
-    justify-content: center;
-    padding: 8px 0;
+    position: relative;
+
     &Item {
-      margin-left: 17px;
+      padding: 10px;
 
       .profileImageLink {
         display: inline-block;

@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import CircleProfile from '@/app/(loggedIn)/_component/CircleProfile'
 import { Button } from '@/app/_component/common/Button'
+import SliderWrapper from '@/app/(loggedIn)/_component/SliderWrapper'
 import style from './profile.module.scss'
-import HighlightSlider from "@/app/(loggedIn)/_component/HighlightSlider";
 
 export default function Profile() {
   const me = {
@@ -12,17 +12,53 @@ export default function Profile() {
     image: '/profile_image.jpg',
     following: 123,
     follower: 53,
-    highlightImages: [
-      {src: '/profile_image.jpg', id: 1},
-      {src: '/user.jpg', id: 2},
-      {src: '/user.jpg', id: 3},
-      {src: '/user.jpg', id: 4},
-      {src: '/user.jpg', id: 5},
-      {src: '/user.jpg', id: 6},
-      {src: '/user.jpg', id: 7},
-      {src: '/user.jpg', id: 8},
-      {src: '/user.jpg', id: 9},
-    ]
+    highlightItems: [
+      {
+        id: 1,
+        src: '/profile_image.jpg',
+        desc: '💖',
+      },
+      {
+        id: 2,
+        src: '/user.jpg',
+        desc: '💖',
+      },
+      {
+        id: 3,
+        src: '/user.jpg',
+        desc: '💖',
+      },
+      {
+        id: 4,
+        src: '/user.jpg',
+        desc: '💖',
+      },
+      {
+        id: 5,
+        src: '/user.jpg',
+        desc: '💖',
+      },
+      {
+        id: 6,
+        src: '/user.jpg',
+        desc: '💖',
+      },
+      {
+        id: 7,
+        src: '/user.jpg',
+        desc: '💖',
+      },
+      {
+        id: 8,
+        src: '/user.jpg',
+        desc: '💖',
+      },
+      {
+        id: 9,
+        src: '/user.jpg',
+        desc: '💖',
+      },
+    ],
   }
 
   const myPost = [
@@ -172,21 +208,30 @@ export default function Profile() {
         </div>
         <div className={style.profileHighlights}></div>
       </header>
-      <div className={style.profileHighlights}>
-        <HighlightSlider highlightImages={me?.highlightImages}>
-          {me?.highlightImages?.map((image) => (
+      <div className={style.profileHighlight}>
+        <SliderWrapper
+          dots={false}
+          slidesToShow={6}
+          slidesToScroll={3}
+          className="highlightSlider"
+        >
+          {me?.highlightItems?.map((item) => (
             <div>
-              <CircleProfile
-                src={image?.src}
-                width={70}
-                height={70}
-                alt={image?.id}
-                ring
-              />
+              <div className={style.highlightItem}>
+                <CircleProfile
+                  src={item?.src}
+                  width={75}
+                  height={75}
+                  alt={item?.id}
+                  ring
+                />
+                <span className={style.desc}>{item?.desc}</span>
+              </div>
             </div>
           ))}
-        </HighlightSlider>
+        </SliderWrapper>
       </div>
+      <div></div>
     </section>
   )
 }

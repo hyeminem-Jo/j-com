@@ -17,6 +17,7 @@ import '@/app/(loggedIn)/_component/slickPost.scss'
 import Image from 'next/image'
 import { useForm } from 'react-hook-form'
 import Textarea from '@/app/_component/common/Textarea'
+import SliderWrapper from '@/app/(loggedIn)/_component/SliderWrapper'
 import style from './postForm.module.scss'
 
 function PostForm() {
@@ -35,7 +36,7 @@ function PostForm() {
 
   const imageRef = useRef<HTMLInputElement>(null)
   const [step, setStep] = useState(1)
-  const [isUploaded, setIsUploaded] = useState(false)
+  const [isUploaded, setIsUploaded] = useState(true)
 
   // 더미데이터
   const me = {
@@ -202,20 +203,27 @@ function PostForm() {
             <div className={style.formImageWrap}>
               {/* 업로드 할 이미지 */}
               {imageArr.length > 1 ? (
-                <Slider {...settings}>
+                <SliderWrapper
+                  slidesToShow={1}
+                  slidesToScroll={1}
+                  className="slickPost"
+                >
                   {imageArr.map((img, index) => (
                     <div className={style.image}>
                       <Image
                         src={img.src}
                         alt={img.alt}
                         width={550}
-                        height={600}
+                        height={550}
                         objectFit="cover"
                       />
                     </div>
                   ))}
-                </Slider>
+                </SliderWrapper>
               ) : (
+                // <Slider {...settings}>
+                //
+                // </Slider>
                 <div className={style.image}>
                   <Image
                     src={imageArr[0].src}
