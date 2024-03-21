@@ -49,21 +49,23 @@ function HomePage() {
     <div className={style.mainSection}>
       <section className={style.leftSection}>
         <StoryTab />
-        {/* 팔로우한 최근 게시물 (최근 3일 동안 새롭게 올라온 게시물) */}
-        <FollowedRecentPosts />
-        {/* 최근 게시물 모두 확인 표시 */}
-        <div className={style.checkAllPosts}>
-          <div className={style.checkImage}>
-            <Image src={checkAllPost} width={96} height={96} alt="logo" />
+        <div className={style.postArea}>
+          {/* 팔로우한 최근 게시물 (최근 3일 동안 새롭게 올라온 게시물) */}
+          <FollowedRecentPosts />
+          {/* 최근 게시물 모두 확인 표시 */}
+          <div className={style.checkAllPosts}>
+            <div className={style.checkImage}>
+              <Image src={checkAllPost} width={96} height={96} alt="logo" />
+            </div>
+            <strong>모두 확인했습니다</strong>
+            <span>최근 3일 동안 새롭게 올라온 게시물을 모두 확인했습니다.</span>
+            <Link href="/past-posts" className={linkStyle.textButton}>
+              이전 게시물 보기
+            </Link>
           </div>
-          <strong>모두 확인했습니다</strong>
-          <span>최근 3일 동안 새롭게 올라온 게시물을 모두 확인했습니다.</span>
-          <Link href="/past-posts" className={linkStyle.textButton}>
-            이전 게시물 보기
-          </Link>
+          {/* 추천 게시물 */}
+          <RecommendedPosts />
         </div>
-        {/* 추천 게시물 */}
-        <RecommendedPosts />
       </section>
       <section className={style.rightSection}>
         <ProfileButton user={me} isMe />

@@ -23,19 +23,19 @@ function StoryTab() {
       id: 'jin_woo',
       nickname: '김김진진우우',
       image: '/user.jpg',
-      updatedStory: false,
+      updatedStory: true,
     },
     {
       id: 'hyun_mori',
       nickname: '이현지',
       image: '/user.jpg',
-      updatedStory: false,
+      updatedStory: true,
     },
     {
       id: 'lovely_joo',
       nickname: '곽이주',
       image: '/user.jpg',
-      updatedStory: false,
+      updatedStory: true,
     },
     {
       id: 'jin_woo',

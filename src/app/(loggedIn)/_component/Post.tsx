@@ -91,7 +91,7 @@ function Post() {
             slidesToScroll={1}
             className="slickPost slickPostPagination"
           >
-            {Images.map((img) => (
+            {Images?.map((img) => (
               <div className={style.postImage}>
                 <Image
                   src={img?.src}

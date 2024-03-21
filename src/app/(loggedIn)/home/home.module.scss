@@ -7,24 +7,30 @@
     flex-direction: column;
     align-items: center;
     width: 630px;
-    .checkAllPosts {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 32px 12px;
 
-      strong {
-        margin-bottom: 3px;
-        font-size: 20px; // TODO: font-size, line-height 등 변수로 관리
-        font-weight: 600;
-      }
+    .postArea {
+      width: 470px;
+      padding-bottom: 150px;
 
-      span {
-        margin-bottom: 15px;
-        font-size: 14px;
-      }
-      .checkImage {
-        margin-bottom: 16px;
+      .checkAllPosts {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 32px 12px;
+
+        strong {
+          margin-bottom: 3px;
+          font-size: 20px; // TODO: font-size, line-height 등 변수로 관리
+          font-weight: 600;
+        }
+
+        span {
+          margin-bottom: 15px;
+          font-size: 14px;
+        }
+        .checkImage {
+          margin-bottom: 16px;
+        }
       }
     }
   }
