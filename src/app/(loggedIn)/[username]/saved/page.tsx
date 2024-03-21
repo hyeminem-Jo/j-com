@@ -1,8 +1,9 @@
+import React from 'react';
 
 const Page = () => {
   return (
     <div>
-      게시물 페이지
+      저장된 게시물
     </div>
   );
 };
