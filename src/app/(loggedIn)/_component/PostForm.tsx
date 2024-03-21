@@ -10,10 +10,6 @@ import {
 } from 'react'
 import { Button } from '@/app/_component/common/Button'
 import cx from 'classnames'
-import Slider from 'react-slick'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
-import '@/app/(loggedIn)/_component/slickPost.scss'
 import Image from 'next/image'
 import { useForm } from 'react-hook-form'
 import Textarea from '@/app/_component/common/Textarea'
@@ -89,15 +85,6 @@ function PostForm() {
     console.log(step)
     if (step === 2) return
     setStep((prev) => prev + 1)
-  }
-
-  const settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true,
   }
 
   return (
@@ -222,9 +209,6 @@ function PostForm() {
                   ))}
                 </SliderWrapper>
               ) : (
-                // <Slider {...settings}>
-                //
-                // </Slider>
                 <div className={style.image}>
                   <Image
                     src={imageArr[0].src}
