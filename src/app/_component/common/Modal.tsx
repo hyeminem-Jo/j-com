@@ -8,14 +8,15 @@ function Modal({ children, title }) {
 
   const onClickClose = () => {
     if (window.history.length === 2) {
-      router.push('home') // write 페이지를 url 로 접근시 닫힘 버튼을 누르면 home 으로 이동
+      router.push('home') // write 페이지를 url 로 접근 후 닫힘 버튼을 누르면 home 으로 이동
     } else {
       router.back()
     }
   }
 
   return (
-    <div className={style.modalBg}>
+    <>
+      <div className={style.modalBg} onClick={onClickClose}></div>
       <div className={style.modal}>
         <div className={style.modalHeader}>
           {title}
@@ -38,7 +39,7 @@ function Modal({ children, title }) {
         </div>
         <div className={style.modalContent}>{children}</div>
       </div>
-    </div>
+    </>
   )
 }
 

@@ -1,4 +1,4 @@
-.highlightSlider {
+.multipleSlider {
   .slick-list {
     //padding-top: 10px;
   }
@@ -16,6 +16,10 @@
     }
     &.slick-prev {
       left: -5px;
+    }
+
+    &.slick-disabled {
+      display: none !important;
     }
   }
 }

@@ -6,7 +6,7 @@ import 'slick-carousel/slick/slick-theme.css'
 
 import './slickPost.scss'
 import './slickPostPagination.scss'
-import './slickHighlight.scss'
+import './slickMultipleItem.scss'
 
 function SliderWrapper({
   children,

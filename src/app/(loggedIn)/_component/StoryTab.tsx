@@ -83,7 +83,7 @@ function StoryTab() {
           dots={false}
           slidesToShow={8}
           slidesToScroll={3}
-          className="highlightSlider"
+          className="multipleSlider"
         >
           {users?.map((user) => (
             <div>

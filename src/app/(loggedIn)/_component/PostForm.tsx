@@ -36,7 +36,7 @@ function PostForm() {
 
   const imageRef = useRef<HTMLInputElement>(null)
   const [step, setStep] = useState(1)
-  const [isUploaded, setIsUploaded] = useState(true)
+  const [isUploaded, setIsUploaded] = useState(false)
 
   // 더미데이터
   const me = {
@@ -204,6 +204,7 @@ function PostForm() {
               {/* 업로드 할 이미지 */}
               {imageArr.length > 1 ? (
                 <SliderWrapper
+                  dots={false}
                   slidesToShow={1}
                   slidesToScroll={1}
                   className="slickPost"

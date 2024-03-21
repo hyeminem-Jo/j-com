@@ -213,7 +213,7 @@ export default function Profile() {
           dots={false}
           slidesToShow={6}
           slidesToScroll={3}
-          className="highlightSlider"
+          className="multipleSlider"
         >
           {me?.highlightItems?.map((item) => (
             <div>

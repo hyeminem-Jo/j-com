@@ -32,6 +32,10 @@
         font-size: 30px;
       }
 
+      &.slick-disabled {
+        display: none !important;
+      }
+
     }
   }
 }
