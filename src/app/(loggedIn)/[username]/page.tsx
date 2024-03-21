@@ -3,6 +3,8 @@ import CircleProfile from '@/app/(loggedIn)/_component/CircleProfile'
 import { Button } from '@/app/_component/common/Button'
 import SliderWrapper from '@/app/(loggedIn)/_component/SliderWrapper'
 import style from './profile.module.scss'
+import Tab from "@/app/(loggedIn)/[username]/_component/Tab";
+import plus from '../../../../public/plus.png'
 
 export default function Profile() {
   const me = {
@@ -206,7 +208,6 @@ export default function Profile() {
             <span className={style.nickname}>{me?.nickname}</span>
           </div>
         </div>
-        <div className={style.profileHighlights}></div>
       </header>
       <div className={style.profileHighlight}>
         <SliderWrapper
@@ -229,9 +230,23 @@ export default function Profile() {
               </div>
             </div>
           ))}
+          <div>
+            <div className={style.highlightItem}>
+              <button type="button">
+                <CircleProfile
+                  src={plus}
+                  width={75}
+                  height={75}
+                  alt="plus-btn"
+                  ring
+                />
+              </button>
+              <span className={style.desc}>신규</span>
+            </div>
+          </div>
         </SliderWrapper>
       </div>
-      <div></div>
+      <Tab />
     </section>
   )
 }
