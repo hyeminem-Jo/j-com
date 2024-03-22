@@ -1,5 +1,3 @@
-'use client'
-
 import Home from "@/app/(loggedIn)/home/page";
 import Modal from "@/app/_component/common/Modal";
 import PostForm from "@/app/(loggedIn)/_component/PostForm";
