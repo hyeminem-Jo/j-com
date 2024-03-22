@@ -13,8 +13,8 @@ function Tab() {
   }, [pathname])
 
   return (
-    <ul className={style.contentsTab}>
-      <li className={cx(pathname === '/h._jinny' && style.active)}>
+    <ul className={style.contentsTab} role="tablist">
+      <li className={cx(pathname === '/h._jinny' && style.active)} role="tab">
         <Link href="/h._jinny/">
           <svg
             aria-label=""
@@ -85,7 +85,7 @@ function Tab() {
           <span>게시물</span>
         </Link>
       </li>
-      <li className={cx(pathname === '/h._jinny/saved' && style.active)}>
+      <li className={cx(pathname === '/h._jinny/saved' && style.active)} role="tab">
         <Link href="/h._jinny/saved">
           <svg
             aria-label=""
@@ -109,7 +109,7 @@ function Tab() {
           <span>저장됨</span>
         </Link>
       </li>
-      <li className={cx(pathname === '/h._jinny/tagged' && style.active)}>
+      <li className={cx(pathname === '/h._jinny/tagged' && style.active)} role="tab">
         <Link href="/h._jinny/tagged">
           <svg
             aria-label=""
