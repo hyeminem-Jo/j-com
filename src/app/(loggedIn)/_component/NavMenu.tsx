@@ -86,7 +86,7 @@ function NavMenu() {
           </Link>
         </li>
         <li>
-          <Link href="#" onClick={() => segmentHandler('search')}>
+          <button type="button" onClick={() => segmentHandler('search')}>
             <div className={style.menuItem}>
               {currentSegment === 'search' ? (
                 <>
@@ -158,7 +158,7 @@ function NavMenu() {
                 </>
               )}
             </div>
-          </Link>
+          </button>
         </li>
         <li>
           <Link href="/explore" onClick={() => segmentHandler('explore')}>
@@ -279,7 +279,7 @@ function NavMenu() {
           </Link>
         </li>
         <li>
-          <Link href="#" onClick={() => segmentHandler('alarm')}>
+          <button type="button" onClick={() => segmentHandler('alarm')}>
             <div className={style.menuItem}>
               {currentSegment === 'alarm' ? (
                 <>
@@ -315,7 +315,7 @@ function NavMenu() {
                 </>
               )}
             </div>
-          </Link>
+          </button>
         </li>
         <li>
           <Link href="write">
