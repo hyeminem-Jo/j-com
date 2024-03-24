@@ -7,11 +7,14 @@ import CircleProfile from '@/app/(loggedIn)/_component/CircleProfile'
 import NavMenuIcon from '@/app/(loggedIn)/_component/svg/NavMenuIcon'
 import NavMenuWriteIcon from '@/app/(loggedIn)/_component/svg/NavMenuWriteIcon'
 import SearchSidebar from '@/app/(loggedIn)/_component/SearchSidebar'
+import AlarmSidebar from '@/app/(loggedIn)/_component/AlarmSidebar'
+import cx from 'classnames'
+import Image from 'next/image'
 import style from './navMenu.module.scss'
+import logo from '../../../../public/logo.png'
 
 function NavMenu() {
   const me = {
-    // 임시 정보
     id: 'h._jinny',
     nickname: '혜진',
     image: '/profile_image.jpg',
@@ -21,6 +24,7 @@ function NavMenu() {
 
   const segment = useSelectedLayoutSegment()
   const [currentSegment, setCurrentSegment] = useState('')
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
   useEffect(() => {
     if (segment === 'write') {
@@ -29,6 +33,14 @@ function NavMenu() {
       setCurrentSegment(segment)
     }
   }, [segment])
+
+  useEffect(() => {
+    if (currentSegment === 'search' || currentSegment === 'alarm') {
+      setIsSidebarOpen(true)
+    } else {
+      setIsSidebarOpen(false)
+    }
+  }, [currentSegment])
 
   const segmentHandler = (url) => {
     // 'search' 나 'alarm' 버튼의 경우, 활성화된 상태에서 버튼을 한번 더 클릭시 현재 페이지(segment) 기준으로 버튼 활성화
@@ -40,10 +52,6 @@ function NavMenu() {
     }
   }
 
-  useEffect(() => {
-    console.log(currentSegment)
-  }, [currentSegment])
-
   const navArr = [
     { url: 'home', title: '홈', link: true },
     { url: 'search', title: '검색', link: false },
@@ -53,7 +61,14 @@ function NavMenu() {
   ]
 
   return (
-    <nav role="navigation">
+    <nav
+      role="navigation"
+      className={cx(isSidebarOpen && style.sidebarOpened, style.navMenu)}
+    >
+      {JSON.stringify(isSidebarOpen)}
+      <Link href="/" className={style.logo}>
+        <Image src={logo} width={110} alt="logo" />
+      </Link>
       <ul>
         {navArr?.map((nav) => (
           <li className={style.menuItem} key={nav.url}>
@@ -68,9 +83,10 @@ function NavMenu() {
                   active={currentSegment === nav.url}
                 />
                 <span
-                  style={{
-                    fontWeight: `${currentSegment === nav.url ? 'bold' : ''}`,
-                  }}
+                  className={cx(
+                    isSidebarOpen && style.sidebarOpened,
+                    currentSegment === nav.url && style.bold,
+                  )}
                 >
                   {nav.title}
                 </span>
@@ -87,11 +103,7 @@ function NavMenu() {
                   type={nav.url}
                   active={currentSegment === nav.url}
                 />
-                <span
-                  style={{
-                    fontWeight: `${currentSegment === nav.url ? 'bold' : ''}`,
-                  }}
-                >
+                <span className={cx(isSidebarOpen && style.sidebarOpened)}>
                   {nav.title}
                 </span>
               </button>
@@ -128,9 +140,8 @@ function NavMenu() {
           </Link>
         </li>
       </ul>
-      {/* 사이드바 */}
-      <SearchSidebar isOpen={isOpen} type={sideBar} />
-      <AlarmSideBar isOpen={isOpen} type={sideBar} />
+      <SearchSidebar isOpen={currentSegment === 'search'} />
+      <AlarmSidebar isOpen={currentSegment === 'alarm'} />
     </nav>
   )
 }

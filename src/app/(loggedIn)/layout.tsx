@@ -6,7 +6,6 @@ import FollowerRecommend from '@/app/(loggedIn)/_component/FollowerRecommend'
 import { ReactNode } from 'react'
 import MoreMenu from '@/app/(loggedIn)/_component/MoreMenu'
 import style from './layout.module.scss'
-import logo from '../../../public/logo.png'
 
 type Props = { children: ReactNode; modal: ReactNode }
 
@@ -17,9 +16,6 @@ export default function LoggedInLayout({ children, modal }: Props) {
       <header className={style.leftWrapper}>
         <section className={style.leftSection}>
           <div className={style.leftFixed}>
-            <Link href="/">
-              <Image src={logo} width={110} alt="logo" />
-            </Link>
             <NavMenu />
             <MoreMenu />
           </div>

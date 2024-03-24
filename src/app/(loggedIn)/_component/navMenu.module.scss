@@ -1,3 +1,29 @@
+.navMenu {
+  position: relative;
+  width: 100%;
+  transition: width .3s;
+  border: 1px solid;
+  //border-right: 1px solid #ccc;
+
+  ul {
+    width: 220px;
+    overflow: hidden;
+  }
+
+  &.sidebarOpened {
+    //width: 50px;
+
+    span {
+      display: none;
+    }
+  }
+
+  .logo {
+    display: block;
+    padding: 25px 12px;
+  }
+}
+
 .menuItem {
   &:not(:first-child) {
     margin-top: 5px;
@@ -10,10 +36,16 @@
   width: 100%;
   padding: 12px 10px;
   border-radius: 8px;
+  overflow: hidden;
+
   &:hover {
     background-color: rgba(0, 0, 0, .05);
   }
   span {
     padding-left: 16px;
+
+    &.bold {
+      font-weight: bold;
+    }
   }
 }
