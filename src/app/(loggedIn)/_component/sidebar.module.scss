@@ -12,13 +12,13 @@
   background-color: #fff;
   z-index: 10;
   transition: width .3s, visibility .5s, opacity .5s;
+  transition-delay: .1s;
   overflow: hidden;
 
   &.opened {
     width: 400px;
-    //border-left: 1px solid #eee;
-    border: 2px solid red;
-    transition-delay: .1s;
+    border-left: 1px solid #eee;
+    //border: 2px solid red;
     opacity: 1;
     visibility: visible;
   }
