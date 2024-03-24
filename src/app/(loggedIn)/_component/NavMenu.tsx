@@ -328,7 +328,7 @@ function NavMenu() {
           </button>
         </li>
         <li className={style.menuItem}>
-          <Link href="write" className={style.menuButton}>
+          <Link href="/write" className={style.menuButton}>
             <svg
               aria-label="새로운 게시물"
               className="x1lliihq x1n2onr6 x5n08af"

@@ -53,7 +53,7 @@ export default function Main() {
             <Button type="submit" size="md" color="primary">
               로그인
             </Button>
-            <Link href="signup" className={styles.goSignup}>
+            <Link href="/signup" className={styles.goSignup}>
               회원가입 하러가기
             </Link>
           </ButtonGroup>
