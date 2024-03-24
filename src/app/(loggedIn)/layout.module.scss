@@ -4,14 +4,13 @@
   background-color: #fff;
 
   .leftWrapper {
-    //display: flex;
-    //justify-content: flex-end;
-    //flex-grow: 1;
 
     .leftSection {
       width: 245px;
       .leftFixed {
         position: fixed;
+        display: flex;
+        flex-direction: column;
         width: inherit;
         height: 100dvh;
         padding: 8px 12px 20px;
