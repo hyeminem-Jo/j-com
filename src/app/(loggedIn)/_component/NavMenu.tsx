@@ -11,6 +11,8 @@ import AlarmSidebar from '@/app/(loggedIn)/_component/AlarmSidebar'
 import cx from 'classnames'
 import Image from 'next/image'
 import MoreMenu from '@/app/(loggedIn)/_component/MoreMenu'
+// import {useStore} from "zustand/esm/index";
+import { useMenuStore } from '@/store/moreMenu'
 import style from './navMenu.module.scss'
 import logo from '../../../../public/logo.png'
 
@@ -26,6 +28,12 @@ function NavMenu() {
   const segment = useSelectedLayoutSegment()
   const [currentSegment, setCurrentSegment] = useState('')
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  // const [isMoreMenuOpen, setIsMoreMenuOpen] = useState(false)
+
+  const isMoreMenuOpen = useMenuStore((state: any) => state.isMoreMenuOpen)
+  const setIsMoreMenuOpen = useMenuStore(
+    (state: any) => state.setIsMoreMenuOpen,
+  )
 
   useEffect(() => {
     if (segment === 'write') {
@@ -66,11 +74,12 @@ function NavMenu() {
       role="navigation"
       className={cx(isSidebarOpen && style.sidebarOpened, style.navMenu)}
     >
-      {JSON.stringify(isSidebarOpen)}
+      {/* {JSON.stringify(isSidebarOpen)} */}
+      {/* {JSON.stringify(isMoreMenuOpen)} */}
       <Link href="/" className={style.logo}>
         <Image src={logo} width={110} alt="logo" />
       </Link>
-      <ul>
+      <ul className={style.menuList}>
         {navArr?.map((nav) => (
           <li className={style.menuItem} key={nav.url}>
             {nav?.link ? (
@@ -140,8 +149,78 @@ function NavMenu() {
             </span>
           </Link>
         </li>
+        <li className={style.moreMenuBtn}>
+          <button
+            className={style.menuButton}
+            type="button"
+            onClick={() => setIsMoreMenuOpen(!isMoreMenuOpen)}
+          >
+            {isMoreMenuOpen ? (
+              <svg
+                aria-label="설정"
+                className="x1lliihq x1n2onr6 x5n08af"
+                fill="currentColor"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <title>설정</title>
+                <path d="M3.5 6.5h17a1.5 1.5 0 0 0 0-3h-17a1.5 1.5 0 0 0 0 3Zm17 4h-17a1.5 1.5 0 0 0 0 3h17a1.5 1.5 0 0 0 0-3Zm0 7h-17a1.5 1.5 0 0 0 0 3h17a1.5 1.5 0 0 0 0-3Z"></path>
+              </svg>
+            ) : (
+              <svg
+                aria-label="설정"
+                className="x1lliihq x1n2onr6 x5n08af"
+                fill="currentColor"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <title>설정</title>
+                <line
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  x1="3"
+                  x2="21"
+                  y1="4"
+                  y2="4"
+                ></line>
+                <line
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  x1="3"
+                  x2="21"
+                  y1="12"
+                  y2="12"
+                ></line>
+                <line
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  x1="3"
+                  x2="21"
+                  y1="20"
+                  y2="20"
+                ></line>
+              </svg>
+            )}
+            <span style={{ fontWeight: `${isMoreMenuOpen ? 'bold' : ''}` }}>
+              더보기
+            </span>
+          </button>
+        </li>
       </ul>
-      <MoreMenu isSidebarOpen={isSidebarOpen} />
+      <MoreMenu />
       <SearchSidebar isOpen={currentSegment === 'search'} />
       <AlarmSidebar isOpen={currentSegment === 'alarm'} />
     </nav>

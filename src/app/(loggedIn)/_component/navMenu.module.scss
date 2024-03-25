@@ -2,14 +2,17 @@
   //position: relative;
   width: 100%;
   height: 100%;
-  transition: width 3s;
+  transition: width .3s;
   padding: 8px 12px 20px;
   border-right: 1px solid #ccc;
   overflow: hidden;
   //border-right: 1px solid #ccc;
 
-  ul {
+  .menuList {
+    display: flex;
+    flex-direction: column;
     width: 220px;
+    height: 670px;
     overflow: hidden;
   }
 
@@ -39,6 +42,13 @@
   }
 }
 
+.moreMenuBtn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
 .menuButton {
   display: flex;
   align-items: center;
@@ -55,11 +65,7 @@
   }
   span {
     display: block;
-    transition-delay: 3s;
     white-space: nowrap;
-    //opacity: 1;
-    //visibility: visible;
-    //transition: opacity .5s, visibility .5s;
     padding-left: 16px;
 
     &.bold {
