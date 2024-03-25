@@ -10,6 +10,7 @@ import SearchSidebar from '@/app/(loggedIn)/_component/SearchSidebar'
 import AlarmSidebar from '@/app/(loggedIn)/_component/AlarmSidebar'
 import cx from 'classnames'
 import Image from 'next/image'
+import MoreMenu from '@/app/(loggedIn)/_component/MoreMenu'
 import style from './navMenu.module.scss'
 import logo from '../../../../public/logo.png'
 
@@ -140,6 +141,7 @@ function NavMenu() {
           </Link>
         </li>
       </ul>
+      <MoreMenu isSidebarOpen={isSidebarOpen} />
       <SearchSidebar isOpen={currentSegment === 'search'} />
       <AlarmSidebar isOpen={currentSegment === 'alarm'} />
     </nav>

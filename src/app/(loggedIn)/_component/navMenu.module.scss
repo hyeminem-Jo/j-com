@@ -1,8 +1,11 @@
 .navMenu {
-  position: relative;
+  //position: relative;
   width: 100%;
-  transition: width .3s;
-  border: 1px solid;
+  height: 100%;
+  transition: width 3s;
+  padding: 8px 12px 20px;
+  border-right: 1px solid #ccc;
+  overflow: hidden;
   //border-right: 1px solid #ccc;
 
   ul {
@@ -11,10 +14,16 @@
   }
 
   &.sidebarOpened {
-    //width: 50px;
+    width: 70px;
+
+    .menuButton {
+      width: 44px;
+    }
 
     span {
       display: none;
+      //opacity: 0;
+      //visibility: hidden;
     }
   }
 
@@ -36,12 +45,21 @@
   width: 100%;
   padding: 12px 10px;
   border-radius: 8px;
-  overflow: hidden;
+  //overflow: hidden;
 
   &:hover {
     background-color: rgba(0, 0, 0, .05);
   }
+  svg {
+    flex-basis: 24px;
+  }
   span {
+    display: block;
+    transition-delay: 3s;
+    white-space: nowrap;
+    //opacity: 1;
+    //visibility: visible;
+    //transition: opacity .5s, visibility .5s;
     padding-left: 16px;
 
     &.bold {
