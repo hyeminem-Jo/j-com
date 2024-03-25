@@ -94,7 +94,7 @@ function MoreMenu() {
         </button>
         {isOpened && (
           <ul role="dialog" ref={dialogRef} className={style.moreMenuList}>
-            <li>
+            <li onClick={() => setIsOpened(false)}>
               <Link href="#" className={style.moreMenuItem}>
                 <svg
                   aria-label="설정"
@@ -127,7 +127,7 @@ function MoreMenu() {
                 <span>설정</span>
               </Link>
             </li>
-            <li>
+            <li onClick={() => setIsOpened(false)}>
               <Link href="/h._jinny/saved" className={style.moreMenuItem}>
                 <svg
                   aria-label="저장됨"
@@ -152,7 +152,7 @@ function MoreMenu() {
               </Link>
             </li>
             <li>
-              <Link href="#" className={style.moreMenuItem}>
+              <button type="button" className={style.moreMenuItem}>
                 <svg
                   aria-label="테마 아이콘"
                   className="x1lliihq x1n2onr6 x5n08af"
@@ -166,10 +166,10 @@ function MoreMenu() {
                   <path d="M12.00018,4.5a1,1,0,0,0,1-1V2a1,1,0,0,0-2,0V3.5A1.00005,1.00005,0,0,0,12.00018,4.5ZM5.28241,6.69678A.99989.99989,0,1,0,6.69647,5.28271l-1.06054-1.061A.99989.99989,0,0,0,4.22186,5.63574ZM4.50018,12a1,1,0,0,0-1-1h-1.5a1,1,0,0,0,0,2h1.5A1,1,0,0,0,4.50018,12Zm.78223,5.30322-1.06055,1.061a.99989.99989,0,1,0,1.41407,1.41406l1.06054-1.061a.99989.99989,0,0,0-1.41406-1.41407ZM12.00018,19.5a1.00005,1.00005,0,0,0-1,1V22a1,1,0,0,0,2,0V20.5A1,1,0,0,0,12.00018,19.5Zm6.71729-2.19678a.99989.99989,0,0,0-1.41406,1.41407l1.06054,1.061A.99989.99989,0,0,0,19.778,18.36426ZM22.00018,11h-1.5a1,1,0,0,0,0,2h1.5a1,1,0,0,0,0-2ZM18.01044,6.98975a.996.996,0,0,0,.707-.293l1.06055-1.061A.99989.99989,0,0,0,18.364,4.22168l-1.06054,1.061a1,1,0,0,0,.707,1.707ZM12.00018,6a6,6,0,1,0,6,6A6.00657,6.00657,0,0,0,12.00018,6Zm0,10a4,4,0,1,1,4-4A4.00458,4.00458,0,0,1,12.00018,16Z"></path>
                 </svg>
                 <span>모드 전환</span>
-              </Link>
+              </button>
             </li>
             <li>
-              <button className={style.moreMenuItem} type="button">
+              <button type="button" className={style.moreMenuItem}>
                 <svg
                   aria-label="문제 신고"
                   className="x1lliihq x1n2onr6 x5n08af"
@@ -187,7 +187,7 @@ function MoreMenu() {
             </li>
             <hr />
             <li>
-              <button className={style.moreMenuItem} type="button">
+              <button type="button" className={style.moreMenuItem}>
                 <span>로그아웃</span>
               </button>
             </li>
