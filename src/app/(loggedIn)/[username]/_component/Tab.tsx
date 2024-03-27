@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect } from 'react'
 import cx from 'classnames'
+import SavedIcon from '@/app/(loggedIn)/_component/svg/SavedIcon'
 import style from './tab.module.scss'
 
 function Tab() {
@@ -85,31 +86,19 @@ function Tab() {
           <span>게시물</span>
         </Link>
       </li>
-      <li className={cx(pathname === '/h._jinny/saved' && style.active)} role="tab">
+      <li
+        className={cx(pathname === '/h._jinny/saved' && style.active)}
+        role="tab"
+      >
         <Link href="/h._jinny/saved">
-          <svg
-            aria-label=""
-            className="x1lliihq x1n2onr6 x5n08af"
-            fill="currentColor"
-            height="13"
-            role="img"
-            viewBox="0 0 24 24"
-            width="13"
-          >
-            <title></title>
-            <polygon
-              fill="none"
-              points="20 21 12 13.44 4 21 4 3 20 3 20 21"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-            ></polygon>
-          </svg>
+          <SavedIcon size={13} />
           <span>저장됨</span>
         </Link>
       </li>
-      <li className={cx(pathname === '/h._jinny/tagged' && style.active)} role="tab">
+      <li
+        className={cx(pathname === '/h._jinny/tagged' && style.active)}
+        role="tab"
+      >
         <Link href="/h._jinny/tagged">
           <svg
             aria-label=""

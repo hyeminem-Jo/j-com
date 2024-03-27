@@ -90,6 +90,7 @@ function Post() {
             slidesToShow={1}
             slidesToScroll={1}
             className="slickPost slickPostPagination"
+            ㅁ
           >
             {Images?.map((img) => (
               <div className={style.postImage}>
