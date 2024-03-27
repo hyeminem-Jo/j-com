@@ -5,8 +5,8 @@
   width: 0;
   height: 100dvh;
   padding: 8px;
-  //opacity: 0;
-  //visibility: hidden;
+  opacity: 0;
+  visibility: hidden;
   border-radius: 0 16px 16px 0;
   border-left: none;
   background-color: #fff;
@@ -22,8 +22,8 @@
     width: 400px;
     border-left: 1px solid #eee;
     //transition-delay: 0s;
-    //opacity: 1;
-    //visibility: visible;
+    opacity: 1;
+    visibility: visible;
   }
 
   .sidebarInner {
