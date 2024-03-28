@@ -3,7 +3,7 @@
 import SavedIcon from '@/app/(loggedIn)/_component/svg/SavedIcon'
 import style from './actionButton.module.scss'
 
-function ActionButton({ isLiked = true, isSaved = true }) {
+function ActionButton({ isLiked = true, isSaved = false }) {
   const likeHandler = () => {}
   const commentOnPost = () => {}
   const sharePost = () => {}

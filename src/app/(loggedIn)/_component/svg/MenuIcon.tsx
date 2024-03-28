@@ -1,16 +1,16 @@
 import React from 'react'
 
-function NavMenuIcon({ type, active }) {
+function MenuIcon({ type, size = 24, active }) {
   if (type === 'home') {
     return (
       <svg
         aria-label="홈"
         className="x1lliihq x1n2onr6 x5n08af"
         fill="currentColor"
-        height="24"
+        width={size}
+        height={size}
         role="img"
         viewBox="0 0 24 24"
-        width="24"
       >
         <title>홈</title>
         {active ? (
@@ -33,10 +33,10 @@ function NavMenuIcon({ type, active }) {
         aria-label="검색"
         className="x1lliihq x1n2onr6 x5n08af"
         fill="currentColor"
-        height="24"
+        width={size}
+        height={size}
         role="img"
         viewBox="0 0 24 24"
-        width="24"
       >
         <title>검색</title>
         {active ? (
@@ -93,10 +93,10 @@ function NavMenuIcon({ type, active }) {
         aria-label="탐색 탭"
         className="x1lliihq x1n2onr6 x5n08af"
         fill="currentColor"
-        height="24"
+        width={size}
+        height={size}
         role="img"
         viewBox="0 0 24 24"
-        width="24"
       >
         <title>탐색 탭</title>
         {active ? (
@@ -136,10 +136,10 @@ function NavMenuIcon({ type, active }) {
         aria-label="Direct"
         className="x1lliihq x1n2onr6 x5n08af"
         fill="currentColor"
-        height="24"
+        width={size}
+        height={size}
         role="img"
         viewBox="0 0 24 24"
-        width="24"
       >
         <title>Direct</title>
         {active ? (
@@ -177,10 +177,10 @@ function NavMenuIcon({ type, active }) {
         aria-label="알림"
         className="x1lliihq x1n2onr6 x5n08af"
         fill="currentColor"
-        height="24"
+        width={size}
+        height={size}
         role="img"
         viewBox="0 0 24 24"
-        width="24"
       >
         <title>알림</title>
         {active ? (
@@ -193,4 +193,4 @@ function NavMenuIcon({ type, active }) {
   }
 }
 
-export default NavMenuIcon
+export default MenuIcon

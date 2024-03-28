@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useSelectedLayoutSegment } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import CircleProfile from '@/app/(loggedIn)/_component/CircleProfile'
-import NavMenuIcon from '@/app/(loggedIn)/_component/svg/NavMenuIcon'
+import MenuIcon from '@/app/(loggedIn)/_component/svg/MenuIcon'
 import NavMenuWriteIcon from '@/app/(loggedIn)/_component/svg/NavMenuWriteIcon'
 import SearchSidebar from '@/app/(loggedIn)/_component/SearchSidebar'
 import AlarmSidebar from '@/app/(loggedIn)/_component/AlarmSidebar'
@@ -77,6 +77,7 @@ function NavMenu() {
       {/* {JSON.stringify(isSidebarOpen)} */}
       {/* {JSON.stringify(isMoreMenuOpen)} */}
       <Link href="/" className={style.logo}>
+        {/* {isSidebarOpen ? () : ()} */}
         <Image src={logo} width={110} alt="logo" />
       </Link>
       <ul className={style.menuList}>
@@ -88,10 +89,7 @@ function NavMenu() {
                 className={style.menuButton}
                 onClick={() => segmentHandler(nav.url)}
               >
-                <NavMenuIcon
-                  type={nav.url}
-                  active={currentSegment === nav.url}
-                />
+                <MenuIcon type={nav.url} active={currentSegment === nav.url} />
                 <span
                   className={cx(
                     isSidebarOpen && style.sidebarOpened,
@@ -104,15 +102,15 @@ function NavMenu() {
             ) : (
               <button
                 type="button"
-                className={style.menuButton}
+                className={cx(
+                  style.menuButton,
+                  currentSegment === nav.url && style.active,
+                )}
                 onClick={() => {
                   segmentHandler(nav.url)
                 }}
               >
-                <NavMenuIcon
-                  type={nav.url}
-                  active={currentSegment === nav.url}
-                />
+                <MenuIcon type={nav.url} active={currentSegment === nav.url} />
                 <span className={cx(isSidebarOpen && style.sidebarOpened)}>
                   {nav.title}
                 </span>
