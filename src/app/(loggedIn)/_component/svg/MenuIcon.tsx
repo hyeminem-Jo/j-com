@@ -36,7 +36,7 @@ function MenuIcon({ type, size = 24, active }) {
         width={size}
         height={size}
         role="img"
-        viewBox="0 0 24 24"
+        viewBox={`0 0 ${size} ${size}`}
       >
         <title>검색</title>
         {active ? (
@@ -96,7 +96,7 @@ function MenuIcon({ type, size = 24, active }) {
         width={size}
         height={size}
         role="img"
-        viewBox="0 0 24 24"
+        viewBox={`0 0 ${size} ${size}`}
       >
         <title>탐색 탭</title>
         {active ? (
@@ -139,7 +139,7 @@ function MenuIcon({ type, size = 24, active }) {
         width={size}
         height={size}
         role="img"
-        viewBox="0 0 24 24"
+        viewBox={`0 0 ${size} ${size}`}
       >
         <title>Direct</title>
         {active ? (
@@ -180,7 +180,7 @@ function MenuIcon({ type, size = 24, active }) {
         width={size}
         height={size}
         role="img"
-        viewBox="0 0 24 24"
+        viewBox={`0 0 ${size} ${size}`}
       >
         <title>알림</title>
         {active ? (

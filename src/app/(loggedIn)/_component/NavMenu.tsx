@@ -13,8 +13,10 @@ import Image from 'next/image'
 import MoreMenu from '@/app/(loggedIn)/_component/MoreMenu'
 // import {useStore} from "zustand/esm/index";
 import { useMenuStore } from '@/store/moreMenu'
+import MoreButton from '@/app/(loggedIn)/_component/svg/MoreButton'
 import style from './navMenu.module.scss'
 import logo from '../../../../public/logo.png'
+import logoIcon from '../../../../public/logo-icon.png'
 
 function NavMenu() {
   const me = {
@@ -28,7 +30,6 @@ function NavMenu() {
   const segment = useSelectedLayoutSegment()
   const [currentSegment, setCurrentSegment] = useState('')
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-  // const [isMoreMenuOpen, setIsMoreMenuOpen] = useState(false)
 
   const isMoreMenuOpen = useMenuStore((state: any) => state.isMoreMenuOpen)
   const setIsMoreMenuOpen = useMenuStore(
@@ -74,11 +75,19 @@ function NavMenu() {
       role="navigation"
       className={cx(isSidebarOpen && style.sidebarOpened, style.navMenu)}
     >
-      {/* {JSON.stringify(isSidebarOpen)} */}
-      {/* {JSON.stringify(isMoreMenuOpen)} */}
-      <Link href="/" className={style.logo}>
-        {/* {isSidebarOpen ? () : ()} */}
-        <Image src={logo} width={110} alt="logo" />
+      <Link href="/home" className={style.logo}>
+        <Image
+          className={cx(isSidebarOpen && style.hide, style.logoBig)}
+          src={logo}
+          width={110}
+          alt="logo"
+        />
+        <Image
+          className={cx(!isSidebarOpen && style.hide, style.logoSmall)}
+          src={logoIcon}
+          width={24}
+          alt="logo"
+        />
       </Link>
       <ul className={style.menuList}>
         {navArr?.map((nav) => (
@@ -94,6 +103,7 @@ function NavMenu() {
                   className={cx(
                     isSidebarOpen && style.sidebarOpened,
                     currentSegment === nav.url && style.bold,
+                    style.navMenuTitle,
                   )}
                 >
                   {nav.title}
@@ -111,7 +121,12 @@ function NavMenu() {
                 }}
               >
                 <MenuIcon type={nav.url} active={currentSegment === nav.url} />
-                <span className={cx(isSidebarOpen && style.sidebarOpened)}>
+                <span
+                  className={cx(
+                    isSidebarOpen && style.sidebarOpened,
+                    style.navMenuTitle,
+                  )}
+                >
                   {nav.title}
                 </span>
               </button>
@@ -121,13 +136,13 @@ function NavMenu() {
         <li className={style.menuItem} key="write">
           <Link href="/write" className={style.menuButton}>
             <NavMenuWriteIcon />
-            <span>만들기</span>
+            <span className={style.navMenuTitle}>만들기</span>
           </Link>
           {/* TODO: PostForm 컴포넌트 바깥으로 뺀 후 zustand 를 이용하여 state 관리  */}
         </li>
         <li className={style.menuItem} key={me?.id}>
           <Link
-            href={`${me?.id}`}
+            href={`/${me?.id}`}
             className={style.menuButton}
             onClick={() => segmentHandler(`${me?.id}`)}
           >
@@ -139,6 +154,7 @@ function NavMenu() {
               border="2px solid #000"
             />
             <span
+              className={style.navMenuTitle}
               style={{
                 fontWeight: currentSegment === me?.id ? 'bold' : 'normal',
               }}
@@ -153,66 +169,11 @@ function NavMenu() {
             type="button"
             onClick={() => setIsMoreMenuOpen(!isMoreMenuOpen)}
           >
-            {isMoreMenuOpen ? (
-              <svg
-                aria-label="설정"
-                className="x1lliihq x1n2onr6 x5n08af"
-                fill="currentColor"
-                height="24"
-                role="img"
-                viewBox="0 0 24 24"
-                width="24"
-              >
-                <title>설정</title>
-                <path d="M3.5 6.5h17a1.5 1.5 0 0 0 0-3h-17a1.5 1.5 0 0 0 0 3Zm17 4h-17a1.5 1.5 0 0 0 0 3h17a1.5 1.5 0 0 0 0-3Zm0 7h-17a1.5 1.5 0 0 0 0 3h17a1.5 1.5 0 0 0 0-3Z"></path>
-              </svg>
-            ) : (
-              <svg
-                aria-label="설정"
-                className="x1lliihq x1n2onr6 x5n08af"
-                fill="currentColor"
-                height="24"
-                role="img"
-                viewBox="0 0 24 24"
-                width="24"
-              >
-                <title>설정</title>
-                <line
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  x1="3"
-                  x2="21"
-                  y1="4"
-                  y2="4"
-                ></line>
-                <line
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  x1="3"
-                  x2="21"
-                  y1="12"
-                  y2="12"
-                ></line>
-                <line
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  x1="3"
-                  x2="21"
-                  y1="20"
-                  y2="20"
-                ></line>
-              </svg>
-            )}
-            <span style={{ fontWeight: `${isMoreMenuOpen ? 'bold' : ''}` }}>
+            <MoreButton size={24} active={isMoreMenuOpen} />
+            <span
+              className={style.navMenuTitle}
+              style={{ fontWeight: `${isMoreMenuOpen ? 'bold' : ''}` }}
+            >
               더보기
             </span>
           </button>
