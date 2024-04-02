@@ -1,4 +1,4 @@
-import Post from '@/app/(loggedIn)/_component/Post'
+import Post from '@/app/(loggedIn)/_component/Post/Post'
 
 function FollowedRecentPosts() {
   return (

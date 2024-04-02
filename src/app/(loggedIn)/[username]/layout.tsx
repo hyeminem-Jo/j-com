@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import CircleProfile from '@/app/(loggedIn)/_component/CircleProfile'
-import { Button } from '@/app/_component/common/Button'
+import { Button } from '@/app/_component/common/Button/Button'
 import SliderWrapper from '@/app/(loggedIn)/_component/SliderWrapper'
 import style from './profile.module.scss'
 import Tab from "@/app/(loggedIn)/[username]/_component/Tab";

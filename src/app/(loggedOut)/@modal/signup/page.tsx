@@ -1,4 +1,4 @@
-import Modal from '@/app/_component/common/Modal'
+import Modal from '@/app/_component/common/Modal/Modal'
 import SignupForm from '@/app/(loggedOut)/_component/SignupForm'
 
 function Signup() {

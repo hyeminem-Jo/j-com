@@ -6,17 +6,17 @@ import { useEffect, useState } from 'react'
 import CircleProfile from '@/app/(loggedIn)/_component/CircleProfile'
 import MenuIcon from '@/app/(loggedIn)/_component/svg/MenuIcon'
 import NavMenuWriteIcon from '@/app/(loggedIn)/_component/svg/NavMenuWriteIcon'
-import SearchSidebar from '@/app/(loggedIn)/_component/SearchSidebar'
-import AlarmSidebar from '@/app/(loggedIn)/_component/AlarmSidebar'
+import SearchSidebar from '@/app/(loggedIn)/_component/SearchSidebar/SearchSidebar'
+import AlarmSidebar from '@/app/(loggedIn)/_component/AlarmSidebar/AlarmSidebar'
 import cx from 'classnames'
 import Image from 'next/image'
-import MoreMenu from '@/app/(loggedIn)/_component/MoreMenu'
+import MoreMenu from '@/app/(loggedIn)/_component/MoreMenu/MoreMenu'
 // import {useStore} from "zustand/esm/index";
 import { useMenuStore } from '@/store/moreMenu'
 import MoreButton from '@/app/(loggedIn)/_component/svg/MoreButton'
 import style from './navMenu.module.scss'
-import logo from '../../../../public/logo.png'
-import logoIcon from '../../../../public/logo-icon.png'
+import logo from '../../../../../public/logo.png'
+import logoIcon from '../../../../../public/logo-icon.png'
 
 function NavMenu() {
   const me = {

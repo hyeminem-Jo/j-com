@@ -31,7 +31,7 @@ function MoreMenu() {
       {isOpen && (
         <ul role="dialog" ref={dialogRef} className={style.moreMenu}>
           <li onClick={() => setIsOpened(false)}>
-            <Link href="#" className={style.moreMenuItem}>
+            <Link href="src/app/(loggedIn)/_component#" className={style.moreMenuItem}>
               <SettingIcon size={18} />
               <span>설정</span>
             </Link>

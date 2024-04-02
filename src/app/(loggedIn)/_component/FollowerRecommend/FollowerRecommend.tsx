@@ -1,4 +1,4 @@
-import ProfileButton from '@/app/(loggedIn)/_component/ProfileButton'
+import ProfileButton from '@/app/(loggedIn)/_component/ProfileButton/ProfileButton'
 import style from './followerRecommend.module.scss'
 
 function FollowerRecommend({ users }) {

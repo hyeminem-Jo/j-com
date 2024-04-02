@@ -1,6 +1,6 @@
 'use client'
 
-import Textarea from "@/app/_component/common/Textarea";
+import Textarea from "@/app/_component/common/Textarea/Textarea";
 import {useForm} from "react-hook-form";
 import { ChangeEventHandler, FormEventHandler, useCallback } from 'react'
 

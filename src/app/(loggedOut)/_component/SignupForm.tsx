@@ -2,8 +2,8 @@
 
 import { useForm } from 'react-hook-form'
 import { useCallback, useEffect } from 'react'
-import Input from '@/app/_component/common/Input'
-import { Button } from '@/app/_component/common/Button'
+import Input from '@/app/_component/common/Input/Input'
+import { Button } from '@/app/_component/common/Button/Button'
 import style from './signupForm.module.scss'
 
 function SignupForm() {

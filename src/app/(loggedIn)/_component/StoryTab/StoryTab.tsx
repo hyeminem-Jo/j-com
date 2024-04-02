@@ -88,7 +88,7 @@ function StoryTab() {
           {users?.map((user) => (
             <div>
               <div className={style.storyTabListItem} key={user.id}>
-                <Link href="#" className={style.profileImageLink}>
+                <Link href="src/app/(loggedIn)/_component#" className={style.profileImageLink}>
                   <CircleProfile
                     src={user?.image}
                     width={60}

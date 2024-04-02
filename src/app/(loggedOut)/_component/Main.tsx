@@ -2,12 +2,12 @@
 
 import styles from '@/app/(loggedOut)/_component/main.module.scss'
 import Image from 'next/image'
-import Input from '@/app/_component/common/Input'
+import Input from '@/app/_component/common/Input/Input'
 import { useForm } from 'react-hook-form'
-import SignupOrLoginForm from '@/app/_component/common/SignupOrLoginForm'
-import ButtonGroup from '@/app/_component/common/ButtonGroup'
+import SignupOrLoginForm from '@/app/_component/SignupOrLoginForm/SignupOrLoginForm'
+import ButtonGroup from '@/app/_component/common/ButtonGroup/ButtonGroup'
 import Link from 'next/link'
-import { Button } from '@/app/_component/common/Button'
+import { Button } from '@/app/_component/common/Button/Button'
 import phoneImage from '../../../../public/phone.png'
 import logo from '../../../../public/logo.png'
 

@@ -4,9 +4,9 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
-import './slickPost.scss'
-import './slickPostPagination.scss'
-import './slickMultipleItem.scss'
+import './slickStyle/slickPost.scss'
+import './slickStyle/slickPostPagination.scss'
+import './slickStyle/slickMultipleItem.scss'
 
 function SliderWrapper({
   children,

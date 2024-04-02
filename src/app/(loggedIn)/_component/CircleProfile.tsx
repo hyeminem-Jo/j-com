@@ -6,7 +6,6 @@ function CircleProfile({ src, alt, width, height, ring, active, border }) {
       width: `${width}px`,
       height: `${height}px`,
       borderRadius: '50%',
-      // border: ring ? 'none' : border || '1px solid #ddd',
       outline: ring
         ? `2px solid ${active ? 'orange' : '#ddd'}`
         : border || '1px solid #ddd',

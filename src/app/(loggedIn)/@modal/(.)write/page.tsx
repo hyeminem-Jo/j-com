@@ -1,5 +1,5 @@
-import Modal from '@/app/_component/common/Modal'
-import PostForm from '@/app/(loggedIn)/_component/PostForm'
+import Modal from '@/app/_component/common/Modal/Modal'
+import PostForm from '@/app/(loggedIn)/_component/PostForm/PostForm'
 
 function Write() {
   return (

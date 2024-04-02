@@ -1,6 +1,6 @@
 import React from 'react'
 import cx from 'classnames'
-import style from './sidebar.module.scss'
+import style from '../sidebar.module.scss'
 
 function AlarmSidebar({ isOpen }) {
   return (

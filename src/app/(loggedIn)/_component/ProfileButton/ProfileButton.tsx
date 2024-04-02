@@ -1,6 +1,6 @@
 'use client'
 
-import { TextButton } from '@/app/_component/common/Button'
+import { TextButton } from '@/app/_component/common/Button/Button'
 import Link from 'next/link'
 import CircleProfile from '@/app/(loggedIn)/_component/CircleProfile'
 import style from './profileButton.module.scss'
@@ -10,7 +10,7 @@ function ProfileButton({ user, isMe, ring }) {
 
   return (
     <div className={style.profileButton}>
-      <Link href="#" className={style.profileLink}>
+      <Link href="src/app/(loggedIn)/_component#" className={style.profileLink}>
         <CircleProfile
           src={user?.image}
           width={50}
