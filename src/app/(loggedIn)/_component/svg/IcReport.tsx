@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ReportIcon({ size }) {
+function IcReport({ size }) {
   return (
     <svg
       aria-label="문제 신고"
@@ -17,4 +17,4 @@ function ReportIcon({ size }) {
   )
 }
 
-export default ReportIcon
+export default IcReport

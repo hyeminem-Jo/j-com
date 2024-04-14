@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SettingIcon({ size }) {
+function IcSetting({ size }) {
   return (
     <svg
       aria-label="설정"
@@ -33,4 +33,4 @@ function SettingIcon({ size }) {
   )
 }
 
-export default SettingIcon
+export default IcSetting

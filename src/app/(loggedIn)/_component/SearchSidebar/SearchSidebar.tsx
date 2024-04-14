@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import cx from 'classnames'
 // import { useCallback } from 'react'
 import SearchInput from '@/app/(loggedIn)/_component/SearchInput/SearchInput'
-import DeleteIcon from '@/app/(loggedIn)/_component/svg/DeleteIcon'
+import IcDelete from '@/app/(loggedIn)/_component/svg/IcDelete'
 import style from '../sidebar.module.scss'
 
 function SearchSidebar({ isOpen }) {

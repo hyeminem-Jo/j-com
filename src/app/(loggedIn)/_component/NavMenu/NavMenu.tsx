@@ -4,8 +4,8 @@ import Link from 'next/link'
 import { useSelectedLayoutSegment } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import CircleProfile from '@/app/(loggedIn)/_component/CircleProfile'
-import MenuIcon from '@/app/(loggedIn)/_component/svg/MenuIcon'
-import NavMenuWriteIcon from '@/app/(loggedIn)/_component/svg/NavMenuWriteIcon'
+import IcMenu from '@/app/(loggedIn)/_component/svg/IcMenu'
+import IcNavMenuWrite from '@/app/(loggedIn)/_component/svg/IcNavMenuWrite'
 import SearchSidebar from '@/app/(loggedIn)/_component/SearchSidebar/SearchSidebar'
 import AlarmSidebar from '@/app/(loggedIn)/_component/AlarmSidebar/AlarmSidebar'
 import cx from 'classnames'
@@ -13,7 +13,7 @@ import Image from 'next/image'
 import MoreMenu from '@/app/(loggedIn)/_component/MoreMenu/MoreMenu'
 // import {useStore} from "zustand/esm/index";
 import { useMenuStore } from '@/store/moreMenu'
-import MoreButton from '@/app/(loggedIn)/_component/svg/MoreButton'
+import IcMoreButton from '@/app/(loggedIn)/_component/svg/IcMoreButton'
 import style from './navMenu.module.scss'
 import logo from '../../../../../public/logo.png'
 import logoIcon from '../../../../../public/logo-icon.png'
@@ -98,7 +98,7 @@ function NavMenu() {
                 className={style.menuButton}
                 onClick={() => segmentHandler(nav.url)}
               >
-                <MenuIcon type={nav.url} active={currentSegment === nav.url} />
+                <IcMenu type={nav.url} active={currentSegment === nav.url} />
                 <span
                   className={cx(
                     isSidebarOpen && style.sidebarOpened,
@@ -120,7 +120,7 @@ function NavMenu() {
                   segmentHandler(nav.url)
                 }}
               >
-                <MenuIcon type={nav.url} active={currentSegment === nav.url} />
+                <IcMenu type={nav.url} active={currentSegment === nav.url} />
                 <span
                   className={cx(
                     isSidebarOpen && style.sidebarOpened,
@@ -135,7 +135,7 @@ function NavMenu() {
         ))}
         <li className={style.menuItem} key="write">
           <Link href="/write" className={style.menuButton}>
-            <NavMenuWriteIcon />
+            <IcNavMenuWrite />
             <span className={style.navMenuTitle}>만들기</span>
           </Link>
           {/* TODO: PostForm 컴포넌트 바깥으로 뺀 후 zustand 를 이용하여 state 관리  */}
@@ -169,7 +169,7 @@ function NavMenu() {
             type="button"
             onClick={() => setIsMoreMenuOpen(!isMoreMenuOpen)}
           >
-            <MoreButton size={24} active={isMoreMenuOpen} />
+            <IcMoreButton size={24} active={isMoreMenuOpen} />
             <span
               className={style.navMenuTitle}
               style={{ fontWeight: `${isMoreMenuOpen ? 'bold' : ''}` }}

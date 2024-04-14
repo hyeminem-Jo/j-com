@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-const BackIcon = ({ size = 24 }) => {
+function IcBack({ size = 24 }) {
   return (
     <svg
       aria-label="돌아가기"
@@ -32,7 +32,7 @@ const BackIcon = ({ size = 24 }) => {
         strokeWidth="2"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default BackIcon;
+export default IcBack

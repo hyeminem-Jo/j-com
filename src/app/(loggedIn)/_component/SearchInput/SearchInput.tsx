@@ -1,9 +1,9 @@
 'use client'
 
 import { useController } from 'react-hook-form'
-import DeleteIcon from '@/app/(loggedIn)/_component/svg/DeleteIcon'
+import IcDelete from '@/app/(loggedIn)/_component/svg/IcDelete'
 import { useState } from 'react'
-import SearchIcon from '@/app/(loggedIn)/_component/svg/SearchIcon'
+import IcSearch from '@/app/(loggedIn)/_component/svg/IcSearch'
 import cx from 'classnames'
 import style from './SearchInput.module.scss'
 
@@ -48,11 +48,11 @@ function SearchInput({
           className={style.searchInputDeleteBtn}
           onClick={reset}
         >
-          <DeleteIcon size={8} color="rgb(239, 239, 239)" />
+          <IcDelete size={8} color="rgb(239, 239, 239)" />
         </button>
       ) : (
         <div className={style.searchIcon}>
-          <SearchIcon size={16} color="#aaa" />
+          <IcSearch size={16} color="#aaa" />
           {/*  TODO: 색 변수로 정리하기 */}
         </div>
       )}

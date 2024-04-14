@@ -1,6 +1,6 @@
 import React from 'react'
 
-function MoreButton({ size, active }) {
+function IcMoreButton({ size, active }) {
   return (
     <svg
       aria-label="설정"
@@ -55,4 +55,4 @@ function MoreButton({ size, active }) {
   )
 }
 
-export default MoreButton
+export default IcMoreButton

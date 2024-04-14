@@ -1,8 +1,8 @@
 'use client'
 
-import {useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
+import IcClose from '@/app/(loggedIn)/_component/svg/IcClose'
 import style from './modal.module.scss'
-import CloseIcon from "@/app/(loggedIn)/_component/svg/CloseIcon";
 
 function Modal({ children, title }) {
   const router = useRouter()
@@ -26,7 +26,7 @@ function Modal({ children, title }) {
             className={style.closeBtn}
             onClick={onClickClose}
           >
-            <CloseIcon />
+            <IcClose />
           </button>
         </div>
         <div className={style.modalContent}>{children}</div>

@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-const MediaIcon = () => {
+function IcMedia() {
   return (
     <svg
       aria-label="이미지나 동영상과 같은 미디어를 나타내는 아이콘"
@@ -25,7 +25,7 @@ const MediaIcon = () => {
         fill="currentColor"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default MediaIcon;
+export default IcMedia

@@ -14,9 +14,9 @@ import Image from 'next/image'
 import { useForm } from 'react-hook-form'
 import Textarea from '@/app/_component/common/Textarea/Textarea'
 import SliderWrapper from '@/app/(loggedIn)/_component/SliderWrapper'
+import IcMedia from '@/app/(loggedIn)/_component/svg/IcMedia'
+import IcBack from '@/app/(loggedIn)/_component/svg/IcBack'
 import style from './postForm.module.scss'
-import MediaIcon from "@/app/(loggedIn)/_component/svg/MediaIcon";
-import BackIcon from "@/app/(loggedIn)/_component/svg/BackIcon";
 
 function PostForm() {
   const {
@@ -97,7 +97,7 @@ function PostForm() {
       <div className={style.postStep}>
         {isUploaded && (
           <button type="button" className={style.prevBtn} onClick={clickPrev}>
-            <BackIcon />
+            <IcBack />
           </button>
         )}
         {isUploaded && (
@@ -121,7 +121,7 @@ function PostForm() {
       <div className={style.postFormInner}>
         {step === 1 && !isUploaded && (
           <div className={style.desc}>
-            <MediaIcon />
+            <IcMedia />
             <div>사진과 동영상을 여기에 끌어다 놓으세요</div>
             {/* TODO: 드래그해서 이미지 업로드 하는 기능 추가하기 */}
             <input

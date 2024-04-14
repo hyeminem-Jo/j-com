@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SavedIcon({ size, active }) {
+function IcSaved({ size, active }) {
   return (
     <svg
       aria-label={active ? '저장 취소' : '저장'}
@@ -28,4 +28,4 @@ function SavedIcon({ size, active }) {
   )
 }
 
-export default SavedIcon
+export default IcSaved

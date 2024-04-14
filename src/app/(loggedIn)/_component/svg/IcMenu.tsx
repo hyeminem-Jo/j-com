@@ -1,6 +1,6 @@
 import React from 'react'
 
-function MenuIcon({ type, size = 24, active }) {
+function IcMenu({ type, size = 24, active }) {
   if (type === 'home') {
     return (
       <svg
@@ -193,4 +193,4 @@ function MenuIcon({ type, size = 24, active }) {
   }
 }
 
-export default MenuIcon
+export default IcMenu

@@ -3,10 +3,10 @@
 import { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { useMenuStore } from '@/store/moreMenu'
-import SettingIcon from '@/app/(loggedIn)/_component/svg/SettingIcon'
-import SavedIcon from '@/app/(loggedIn)/_component/svg/SavedIcon'
-import ThemaIcon from '@/app/(loggedIn)/_component/svg/ThemaIcon'
-import ReportIcon from '@/app/(loggedIn)/_component/svg/ReportIcon'
+import IcSetting from '@/app/(loggedIn)/_component/svg/IcSetting'
+import IcSaved from '@/app/(loggedIn)/_component/svg/IcSaved'
+import IcThema from '@/app/(loggedIn)/_component/svg/IcThema'
+import IcReport from '@/app/(loggedIn)/_component/svg/IcReport'
 import style from './moreMenu.module.scss'
 
 function MoreMenu() {
@@ -31,26 +31,29 @@ function MoreMenu() {
       {isOpen && (
         <ul role="dialog" ref={dialogRef} className={style.moreMenu}>
           <li onClick={() => setIsOpened(false)}>
-            <Link href="src/app/(loggedIn)/_component#" className={style.moreMenuItem}>
-              <SettingIcon size={18} />
+            <Link
+              href="src/app/(loggedIn)/_component#"
+              className={style.moreMenuItem}
+            >
+              <IcSetting size={18} />
               <span>설정</span>
             </Link>
           </li>
           <li onClick={() => setIsOpened(false)}>
             <Link href="/h._jinny/saved" className={style.moreMenuItem}>
-              <SavedIcon size={18} />
+              <IcSaved size={18} />
               <span>저장됨</span>
             </Link>
           </li>
           <li>
             <button type="button" className={style.moreMenuItem}>
-              <ThemaIcon size={18} />
+              <IcThema size={18} />
               <span>모드 전환</span>
             </button>
           </li>
           <li>
             <button type="button" className={style.moreMenuItem}>
-              <ReportIcon size={18} />
+              <IcReport size={18} />
               <span>문제 신고</span>
             </button>
           </li>

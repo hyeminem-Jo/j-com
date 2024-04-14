@@ -1,6 +1,6 @@
 import React from 'react'
 
-function NavMenuWriteIcon() {
+function IcNavMenuWrite() {
   return (
     <svg
       aria-label="새로운 게시물"
@@ -46,4 +46,4 @@ function NavMenuWriteIcon() {
   )
 }
 
-export default NavMenuWriteIcon
+export default IcNavMenuWrite

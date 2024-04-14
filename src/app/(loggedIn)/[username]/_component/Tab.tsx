@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect } from 'react'
 import cx from 'classnames'
-import SavedIcon from '@/app/(loggedIn)/_component/svg/SavedIcon'
+import IcSaved from '@/app/(loggedIn)/_component/svg/IcSaved'
 import style from './tab.module.scss'
 
 function Tab() {
@@ -91,7 +91,7 @@ function Tab() {
         role="tab"
       >
         <Link href="/h._jinny/saved">
-          <SavedIcon size={13} />
+          <IcSaved size={13} />
           <span>저장됨</span>
         </Link>
       </li>

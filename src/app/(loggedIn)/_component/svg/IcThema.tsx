@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ThemaIcon({ size }) {
+function IcThema({ size }) {
   return (
     <svg
       aria-label="테마 아이콘"
@@ -17,4 +17,4 @@ function ThemaIcon({ size }) {
   )
 }
 
-export default ThemaIcon
+export default IcThema
