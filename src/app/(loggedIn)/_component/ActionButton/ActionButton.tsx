@@ -4,11 +4,13 @@ import IcSaved from '@/app/(loggedIn)/_component/svg/IcSaved'
 import IcSharePosts from '@/app/(loggedIn)/_component/svg/IcSharePosts'
 import IcComment from '@/app/(loggedIn)/_component/svg/IcComment'
 import IcLike from '@/app/(loggedIn)/_component/svg/IcLike'
+import { useModalStore } from '@/store/modal'
 import style from './actionButton.module.scss'
 
 function ActionButton({ isLiked = true, isSaved = false }) {
+  const openModal = useModalStore((state: any) => state.openModal)
+
   const likeHandler = () => {}
-  const commentOnPost = () => {}
   const sharePost = () => {}
   const savePost = () => {}
 
@@ -20,7 +22,12 @@ function ActionButton({ isLiked = true, isSaved = false }) {
         </button>
       </li>
       <li className={style.actionButtonItem}>
-        <button type="button" onClick={commentOnPost}>
+        <button
+          type="button"
+          onClick={() => {
+            openModal('postDetail')
+          }}
+        >
           <IcComment />
         </button>
       </li>

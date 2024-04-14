@@ -6,6 +6,7 @@ import CommentForm from '@/app/(loggedIn)/_component/CommentForm'
 import Index from '@/app/(loggedIn)/_component/ActionButton/ActionButton'
 import CircleProfile from '@/app/(loggedIn)/_component/CircleProfile'
 import SliderWrapper from '@/app/(loggedIn)/_component/SliderWrapper'
+import MorePostOptionButton from '@/app/(loggedIn)/_component/MorePostOptionButton'
 import style from './post.module.scss'
 
 dayjs.locale('ko')
@@ -49,6 +50,7 @@ function Post() {
       },
     ],
     numOfLike: 5,
+    postId: 1,
   }
 
   const { User, content, createdAt, Images, Comments, numOfLike } = target
@@ -67,22 +69,7 @@ function Post() {
           <span className={style.dot}>•</span>
           <span className={style.date}>{dayjs(createdAt).fromNow(true)}</span>
         </div>
-        <button type="button">
-          <svg
-            aria-label="옵션 더 보기"
-            className="x1lliihq x1n2onr6 x5n08af"
-            fill="currentColor"
-            height="24"
-            role="img"
-            viewBox="0 0 24 24"
-            width="24"
-          >
-            <title>옵션 더 보기</title>
-            <circle cx="12" cy="12" r="1.5"></circle>
-            <circle cx="6" cy="12" r="1.5"></circle>
-            <circle cx="18" cy="12" r="1.5"></circle>
-          </svg>
-        </button>
+        <MorePostOptionButton />
       </div>
       {Images.length > 1 ? (
         <div className={style.sliderWrap}>

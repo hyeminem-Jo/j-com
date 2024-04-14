@@ -1,11 +1,11 @@
-import Modal from '@/app/_component/common/Modal/Modal'
+import ModalPage from '@/app/_component/common/Modal/ModalPage'
 import SignupForm from '@/app/(loggedOut)/_component/SignupForm'
 
 function Signup() {
   return (
-    <Modal title="회원가입 하기">
+    <ModalPage title="회원가입 하기">
       <SignupForm />
-    </Modal>
+    </ModalPage>
   )
 }
 

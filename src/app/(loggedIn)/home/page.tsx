@@ -6,6 +6,8 @@ import linkStyle from '@/app/_component/common/Button/button.module.scss'
 import StoryTab from '@/app/(loggedIn)/_component/StoryTab/StoryTab'
 import ProfileButton from '@/app/(loggedIn)/_component/ProfileButton/ProfileButton'
 import FollowerRecommend from '@/app/(loggedIn)/_component/FollowerRecommend/FollowerRecommend'
+import PostDetailModal from '@/app/(loggedIn)/_component/Modals/PostDetailModal'
+import PostOptionModal from '@/app/(loggedIn)/_component/Modals/PostOptionModal'
 import style from './home.module.scss'
 import checkAllPost from '../../../../public/check-all-post-icon.png'
 
@@ -65,6 +67,9 @@ function HomePage() {
           </div>
           {/* 추천 게시물 */}
           <RecommendedPosts />
+          {/* 모달 */}
+          <PostOptionModal />
+          <PostDetailModal />
         </div>
       </section>
       <section className={style.rightSection}>

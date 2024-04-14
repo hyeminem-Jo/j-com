@@ -1,6 +1,6 @@
 import React from 'react'
 
-function IcMoreButton({ size, active }) {
+function IcNavMore({ size, active }) {
   return (
     <svg
       aria-label="설정"
@@ -55,4 +55,4 @@ function IcMoreButton({ size, active }) {
   )
 }
 
-export default IcMoreButton
+export default IcNavMore

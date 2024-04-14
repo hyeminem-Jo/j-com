@@ -13,7 +13,7 @@ import Image from 'next/image'
 import MoreMenu from '@/app/(loggedIn)/_component/MoreMenu/MoreMenu'
 // import {useStore} from "zustand/esm/index";
 import { useMenuStore } from '@/store/moreMenu'
-import IcMoreButton from '@/app/(loggedIn)/_component/svg/IcMoreButton'
+import IcNavMore from '@/app/(loggedIn)/_component/svg/IcNavMore'
 import style from './navMenu.module.scss'
 import logo from '../../../../../public/logo.png'
 import logoIcon from '../../../../../public/logo-icon.png'
@@ -169,7 +169,7 @@ function NavMenu() {
             type="button"
             onClick={() => setIsMoreMenuOpen(!isMoreMenuOpen)}
           >
-            <IcMoreButton size={24} active={isMoreMenuOpen} />
+            <IcNavMore size={24} active={isMoreMenuOpen} />
             <span
               className={style.navMenuTitle}
               style={{ fontWeight: `${isMoreMenuOpen ? 'bold' : ''}` }}

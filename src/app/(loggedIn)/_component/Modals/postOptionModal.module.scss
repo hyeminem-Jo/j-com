@@ -1,0 +1,23 @@
+.postOption {
+  width: 400px;
+
+  .optionBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 48px;
+    padding: 4px 8px;
+    font-size: 14px;
+    background-color: #fff;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid #ddd;
+    }
+
+    &.highlight {
+      font-weight: 700;
+      color: rgb(237, 73, 86);
+    }
+  }
+}
