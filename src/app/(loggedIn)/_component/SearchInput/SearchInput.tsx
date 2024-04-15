@@ -15,6 +15,7 @@ function SearchInput({
   placeholder = '',
   disabled,
   reset,
+  isDirty,
   ...rest
 }) {
   const { field } = useController({
@@ -42,15 +43,17 @@ function SearchInput({
         disabled={disabled}
         {...rest}
       />
-      {isFocus ? (
+      {isDirty &&
         <button
           type="button"
           className={style.searchInputDeleteBtn}
-          onClick={reset}
+          onClick={() => {reset()}}
         >
           <IcDelete size={8} color="rgb(239, 239, 239)" />
         </button>
-      ) : (
+      }
+
+      {!isFocus && (
         <div className={style.searchIcon}>
           <IcSearch size={16} color="#aaa" />
           {/*  TODO: 색 변수로 정리하기 */}

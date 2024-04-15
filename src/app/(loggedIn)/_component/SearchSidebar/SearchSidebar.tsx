@@ -8,17 +8,12 @@ import IcDelete from '@/app/(loggedIn)/_component/svg/IcDelete'
 import style from '../sidebar.module.scss'
 
 function SearchSidebar({ isOpen }) {
-  const { watch, control, setValue, reset } = useForm({
+  const { watch, control, reset, formState: {isDirty} } = useForm({
     mode: 'onChange',
     defaultValues: {
       searchWord: '',
     },
   })
-
-  const resetSearchWord = () => {
-    console.log(444)
-    // reset()
-  }
 
   return (
     <div role="dialog" className={cx(style.sidebar, isOpen && style.opened)}>
@@ -27,15 +22,13 @@ function SearchSidebar({ isOpen }) {
         <SearchInput
           name="searchWord"
           control={control}
-          // reset={setValue('searchWord', '')}
+          reset={reset}
+          isDirty={isDirty}
           maxLength="30"
           type="text"
           placeholder="검색"
         />
-        {JSON.stringify(watch('searchWord'))}
-        <button type="button" onClick={reset}>
-          삭제
-        </button>
+        {watch('searchWord')}
       </div>
     </div>
   )
