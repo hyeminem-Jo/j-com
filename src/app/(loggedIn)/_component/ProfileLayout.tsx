@@ -3,11 +3,11 @@ import CircleProfile from '@/app/(loggedIn)/_component/CircleProfile'
 import { Button } from '@/app/_component/common/Button/Button'
 import SliderWrapper from '@/app/(loggedIn)/_component/SliderWrapper'
 import style from '@/app/(loggedIn)/[username]/profile.module.scss'
-import Tab from "@/app/(loggedIn)/[username]/_component/Tab";
+import Tab from '@/app/(loggedIn)/[username]/_component/Tab'
+import { ReactNode } from 'react'
 import plus from '../../../../public/plus.png'
-import {ReactNode} from "react";
 
-type Props = { children: ReactNode; }
+type Props = { children: ReactNode }
 
 export default function ProfileLayout({ children }: Props) {
   const me = {
@@ -235,15 +235,13 @@ export default function ProfileLayout({ children }: Props) {
           ))}
           <div>
             <div className={style.highlightItem}>
-              <button type="button">
-                <CircleProfile
-                  src={plus}
-                  width={75}
-                  height={75}
-                  alt="plus-btn"
-                  ring
-                />
-              </button>
+              <CircleProfile
+                src={plus}
+                width={75}
+                height={75}
+                alt="plus-btn"
+                ring
+              />
               <span className={style.desc}>신규</span>
             </div>
           </div>

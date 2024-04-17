@@ -7,6 +7,7 @@ import Index from '@/app/(loggedIn)/_component/ActionButton/ActionButton'
 import CircleProfile from '@/app/(loggedIn)/_component/CircleProfile'
 import SliderWrapper from '@/app/(loggedIn)/_component/SliderWrapper'
 import MorePostOptionButton from '@/app/(loggedIn)/_component/MorePostOptionButton'
+import NameButton from '@/app/(loggedIn)/_component/NameButton'
 import style from './post.module.scss'
 
 dayjs.locale('ko')
@@ -61,11 +62,14 @@ function Post() {
         <div className={style.user}>
           <CircleProfile
             src={User?.image}
-            width={40}
-            height={40}
+            width={35}
+            height={35}
+            userId={User?.id}
             alt={User?.id}
           />
-          <strong className={style.userName}>{User?.id}</strong>
+          <strong className={style.userName}>
+            <NameButton userId={User?.id} fontSize={15} />
+          </strong>
           <span className={style.dot}>•</span>
           <span className={style.date}>{dayjs(createdAt).fromNow(true)}</span>
         </div>

@@ -1,17 +1,13 @@
-'use client'
-
-import { FormEventHandler, useCallback, useRef, useState } from 'react'
-import { Button } from '@/app/_component/common/Button/Button'
-import cx from 'classnames'
-import Image from 'next/image'
+import React, { FormEventHandler, useCallback, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import Textarea from '@/app/_component/common/Textarea/Textarea'
+import cx from 'classnames'
+import style from '@/app/(loggedIn)/_component/PostForm/postForm.module.scss'
+import { Button } from '@/app/_component/common/Button/Button'
 import SliderWrapper from '@/app/(loggedIn)/_component/SliderWrapper'
-import IcMedia from '@/app/(loggedIn)/_component/svg/IcMedia'
-import IcBack from '@/app/(loggedIn)/_component/svg/IcBack'
-import style from './postForm.module.scss'
+import Image from 'next/image'
+import Textarea from '@/app/_component/common/Textarea/Textarea'
 
-function PostForm() {
+function PostDetail() {
   const { watch, control, handleSubmit, reset } = useForm({
     mode: 'onChange',
     defaultValues: {
@@ -71,6 +67,7 @@ function PostForm() {
 
   const clickNext = (e) => {
     e.preventDefault() // step 이 2로 바뀌면서 리렌더링되고 '공유하기' 버튼이 누른것으로 인식되어 제출되는데 이를 방지
+    console.log(step)
     if (step === 2) return
     setStep((prev) => prev + 1)
   }
@@ -82,9 +79,11 @@ function PostForm() {
     >
       <div className={style.postStep}>
         {isUploaded && (
-          <button type="button" className={style.prevBtn} onClick={clickPrev}>
-            <IcBack />
-          </button>
+          <button
+            type="button"
+            className={style.prevBtn}
+            onClick={clickPrev}
+          ></button>
         )}
         {isUploaded && (
           <>
@@ -107,7 +106,6 @@ function PostForm() {
       <div className={style.postFormInner}>
         {step === 1 && !isUploaded && (
           <div className={style.desc}>
-            <IcMedia />
             <div>사진과 동영상을 여기에 끌어다 놓으세요</div>
             {/* TODO: 드래그해서 이미지 업로드 하는 기능 추가하기 */}
             <input
@@ -175,4 +173,4 @@ function PostForm() {
   )
 }
 
-export default PostForm
+export default PostDetail

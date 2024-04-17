@@ -1,6 +1,18 @@
-import Image from 'next/image'
+'use client'
 
-function CircleProfile({ src, alt, width, height, ring, active, border }) {
+import Image from 'next/image'
+import { useRouter } from 'next/navigation'
+
+function CircleProfile({
+  src,
+  alt,
+  userId = null,
+  width,
+  height,
+  ring,
+  active,
+  border,
+}) {
   const style = {
     profileImage: {
       width: `${width}px`,
@@ -11,14 +23,28 @@ function CircleProfile({ src, alt, width, height, ring, active, border }) {
         : border || '1px solid #ddd',
       outlineOffset: ring ? '2px' : 'none',
       overflow: 'hidden',
+      cursor: userId ? 'pointer' : 'auto',
     },
     img: {
       objectFit: 'cover',
     },
   }
 
+  const router = useRouter()
+
+  const enterToProfile = () => {
+    if (userId) {
+      router.push(`/${userId}`)
+    }
+  }
+
   return (
-    <div className="profileImage" style={style.profileImage}>
+    <button
+      type="button"
+      className="profileImage"
+      style={style.profileImage}
+      onClick={enterToProfile}
+    >
       <Image
         src={src}
         width={width}
@@ -26,7 +52,7 @@ function CircleProfile({ src, alt, width, height, ring, active, border }) {
         alt={`${alt}-profile-image`}
         style={style.img}
       />
-    </div>
+    </button>
   )
 }
 
