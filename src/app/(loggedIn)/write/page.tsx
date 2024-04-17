@@ -6,9 +6,6 @@ import PostForm from '@/app/(loggedIn)/_component/PostForm/PostForm'
 function Page() {
   return (
     <>
-      <ModalPage title="새 게시물 만들기">
-        <PostForm />
-      </ModalPage>
       <Home /> {/* 새로고침 시 나오는 children */}
     </>
   )
