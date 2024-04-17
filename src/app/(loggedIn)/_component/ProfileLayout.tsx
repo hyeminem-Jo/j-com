@@ -2,14 +2,14 @@ import Link from 'next/link'
 import CircleProfile from '@/app/(loggedIn)/_component/CircleProfile'
 import { Button } from '@/app/_component/common/Button/Button'
 import SliderWrapper from '@/app/(loggedIn)/_component/SliderWrapper'
-import style from './profile.module.scss'
+import style from '@/app/(loggedIn)/[username]/profile.module.scss'
 import Tab from "@/app/(loggedIn)/[username]/_component/Tab";
 import plus from '../../../../public/plus.png'
 import {ReactNode} from "react";
 
-type Props = { children: ReactNode; modal: ReactNode }
+type Props = { children: ReactNode; }
 
-export default function ProfileLayout({ children, modal }: Props) {
+export default function ProfileLayout({ children }: Props) {
   const me = {
     // 임시 정보
     id: 'h._jinny',
@@ -139,7 +139,6 @@ export default function ProfileLayout({ children, modal }: Props) {
 
   return (
     <section className={style.profile}>
-      {modal}
       <header className={style.profileTop}>
         <div className={style.profileUser}>
           <div className={style.profileUserImage}>
