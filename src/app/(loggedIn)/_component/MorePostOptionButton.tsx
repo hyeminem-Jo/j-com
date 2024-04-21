@@ -12,7 +12,6 @@ function MorePostOptionButton() {
       type="button"
       onClick={() => {
         openModal('postOption')
-        // alert('333')
       }}
     >
       <IcPostMoreOption />
