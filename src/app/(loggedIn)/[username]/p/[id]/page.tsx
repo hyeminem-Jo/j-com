@@ -1,10 +1,7 @@
-import ProfileMain from "@/app/(loggedIn)/_component/ProfileMain";
-import ProfileLayout from "@/app/(loggedIn)/_component/ProfileLayout";
+import PostDetail from '@/app/(loggedIn)/_component/PostDetail/PostDetail'
 
 function Page() {
-  return (
-    <div>상세페이지</div>
-  )
+  return <PostDetail />
 }
 
 export default Page
