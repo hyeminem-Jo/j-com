@@ -51,7 +51,27 @@
       }
 
       .formArea {
+        border: 1px solid red;
         flex: 1;
+        .idWrap {
+          display: flex;
+          align-items: center;
+          padding: 16px 16px 0 16px;
+          margin-bottom: 15px;
+
+          button {
+            margin-right: 12px;
+          }
+        }
+        .formAreaBottom {
+          display: flex;
+          justify-content: space-between;
+          padding: 16px;
+        }
+        .textLength {
+          font-size: 14px;
+          color: #ccc;
+        }
       }
     }
   }

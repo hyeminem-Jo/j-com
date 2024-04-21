@@ -143,12 +143,7 @@ export default function ProfileLayout({ children }: Props) {
         <div className={style.profileUser}>
           <div className={style.profileUserImage}>
             <Link href="#">
-              <CircleProfile
-                src={me?.image}
-                width={150}
-                height={150}
-                alt={me?.id}
-              />
+              <CircleProfile src={me?.image} size={150} alt={me?.id} />
             </Link>
           </div>
           <div className={style.profileUserInfo}>
@@ -222,26 +217,14 @@ export default function ProfileLayout({ children }: Props) {
           {me?.highlightItems?.map((item) => (
             <div>
               <div className={style.highlightItem}>
-                <CircleProfile
-                  src={item?.src}
-                  width={75}
-                  height={75}
-                  alt={item?.id}
-                  ring
-                />
+                <CircleProfile src={item?.src} size={75} alt={item?.id} ring />
                 <span className={style.desc}>{item?.desc}</span>
               </div>
             </div>
           ))}
           <div>
             <div className={style.highlightItem}>
-              <CircleProfile
-                src={plus}
-                width={75}
-                height={75}
-                alt="plus-btn"
-                ring
-              />
+              <CircleProfile src={plus} size={75} alt="plus-btn" ring />
               <span className={style.desc}>신규</span>
             </div>
           </div>

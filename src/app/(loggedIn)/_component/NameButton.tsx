@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 
-function NameButton({ userId, fontSize, color }) {
+function NameButton({ userId, fontSize, color, isButton = true }) {
   const style = {
     fontSize: `${fontSize}px`,
     fontWeight: 600,
@@ -13,10 +13,19 @@ function NameButton({ userId, fontSize, color }) {
   const enterToProfile = () => {
     router.push(`/${userId}`)
   }
+
   return (
-    <button type="button" style={style} onClick={enterToProfile}>
-      {userId}
-    </button>
+    <>
+      {isButton ? (
+        <button type="button" style={style} onClick={enterToProfile}>
+          {userId}
+        </button>
+      ) : (
+        <span type="button" style={style}>
+          {userId}
+        </span>
+      )}
+    </>
   )
 }
 

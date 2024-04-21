@@ -1,23 +1,24 @@
 'use client'
 
 import { useController } from 'react-hook-form'
+import cx from 'classnames'
+import { useEffect } from 'react'
 import style from './textareaPost.module.scss'
-import cx from "classnames";
-import {useEffect} from "react";
 
 function Textarea({
-   control,
-   name = '',
-   rules = {},
-   label = '',
-   placeholder = '',
-   className = '',
-   disabled = false,
-   size = '',
-   resize = false,
-   maxLength = 500,
-   rows = 3,
-   ...rest
+  control,
+  name = '',
+  rules = {},
+  label = '',
+  placeholder = '',
+  className = '',
+  disabled = false,
+  size = '',
+  resize = false,
+  maxLength = 500,
+  rows = 3,
+  height = 'auto',
+  ...rest
 }) {
   const {
     field,
@@ -45,6 +46,7 @@ function Textarea({
         placeholder={placeholder}
         disabled={disabled}
         rows={rows}
+        style={{ height: `${height}` }}
         {...rest}
       />
     </div>

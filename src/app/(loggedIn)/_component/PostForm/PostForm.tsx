@@ -9,6 +9,9 @@ import Textarea from '@/app/_component/common/Textarea/Textarea'
 import SliderWrapper from '@/app/(loggedIn)/_component/SliderWrapper'
 import IcMedia from '@/app/(loggedIn)/_component/svg/IcMedia'
 import IcBack from '@/app/(loggedIn)/_component/svg/IcBack'
+import NameButton from '@/app/(loggedIn)/_component/NameButton'
+import CircleProfile from '@/app/(loggedIn)/_component/CircleProfile'
+import EmojiButton from '@/app/(loggedIn)/_component/svg/EmojiButton'
 import style from './postForm.module.scss'
 
 function PostForm() {
@@ -159,13 +162,32 @@ function PostForm() {
             </div>
             {step === 2 && (
               <div className={style.formArea}>
+                <div className={style.idWrap}>
+                  <CircleProfile
+                    src={me?.image}
+                    size={28}
+                    userId={me?.id}
+                    alt={me?.id}
+                    ring={false}
+                    isButton={false}
+                  />
+                  <NameButton userId={me?.id} fontSize={14} isButton={false} />
+                </div>
                 <Textarea
                   name="post"
                   control={control}
                   maxLength="1000"
                   placeholder="문구를 입력하세요..."
-                  rows="15"
+                  height="200px"
                 />
+                <div className={style.formAreaBottom}>
+                  <EmojiButton size={20} />
+                  {/* TODO: 이모지 붙이는 기능 만들기 */}
+                  <span className={style.textLength}>
+                    {watch('post').length} / 1000
+                  </span>
+                </div>
+                {/* TODO: 그 외 게시글 옵션 (위치, 접근성 추가하기, 댓글, 좋아요 숨기기 기능 등 ) */}
               </div>
             )}
           </div>

@@ -13,8 +13,7 @@ function ProfileButton({ user, isMe, ring }) {
       <Link href="src/app/(loggedIn)/_component#" className={style.profileLink}>
         <CircleProfile
           src={user?.image}
-          width={50}
-          height={50}
+          size={50}
           alt={user?.id}
           ring={isMe || ring}
         />

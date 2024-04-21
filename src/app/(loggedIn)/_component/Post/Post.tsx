@@ -62,8 +62,7 @@ function Post() {
         <div className={style.user}>
           <CircleProfile
             src={User?.image}
-            width={35}
-            height={35}
+            size={35}
             userId={User?.id}
             alt={User?.id}
           />

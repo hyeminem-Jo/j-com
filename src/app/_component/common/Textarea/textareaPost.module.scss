@@ -5,13 +5,14 @@
 
   textarea {
     width: 100%;
-    padding: 15px;
+    padding: 0 16px;
     border: none;
     outline: none;
     font-size: 16px;
 
     &::placeholder {
       font-size: 16px;
+      color: #ccc;
     }
 
     &.noResize {

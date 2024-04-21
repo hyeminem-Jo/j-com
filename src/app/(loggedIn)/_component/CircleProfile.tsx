@@ -7,23 +7,23 @@ function CircleProfile({
   src,
   alt,
   userId = null,
-  width,
-  height,
+  size,
   ring,
   active,
   border,
+  isButton = true,
 }) {
   const style = {
     profileImage: {
-      width: `${width}px`,
-      height: `${height}px`,
+      width: `${size}px`,
+      height: `${size}px`,
       borderRadius: '50%',
       outline: ring
         ? `2px solid ${active ? 'orange' : '#ddd'}`
         : border || '1px solid #ddd',
       outlineOffset: ring ? '2px' : 'none',
       overflow: 'hidden',
-      cursor: userId ? 'pointer' : 'auto',
+      cursor: userId && isButton ? 'pointer' : 'auto',
     },
     img: {
       objectFit: 'cover',
@@ -33,7 +33,7 @@ function CircleProfile({
   const router = useRouter()
 
   const enterToProfile = () => {
-    if (userId) {
+    if (userId && isButton) {
       router.push(`/${userId}`)
     }
   }
@@ -47,8 +47,8 @@ function CircleProfile({
     >
       <Image
         src={src}
-        width={width}
-        height={height}
+        width={size}
+        height={size}
         alt={`${alt}-profile-image`}
         style={style.img}
       />

@@ -148,8 +148,7 @@ function NavMenu() {
           >
             <CircleProfile
               src={me?.image}
-              width={24}
-              height={24}
+              size={24}
               alt={me?.id}
               border="2px solid #000"
             />
