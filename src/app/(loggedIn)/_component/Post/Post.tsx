@@ -2,7 +2,7 @@ import Image from 'next/image'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import 'dayjs/locale/ko'
-import CommentForm from '@/app/(loggedIn)/_component/CommentForm'
+import CommentForm from '@/app/(loggedIn)/_component/CommentForm/CommentForm'
 import Index from '@/app/(loggedIn)/_component/ActionButton/ActionButton'
 import CircleProfile from '@/app/(loggedIn)/_component/CircleProfile'
 import SliderWrapper from '@/app/(loggedIn)/_component/SliderWrapper'
@@ -111,6 +111,7 @@ function Post() {
         <div className={style.postContent}>
           <span>{User.id}</span>
           <p className={style.desc}>{content}</p>
+          {/* TODO: 좋아요 수가 10개 이상인 댓글은 최대 2개까지 노출하기 */}
         </div>
         <button type="button" className={style.moreComment}>
           댓글 {Comments.length}개 {Comments.length > 1 && '모두 '}보기

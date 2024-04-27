@@ -1,6 +1,6 @@
 import React from 'react'
 
-function EmojiButton({ size }) {
+function EmojiButton({ size, color }) {
   const onClick = () => {
     console.log('emoji 생성')
   }
@@ -9,7 +9,7 @@ function EmojiButton({ size }) {
       <svg
         aria-label="이모티콘"
         className="x1lliihq x1n2onr6 x1roi4f4"
-        fill="currentColor"
+        fill={color || 'currentColor'}
         width={size}
         height={size}
         role="img"

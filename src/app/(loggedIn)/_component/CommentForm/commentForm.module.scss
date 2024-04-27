@@ -1,0 +1,14 @@
+.commentForm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  button:first-child {
+    padding-left: 0;
+    padding-right: 5px;
+  }
+  button:last-child {
+    padding: 0 5px;
+    white-space: nowrap;
+  }
+}
