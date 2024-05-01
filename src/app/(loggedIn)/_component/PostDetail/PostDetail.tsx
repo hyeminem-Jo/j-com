@@ -202,6 +202,9 @@ function PostDetail() {
                 <strong>{UsersWhoLiked[0].id}</strong>님 외{' '}
                 <strong>{UsersWhoLiked.length}명</strong>이 좋아합니다
               </p>
+              <div className={style.date}>
+                {dayjs(createdAt).format('YYYY년 MM월 DD일')}
+              </div>
             </div>
           </div>
           <div className={style.commentForm}>
