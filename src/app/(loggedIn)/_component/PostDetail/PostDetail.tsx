@@ -1,31 +1,27 @@
-'use client'
-
-import React, { FormEventHandler, useCallback } from 'react'
-import { useForm } from 'react-hook-form'
 import style from '@/app/(loggedIn)/_component/PostDetail/postDetail.module.scss'
 import SliderWrapper from '@/app/(loggedIn)/_component/SliderWrapper'
 import Image from 'next/image'
-import Textarea from '@/app/_component/common/Textarea/Textarea'
 import MorePostOptionButton from '@/app/(loggedIn)/_component/MorePostOptionButton'
 import CircleProfile from '@/app/(loggedIn)/_component/CircleProfile'
 import NameButton from '@/app/(loggedIn)/_component/NameButton'
 import CommentForm from '@/app/(loggedIn)/_component/CommentForm/CommentForm'
+import ActionButton from '@/app/(loggedIn)/_component/ActionButton/ActionButton'
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
+import 'dayjs/locale/ko'
+
+dayjs.locale('ko')
+dayjs.extend(relativeTime)
 
 function PostDetail() {
-  const { watch, control, handleSubmit, reset } = useForm({
-    mode: 'onChange',
-    defaultValues: {
-      post: '',
-    },
-  })
-
   const target = {
     User: {
       id: 'h._jinny',
       nickname: '혜진',
-      image: '/user-01.jpg',
+      image: '/profile_image.jpg',
     },
-    content: '리액트 공부는 재밌어...',
+    content:
+      '리액트 공부는 재밌어...리액트 공부는 재밌어...리액트 공부는 재밌어...리액트 공부는 재밌어...리액트 공부는 재밌어...리액트 공부는 재밌어...리액트 공부는 재밌어...리액트 공부는 재밌어...리액트 공부는 재밌어...리액트 공부는 재밌어...리액트 공부는 재밌어...리액트 공부는 재밌어...리액트 공부는 재밌어...',
     createdAt: new Date(),
     Images: [
       {
@@ -45,12 +41,22 @@ function PostDetail() {
       {
         User: {
           id: 'h._seung',
+          image: '/user.jpg',
         },
         content: '모찌리도후가 먹고싶엉',
+        like: 3,
       },
       {
         User: {
           id: 'veenoo',
+          image: '/user.jpg',
+        },
+        content: '술먹자',
+      },
+      {
+        User: {
+          id: 'jin_woo',
+          image: '/user.jpg',
         },
         content: '술먹자',
       },
@@ -58,17 +64,7 @@ function PostDetail() {
     numOfLike: 5,
     postId: 1,
   }
-
-  const { User, Images } = target
-
-  const onSubmit: FormEventHandler<HTMLFormElement> = useCallback(
-    (data) => {
-      console.log(data)
-      alert(data)
-      reset()
-    },
-    [watch()],
-  )
+  const { User, Images, createdAt, content, Comments } = target
 
   return (
     <div className={style.postWrap}>
@@ -120,9 +116,57 @@ function PostDetail() {
           </div>
           <MorePostOptionButton />
         </div>
-        <div className={style.postContent}></div>
+        <div className={style.postContent}>
+          <div className={style.myContent}>
+            <CircleProfile
+              src={User?.image}
+              size={28}
+              userId={User?.id}
+              alt={User?.id}
+              ring={false}
+              isButton={false}
+            />
+            <div className={style.nameAndContent}>
+              <div className={style.name}>
+                <NameButton userId={User?.id} fontSize={14} />
+                <span>{dayjs(createdAt).fromNow(true)}</span>
+              </div>
+              <div className={style.contentsWrap}>
+                <div className={style.content}>{content}</div>
+              </div>
+            </div>
+          </div>
+          <ul>
+            {Comments.map((item) => (
+              <li className={style.Comment}>
+                <CircleProfile
+                  src={item?.User?.image}
+                  size={28}
+                  userId={item?.User?.id}
+                  alt={item?.User?.id}
+                  ring={false}
+                  isButton={false}
+                />
+                <div className={style.nameAndContent}>
+                  <div className={style.name}>
+                    <NameButton userId={item?.User?.id} fontSize={14} />
+                    <span>{dayjs(createdAt).fromNow(true)}</span>
+                  </div>
+                  <div className={style.contentsWrap}>
+                    <div className={style.content}>{item?.content}</div>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
         <div className={style.postAreaBottom}>
-          <CommentForm />
+          <div className={style.action}>
+            <ActionButton />
+          </div>
+          <div className={style.commentForm}>
+            <CommentForm id={User?.id} />
+          </div>
         </div>
       </div>
     </div>

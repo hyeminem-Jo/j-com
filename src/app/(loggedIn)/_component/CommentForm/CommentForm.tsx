@@ -8,7 +8,7 @@ import { TextButton } from '@/app/_component/common/Button/Button'
 import style from './commentForm.module.scss'
 
 type Props = {
-  id: string
+  id: string | undefined
 }
 
 function CommentForm({ id }: Props) {

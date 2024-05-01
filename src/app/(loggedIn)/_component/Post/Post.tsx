@@ -3,7 +3,7 @@ import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import 'dayjs/locale/ko'
 import CommentForm from '@/app/(loggedIn)/_component/CommentForm/CommentForm'
-import Index from '@/app/(loggedIn)/_component/ActionButton/ActionButton'
+import ActionButton from '@/app/(loggedIn)/_component/ActionButton/ActionButton'
 import CircleProfile from '@/app/(loggedIn)/_component/CircleProfile'
 import SliderWrapper from '@/app/(loggedIn)/_component/SliderWrapper'
 import MorePostOptionButton from '@/app/(loggedIn)/_component/MorePostOptionButton'
@@ -105,7 +105,7 @@ function Post() {
         </div>
       )}
       <div className={style.postBottom}>
-        <Index />
+        <ActionButton />
         <div className={style.like}>좋아요 {numOfLike}개</div>
         {/* TODO: 좋아요 수가 천단위가 넘어가면 ',' 붙이기 => util 함수로 빼기 */}
         <div className={style.postContent}>
