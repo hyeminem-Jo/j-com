@@ -44,7 +44,6 @@ function PostDetail() {
           image: '/user.jpg',
         },
         content: '모찌리도후가 먹고싶엉',
-        like: 3,
       },
       {
         User: {
@@ -61,10 +60,32 @@ function PostDetail() {
         content: '술먹자',
       },
     ],
-    numOfLike: 5,
+    UsersWhoLiked: [
+      {
+        id: 'h._seung',
+        image: '/user.jpg',
+      },
+      {
+        id: 'veenoo',
+        image: '/user.jpg',
+      },
+      {
+        id: 'jin_woo',
+        image: '/user.jpg',
+      },
+      {
+        id: 'rawon',
+        image: '/user.jpg',
+      },
+      {
+        id: 'bin___oou',
+        image: '/user.jpg',
+      },
+    ],
     postId: 1,
   }
-  const { User, Images, createdAt, content, Comments } = target
+  const { User, Images, createdAt, content, Comments, UsersWhoLiked } = target
+  const firstThreeUsers = UsersWhoLiked.slice(0, 3)
 
   return (
     <div className={style.postWrap}>
@@ -163,6 +184,25 @@ function PostDetail() {
         <div className={style.postAreaBottom}>
           <div className={style.action}>
             <ActionButton />
+            <div className={style.likeUser}>
+              <ul className={style.likeUserWrap}>
+                {firstThreeUsers.map((user) => (
+                  <li key={user?.id}>
+                    <CircleProfile
+                      src={user?.image}
+                      size={21}
+                      userId={user?.id}
+                      alt={user?.id}
+                      isButton={false}
+                    />
+                  </li>
+                ))}
+              </ul>
+              <p className={style.desc}>
+                <strong>{UsersWhoLiked[0].id}</strong>님 외{' '}
+                <strong>{UsersWhoLiked.length}명</strong>이 좋아합니다
+              </p>
+            </div>
           </div>
           <div className={style.commentForm}>
             <CommentForm id={User?.id} />

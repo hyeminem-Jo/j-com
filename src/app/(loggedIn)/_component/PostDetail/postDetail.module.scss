@@ -39,7 +39,6 @@
       }
     }
     .nameAndContent {
-      border: 1px solid red;
       margin-left: 12px;
       font-size: 14px;
       line-height: 18px;
@@ -60,10 +59,31 @@
     }
   }
   .postAreaBottom {
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #eee;
 
     .action {
       padding: 6px 16px;
+      border-bottom: 1px solid #ddd;
+
+      .likeUser {
+        display: flex;
+        align-items: center;
+        margin: 6px 0;
+
+        .desc {
+          margin-left: 4px;
+          font-size: 14px;
+          strong {
+            font-weight: 600;
+          }
+        }
+      }
+      .likeUserWrap {
+        display: flex;
+        li {
+          margin-left: -5px;
+        }
+      }
     }
     .commentForm {
       padding: 6px 16px;
