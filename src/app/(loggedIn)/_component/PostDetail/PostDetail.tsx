@@ -88,7 +88,7 @@ function PostDetail() {
   const firstThreeUsers = UsersWhoLiked.slice(0, 3)
 
   return (
-    <div className={style.postWrap}>
+    <article className={style.postWrap}>
       <div className={style.postImageWrap}>
         {/* 이미지 슬라이드 */}
         {Images.length > 1 ? (
@@ -212,7 +212,7 @@ function PostDetail() {
           </div>
         </div>
       </div>
-    </div>
+    </article>
   )
 }
 
