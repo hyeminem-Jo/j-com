@@ -6,8 +6,8 @@ import Input from '@/app/_component/common/Input/Input'
 import { useForm } from 'react-hook-form'
 import SignupOrLoginForm from '@/app/_component/SignupOrLoginForm/SignupOrLoginForm'
 import ButtonGroup from '@/app/_component/common/ButtonGroup/ButtonGroup'
-import Link from 'next/link'
-import { Button } from '@/app/_component/common/Button/Button'
+import { Button, TextButton } from '@/app/_component/common/Button/Button'
+import { useModalStore } from '@/store/modal'
 import phoneImage from '../../../../public/phone.png'
 import logo from '../../../../public/logo.png'
 
@@ -18,6 +18,7 @@ export default function Main() {
       password: '',
     },
   })
+  const openModal = useModalStore((state: any) => state.openModal)
 
   return (
     <>
@@ -53,9 +54,16 @@ export default function Main() {
             <Button type="submit" size="md" color="primary">
               로그인
             </Button>
-            <Link href="/signup" className={styles.goSignup}>
-              회원가입 하러가기
-            </Link>
+            <div className={styles.goSignup}>
+              <TextButton
+                type="buttton"
+                onClick={() => {
+                  openModal('signup')
+                }}
+              >
+                회원가입 하러가기
+              </TextButton>
+            </div>
           </ButtonGroup>
         </SignupOrLoginForm>
       </div>

@@ -14,6 +14,7 @@ import MoreMenu from '@/app/(loggedIn)/_component/MoreMenu/MoreMenu'
 // import {useStore} from "zustand/esm/index";
 import { useMenuStore } from '@/store/moreMenu'
 import IcNavMore from '@/app/(loggedIn)/_component/svg/IcNavMore'
+import { useModalStore } from '@/store/modal'
 import style from './navMenu.module.scss'
 import logo from '../../../../../public/logo.png'
 import logoIcon from '../../../../../public/logo-icon.png'
@@ -37,11 +38,7 @@ function NavMenu() {
   )
 
   useEffect(() => {
-    if (segment === 'write') {
-      setCurrentSegment('home')
-    } else {
-      setCurrentSegment(segment)
-    }
+    setCurrentSegment(segment)
   }, [segment])
 
   useEffect(() => {
@@ -69,6 +66,8 @@ function NavMenu() {
     { url: 'message', title: '메시지', link: true },
     { url: 'alarm', title: '알림', link: false },
   ]
+
+  const openModal = useModalStore((state: any) => state.openModal)
 
   return (
     <nav
@@ -134,10 +133,16 @@ function NavMenu() {
           </li>
         ))}
         <li className={style.menuItem} key="write">
-          <Link href="/write" className={style.menuButton}>
+          <button
+            type="button"
+            onClick={() => {
+              openModal('writePost')
+            }}
+            className={style.menuButton}
+          >
             <IcNavMenuWrite />
             <span className={style.navMenuTitle}>만들기</span>
-          </Link>
+          </button>
           {/* TODO: PostForm 컴포넌트 바깥으로 뺀 후 zustand 를 이용하여 state 관리  */}
         </li>
         <li className={style.menuItem} key={me?.id}>
