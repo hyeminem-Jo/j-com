@@ -8,11 +8,7 @@ function ModalPage({ children, title }) {
   const router = useRouter()
 
   const onClickClose = () => {
-    if (window.history.length === 2) {
-      router.push('home') // write 페이지를 url 로 접근 후 닫힘 버튼을 누르면 home 으로 이동
-    } else {
-      router.back()
-    }
+    router.back()
   }
 
   return (

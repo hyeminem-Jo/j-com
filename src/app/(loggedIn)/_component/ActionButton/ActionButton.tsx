@@ -4,11 +4,11 @@ import IcSaved from '@/app/(loggedIn)/_component/svg/IcSaved'
 import IcSharePosts from '@/app/(loggedIn)/_component/svg/IcSharePosts'
 import IcComment from '@/app/(loggedIn)/_component/svg/IcComment'
 import IcLike from '@/app/(loggedIn)/_component/svg/IcLike'
-import { useModalStore } from '@/store/modal'
+import { useRouter } from 'next/navigation'
 import style from './actionButton.module.scss'
 
-function ActionButton({ isLiked = true, isSaved = false }) {
-  const openModal = useModalStore((state: any) => state.openModal)
+function ActionButton({ post, isLiked = true, isSaved = false }) {
+  const router = useRouter()
 
   const likeHandler = () => {}
   const sharePost = () => {}
@@ -25,7 +25,7 @@ function ActionButton({ isLiked = true, isSaved = false }) {
         <button
           type="button"
           onClick={() => {
-            openModal('postDetail')
+            router.push(`${post?.User?.id}/p/${post?.postId}`)
           }}
         >
           <IcComment />

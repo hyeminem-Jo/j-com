@@ -105,7 +105,7 @@ function Post() {
         </div>
       )}
       <div className={style.postBottom}>
-        <ActionButton />
+        <ActionButton post={target} />
         <div className={style.like}>좋아요 {numOfLike}개</div>
         {/* TODO: 좋아요 수가 천단위가 넘어가면 ',' 붙이기 => util 함수로 빼기 */}
         <div className={style.postContent}>
