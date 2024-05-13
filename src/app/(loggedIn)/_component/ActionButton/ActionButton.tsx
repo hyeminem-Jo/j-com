@@ -29,6 +29,7 @@ function ActionButton({ post, isLiked = true, isSaved = false }) {
           }}
         >
           <IcComment />
+        {/* TODO: 게시물의 상세페이지일 경우 댓글 버튼 눌럿을 때 댓글 폼에 focus */}
         </button>
       </li>
       <li className={style.actionButtonItem}>
