@@ -10,15 +10,20 @@ import { Button, TextButton } from '@/app/_component/common/Button/Button'
 import { useModalStore } from '@/store/modal'
 import phoneImage from '../../../../public/phone.png'
 import logo from '../../../../public/logo.png'
+import React from "react";
 
 export default function Main() {
-  const { control } = useForm({
+  const { control, setFocus } = useForm({
     defaultValues: {
       email: '',
       password: '',
     },
   })
   const openModal = useModalStore((state: any) => state.openModal)
+
+  React.useEffect(() => {
+    setFocus("email");
+  }, [setFocus]);
 
   return (
     <>
@@ -31,7 +36,6 @@ export default function Main() {
           <Input
             name="email"
             control={control}
-            label=""
             maxLength="30"
             type="text"
             placeholder="아이디"

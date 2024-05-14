@@ -42,6 +42,7 @@ function Textarea({
         // value={field.value || ''}
         className={cx(!resize && style.noResize, size === 'sm' && style.sm)}
         onChange={field.onChange}
+        onBlur={field.onBlur}
         maxLength={maxLength}
         placeholder={placeholder}
         disabled={disabled}

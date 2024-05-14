@@ -13,6 +13,8 @@ function Input({
   maxLength = 0,
   placeholder = '',
   onChange = () => {},
+  onBlur = () => {},
+  onFocus = () => {},
   disabled,
   ...rest
 }) {
@@ -35,9 +37,14 @@ function Input({
           id={name}
           type={type}
           className="input"
+          name={name}
           value={field.value}
-          // value={field.value || ''}
           onChange={field.onChange}
+          onBlur={() => {
+            onBlur()
+            field.onBlur()
+          }}
+          onFocus={onFocus}
           placeholder={placeholder}
           disabled={disabled}
           {...rest}
