@@ -21,10 +21,6 @@ export default function Main() {
   })
   const openModal = useModalStore((state: any) => state.openModal)
 
-  React.useEffect(() => {
-    setFocus("email");
-  }, [setFocus]);
-
   return (
     <>
       <div className={styles.left}>

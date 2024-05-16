@@ -40,9 +40,7 @@ function Input({
           name={name}
           value={field.value}
           onChange={field.onChange}
-          ref={(e) => {
-            field.ref(e);
-          }}
+          ref={field.ref}
           onBlur={() => {
             onBlur()
             field.onBlur()

@@ -16,6 +16,7 @@ function SignupForm() {
     reset,
     setError,
     clearErrors,
+    setFocus,
     formState: { errors },
   } = useForm({
     mode: 'onChange',
@@ -52,6 +53,10 @@ function SignupForm() {
     },
     [watch()],
   )
+
+  useEffect(() => {
+    setFocus("user")
+  }, [setFocus])
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={style.signupForm}>
