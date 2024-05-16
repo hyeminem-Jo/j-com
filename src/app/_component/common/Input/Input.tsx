@@ -20,7 +20,7 @@ function Input({
 }) {
   const {
     field,
-    fieldState: { error },
+    fieldState: { error }
   } = useController({
     name,
     control,
@@ -40,6 +40,9 @@ function Input({
           name={name}
           value={field.value}
           onChange={field.onChange}
+          ref={(e) => {
+            field.ref(e);
+          }}
           onBlur={() => {
             onBlur()
             field.onBlur()
