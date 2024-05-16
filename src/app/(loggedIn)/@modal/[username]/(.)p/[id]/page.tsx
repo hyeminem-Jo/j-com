@@ -8,7 +8,7 @@ type Props = {
 export default function Page({ params }: Props) {
   return (
     <ModalPage>
-      <PostDetail />
+      <PostDetail isModal />
     </ModalPage>
   )
 }

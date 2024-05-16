@@ -6,8 +6,12 @@
   overflow: hidden;
 
   .postArea {
+    flex: 1;
     display: flex;
     flex-direction: column;
+  }
+  .postModal {
+    width: 350px;
   }
 
   .postAreaTop {
@@ -104,9 +108,5 @@
     .image img{
       object-fit: cover;
     }
-  }
-
-  .postArea {
-    flex: 1;
   }
 }

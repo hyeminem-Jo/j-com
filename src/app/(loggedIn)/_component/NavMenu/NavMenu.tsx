@@ -11,7 +11,6 @@ import AlarmSidebar from '@/app/(loggedIn)/_component/AlarmSidebar/AlarmSidebar'
 import cx from 'classnames'
 import Image from 'next/image'
 import MoreMenu from '@/app/(loggedIn)/_component/MoreMenu/MoreMenu'
-// import {useStore} from "zustand/esm/index";
 import { useMenuStore } from '@/store/moreMenu'
 import IcNavMore from '@/app/(loggedIn)/_component/svg/IcNavMore'
 import { useModalStore } from '@/store/modal'

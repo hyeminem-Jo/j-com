@@ -2,9 +2,10 @@
 
 import Textarea from '@/app/_component/common/Textarea/Textarea'
 import { useForm } from 'react-hook-form'
-import { FormEventHandler, useCallback } from 'react'
+import { FormEventHandler, useCallback, useEffect } from 'react'
 import EmojiButton from '@/app/(loggedIn)/_component/svg/EmojiButton'
 import { TextButton } from '@/app/_component/common/Button/Button'
+import { useCommentFormFocusStore } from '@/store/commentFormFocus'
 import style from './commentForm.module.scss'
 
 type Props = {
@@ -18,12 +19,28 @@ function CommentForm({ id }: Props) {
     handleSubmit,
     reset,
     formState: { isDirty },
+    setFocus,
   } = useForm({
     mode: 'onChange',
     defaultValues: {
       comment: '',
     },
   })
+
+  const isFocus = useCommentFormFocusStore(
+    (state: any) => state.isCommentFormFocus,
+  )
+  const setIsFocus = useCommentFormFocusStore(
+    (state: any) => state.setIsCommentFormFocus,
+  )
+
+  useEffect(() => {
+    if (isFocus) {
+      setFocus('comment')
+      setIsFocus(false)
+    }
+    setFocus('comment')
+  }, [setFocus, isFocus])
 
   const onSubmit: FormEventHandler<HTMLFormElement> = useCallback(
     (data) => {

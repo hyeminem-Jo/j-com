@@ -9,11 +9,12 @@ import ActionButton from '@/app/(loggedIn)/_component/ActionButton/ActionButton'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import 'dayjs/locale/ko'
+import cx from 'classnames'
 
 dayjs.locale('ko')
 dayjs.extend(relativeTime)
 
-function PostDetail() {
+function PostDetail({ isModal }) {
   const target = {
     User: {
       id: 'h._jinny',
@@ -122,7 +123,7 @@ function PostDetail() {
           </div>
         )}
       </div>
-      <div className={style.postArea}>
+      <div className={cx(style.postArea, isModal && style.postModal)}>
         <div className={style.postAreaTop}>
           <div className={style.idWrap}>
             <CircleProfile
@@ -183,7 +184,7 @@ function PostDetail() {
         </div>
         <div className={style.postAreaBottom}>
           <div className={style.action}>
-            <ActionButton />
+            <ActionButton isPostDetail />
             <div className={style.likeUser}>
               <ul className={style.likeUserWrap}>
                 {firstThreeUsers.map((user) => (
