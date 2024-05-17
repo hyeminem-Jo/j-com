@@ -89,7 +89,7 @@ function PostDetail({ isModal }) {
   const firstThreeUsers = UsersWhoLiked.slice(0, 3)
 
   return (
-    <article className={style.postWrap}>
+    <article className={cx(style.postWrap, isModal && style.postModal)}>
       <div className={style.postImageWrap}>
         {/* 이미지 슬라이드 */}
         {Images.length > 1 ? (
@@ -123,7 +123,7 @@ function PostDetail({ isModal }) {
           </div>
         )}
       </div>
-      <div className={cx(style.postArea, isModal && style.postModal)}>
+      <div className={style.postArea}>
         <div className={style.postAreaTop}>
           <div className={style.idWrap}>
             <CircleProfile

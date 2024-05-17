@@ -49,7 +49,9 @@ const post = {
 function PostOptionModal() {
   const router = useRouter()
   const onClick = () => {
-    router.push(`/post/${post.User.id}/${post.postId}`)
+    // router.push(`/${post.User.id}/p/${post.postId}`)
+    // window.location.replace(`/${post.User.id}/p/${post.postId}`)
+    window.location.reload()
   }
 
   const closeModal = useModalStore((state: any) => state.closeModal)

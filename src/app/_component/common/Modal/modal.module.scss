@@ -15,11 +15,11 @@
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
-  height: 630px;
+  //height: 630px;
   overflow: hidden;
   border-radius: 10px;
   background-color: #fff;
-  z-index: 30;
+  z-index: 20;
 
   &.autoHeight {
     height: auto;
