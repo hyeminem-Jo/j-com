@@ -60,6 +60,13 @@ function PostDetail({ isModal }) {
         },
         content: '술먹자',
       },
+      {
+        User: {
+          id: 'dd_dfdf',
+          image: '/user.jpg',
+        },
+        content: '나도 마실래ㅐ',
+      },
     ],
     UsersWhoLiked: [
       {
