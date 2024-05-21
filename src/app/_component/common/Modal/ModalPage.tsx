@@ -12,7 +12,7 @@ function ModalPage({ children, title }) {
   }
 
   return (
-    <>
+    <div className={style.modalWrap}>
       <div className={style.modalBg} onClick={onClickClose}></div>
       <div className={style.modal}>
         <div className={style.modalHeader}>
@@ -27,7 +27,7 @@ function ModalPage({ children, title }) {
         </div>
         <div className={style.modalContent}>{children}</div>
       </div>
-    </>
+    </div>
   )
 }
 

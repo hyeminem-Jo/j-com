@@ -4,16 +4,16 @@ import styles from '@/app/(loggedOut)/_component/main.module.scss'
 import Image from 'next/image'
 import Input from '@/app/_component/common/Input/Input'
 import { useForm } from 'react-hook-form'
-import SignupOrLoginForm from '@/app/_component/SignupOrLoginForm/SignupOrLoginForm'
 import ButtonGroup from '@/app/_component/common/ButtonGroup/ButtonGroup'
 import { Button, TextButton } from '@/app/_component/common/Button/Button'
 import { useModalStore } from '@/store/modal'
 import phoneImage from '../../../../public/phone.png'
 import logo from '../../../../public/logo.png'
 import React from "react";
+import style from "@/app/(loggedOut)/_component/signupOrLoginForm.module.scss";
 
 export default function Main() {
-  const { control, setFocus } = useForm({
+  const { control } = useForm({
     defaultValues: {
       email: '',
       password: '',
@@ -27,7 +27,7 @@ export default function Main() {
         <Image src={phoneImage} width={450} alt="logo" />
       </div>
       <div className={styles.right}>
-        <SignupOrLoginForm>
+        <div className={style.signupOrLoginForm}>
           <Image src={logo} width={220} alt="logo" />
           <Input
             name="email"
@@ -65,7 +65,7 @@ export default function Main() {
               </TextButton>
             </div>
           </ButtonGroup>
-        </SignupOrLoginForm>
+        </div>
       </div>
     </>
   )
