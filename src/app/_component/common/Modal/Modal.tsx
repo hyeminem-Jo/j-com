@@ -28,7 +28,7 @@ function Modal({
   return (
     <>
       {isOpen && (
-        <>
+        <div className={style.modalWrap}>
           {/* {modalList} */}
           <div className={style.modalBg} onClick={onClickClose}></div>
           <div className={cx(style.modal, autoHeight && style.autoHeight)}>
@@ -46,7 +46,7 @@ function Modal({
             )}
             <div className={style.modalContent}>{children}</div>
           </div>
-        </>
+        </div>
       )}
     </>
   )
