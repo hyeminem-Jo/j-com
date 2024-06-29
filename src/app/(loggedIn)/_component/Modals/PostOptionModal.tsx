@@ -49,9 +49,11 @@ const post = {
 function PostOptionModal() {
   const router = useRouter()
   const onClick = () => {
-    // router.push(`/${post.User.id}/p/${post.postId}`)
-    // window.location.replace(`/${post.User.id}/p/${post.postId}`)
-    window.location.reload()
+    // router.push(`/${post.User.id}/p/${post.postId}`) // 클라이언트 렌더링되어 모달 형식으로 뜸
+    // window.location.replace(`/${post.User.id}/p/${post.postId}`) // 히스토리에 기록되지 않아 뒤로가기 시 루트 경로로 이동해버림
+
+    // 서버사이드 렌더링을 통해 페이지 이동
+    window.location.href = `/${post.User.id}/p/${post.postId}`;
   }
 
   const closeModal = useModalStore((state: any) => state.closeModal)
