@@ -18,6 +18,9 @@ function Textarea({
   maxLength = 500,
   rows = 3,
   height = 'auto',
+  onChange = () => {},
+  onBlur = () => {},
+  onFocus = () => {},
   ...rest
 }) {
   const {
@@ -42,7 +45,12 @@ function Textarea({
         // value={field.value || ''}
         className={cx(!resize && style.noResize, size === 'sm' && style.sm)}
         onChange={field.onChange}
-        onBlur={field.onBlur}
+        onBlur={() => {
+          onBlur()
+          field.onBlur()
+        }}
+        onFocus={onFocus}
+        ref={field.ref}
         maxLength={maxLength}
         placeholder={placeholder}
         disabled={disabled}

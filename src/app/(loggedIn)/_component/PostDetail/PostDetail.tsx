@@ -4,12 +4,11 @@ import Image from 'next/image'
 import MorePostOptionButton from '@/app/(loggedIn)/_component/MorePostOptionButton'
 import CircleProfile from '@/app/(loggedIn)/_component/CircleProfile'
 import NameButton from '@/app/(loggedIn)/_component/NameButton'
-import CommentForm from '@/app/(loggedIn)/_component/CommentForm/CommentForm'
-import ActionButton from '@/app/(loggedIn)/_component/ActionButton/ActionButton'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import 'dayjs/locale/ko'
 import cx from 'classnames'
+import PostAreaBottom from "@/app/(loggedIn)/_component/PostDetail/PostAreaBottom";
 
 dayjs.locale('ko')
 dayjs.extend(relativeTime)
@@ -189,36 +188,7 @@ function PostDetail({ isModal }) {
             ))}
           </ul>
         </div>
-        <div className={style.postAreaBottom}>
-          <div className={style.action}>
-            <ActionButton isPostDetail />
-            <div className={style.likeUser}>
-              <ul className={style.likeUserWrap}>
-                {firstThreeUsers.map((user) => (
-                  <li key={user?.id}>
-                    <CircleProfile
-                      src={user?.image}
-                      size={21}
-                      userId={user?.id}
-                      alt={user?.id}
-                      isButton={false}
-                    />
-                  </li>
-                ))}
-              </ul>
-              <p className={style.desc}>
-                <strong>{UsersWhoLiked[0].id}</strong>님 외{' '}
-                <strong>{UsersWhoLiked.length}명</strong>이 좋아합니다
-              </p>
-              <div className={style.date}>
-                {dayjs(createdAt).format('YYYY년 MM월 DD일')}
-              </div>
-            </div>
-          </div>
-          <div className={style.commentForm}>
-            <CommentForm id={User?.id} />
-          </div>
-        </div>
+        <PostAreaBottom user={User} firstThreeUsers={firstThreeUsers} usersWhoLiked={UsersWhoLiked} createdAt={createdAt} />
       </div>
     </article>
   )

@@ -1,18 +1,20 @@
 'use client'
 
+import React from 'react';
 import Textarea from '@/app/_component/common/Textarea/Textarea'
 import { useForm } from 'react-hook-form'
 import { FormEventHandler, useCallback, useEffect } from 'react'
 import EmojiButton from '@/app/(loggedIn)/_component/svg/EmojiButton'
 import { TextButton } from '@/app/_component/common/Button/Button'
-import { useCommentFormFocusStore } from '@/store/commentFormFocus'
 import style from './commentForm.module.scss'
 
 type Props = {
-  id: string | undefined
+  id: string | undefined,
+  isCommentFocus: boolean,
+  setIsCommentFocus: React.Dispatch<React.SetStateAction<boolean>>,
 }
 
-function CommentForm({ id }: Props) {
+function CommentForm({ id, isCommentFocus, setIsCommentFocus }: Props) {
   const {
     watch,
     control,
@@ -27,20 +29,13 @@ function CommentForm({ id }: Props) {
     },
   })
 
-  const isFocus = useCommentFormFocusStore(
-    (state: any) => state.isCommentFormFocus,
-  )
-  const setIsFocus = useCommentFormFocusStore(
-    (state: any) => state.setIsCommentFormFocus,
-  )
-
   useEffect(() => {
-    if (isFocus) {
+    console.log(isCommentFocus)
+    if (isCommentFocus) {
       setFocus('comment')
-      setIsFocus(false)
+      setIsCommentFocus(false)
     }
-    setFocus('comment')
-  }, [setFocus, isFocus])
+  }, [isCommentFocus])
 
   const onSubmit: FormEventHandler<HTMLFormElement> = useCallback(
     (data) => {

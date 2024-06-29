@@ -116,7 +116,7 @@ function Post() {
         <button type="button" className={style.moreComment}>
           댓글 {Comments.length}개 {Comments.length > 1 && '모두 '}보기
         </button>
-        <CommentForm />
+        <CommentForm id={User?.id} />
       </div>
     </article>
   )
