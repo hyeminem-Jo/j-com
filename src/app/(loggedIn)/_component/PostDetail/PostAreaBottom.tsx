@@ -38,7 +38,6 @@ const PostAreaBottom = ({user, firstThreeUsers, usersWhoLiked, createdAt}) => {
         </div>
       </div>
       <div className={style.commentForm}>
-        ddd
         <CommentForm id={user?.id} isCommentFocus={isCommentFocus} setIsCommentFocus={setIsCommentFocus} />
       </div>
     </div>

@@ -17,7 +17,6 @@ function MessagePage() {
   React.useEffect(() => {
     setFocus("firstName");
     setFocus("email");
-    console.log(watch("firstName"));
 
     setError("email", {
       type: "manual",

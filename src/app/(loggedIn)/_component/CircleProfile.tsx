@@ -23,7 +23,7 @@ function CircleProfile({
         : border || '1px solid #ddd',
       outlineOffset: ring ? '2px' : 'none',
       overflow: 'hidden',
-      cursor: userId && isButton ? 'pointer' : 'auto',
+      cursor: isButton ? 'pointer' : 'auto',
     },
     img: {
       objectFit: 'cover',

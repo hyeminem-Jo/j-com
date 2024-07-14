@@ -14,7 +14,7 @@ function ModalPage({ children, title }) {
   return (
     <div className={style.modalWrap}>
       <div className={style.modalBg} onClick={onClickClose}></div>
-      <div className={style.modal}>
+      <div className={style.modal} style={{ minWidth: '900px', height: 'auto' }}>
         <div className={style.modalHeader}>
           {title}
           <button
