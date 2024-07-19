@@ -182,7 +182,6 @@ function PostForm() {
                 />
                 <div className={style.formAreaBottom}>
                   <EmojiButton size={20} />
-                  {/* TODO: 이모지 붙이는 기능 만들기 */}
                   <span className={style.textLength}>
                     {watch('post').length} / 1000
                   </span>

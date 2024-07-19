@@ -44,6 +44,7 @@
 
       .formImageWrap {
         width: 550px;
+        overflow: hidden;
 
         .image img{
           object-fit: cover;
