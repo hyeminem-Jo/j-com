@@ -10,7 +10,7 @@ function ProfileButton({ user, isMe, ring }) {
 
   return (
     <div className={style.profileButton}>
-      <Link href="src/app/(loggedIn)/_component#" className={style.profileLink}>
+      <Link href={`/${user?.id}`} className={style.profileLink}>
         <CircleProfile
           src={user?.image}
           size={50}
