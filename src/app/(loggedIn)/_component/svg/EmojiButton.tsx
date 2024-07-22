@@ -1,13 +1,22 @@
-import React, {useState} from 'react'
+import React, {useCallback, useEffect, useState} from 'react'
 import EmojiPicker from 'emoji-picker-react'
 
-function EmojiButton({ size, color }) {
+function EmojiButton({ size, color, formName, setValue, value }) {
 
   const [isOpenEmoji, setIsOpenEmoji] = useState<boolean>(false)
   const onClick = () => {
     console.log('emoji 생성')
     setIsOpenEmoji(prev => !prev)
   }
+
+  const dd = useCallback((data) => {
+      console.log(data?.emoji)
+      console.log('value: ', value)
+      // setValue(formName, data?.emoji)
+    },
+    [value, setValue, formName] // value가 변경될 때마다 함수가 업데이트되도록 의존성 배열에 추가
+  )
+
   return (
     <>
       <button type="button" onClick={onClick}>
@@ -25,7 +34,7 @@ function EmojiButton({ size, color }) {
         </svg>
       </button>
       {/* TODO: 이모지 붙이는 기능 만들기 */}
-      {isOpenEmoji && <EmojiPicker />}
+      {isOpenEmoji && <EmojiPicker onEmojiClick={(data) => {dd(data)}} />}
     </>
   )
 }

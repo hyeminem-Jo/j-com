@@ -22,6 +22,7 @@ function CommentForm({ id, isCommentFocus, setIsCommentFocus }: Props) {
     reset,
     formState: { isDirty },
     setFocus,
+    setValue,
   } = useForm({
     mode: 'onChange',
     defaultValues: {
@@ -48,7 +49,7 @@ function CommentForm({ id, isCommentFocus, setIsCommentFocus }: Props) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={style.commentForm}>
-      <EmojiButton size={13} color="#737373" />
+      <EmojiButton size={13} color="#737373" formName="comment" setValue={setValue} value={watch('comment')} />
       <Textarea
         name="comment"
         control={control}
