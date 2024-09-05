@@ -4,7 +4,7 @@ import React from 'react';
 import Textarea from '@/app/_component/common/Textarea/Textarea'
 import { useForm } from 'react-hook-form'
 import { FormEventHandler, useCallback, useEffect } from 'react'
-import EmojiButton from '@/app/(loggedIn)/_component/svg/EmojiButton'
+import EmojiButton from '@/app/(loggedIn)/_component/svg/Emoji/EmojiButton'
 import { TextButton } from '@/app/_component/common/Button/Button'
 import style from './commentForm.module.scss'
 
@@ -47,6 +47,10 @@ function CommentForm({ id, isCommentFocus, setIsCommentFocus }: Props) {
     [watch()],
   )
 
+  useEffect(() => {
+    console.log('부모 value: ', watch('comment'))
+  }, [watch('comment')])
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={style.commentForm}>
       <EmojiButton size={13} color="#737373" formName="comment" setValue={setValue} value={watch('comment')} />
@@ -58,7 +62,8 @@ function CommentForm({ id, isCommentFocus, setIsCommentFocus }: Props) {
         size="sm"
         rows="1"
       />
-      {isDirty && <TextButton>게시</TextButton>}
+      {/* 이모지만 입력했을 땐 isDirty 가 true 가 안됨 */}
+      {(isDirty || !!watch('comment')) && <TextButton>게시</TextButton>}
     </form>
   )
 }

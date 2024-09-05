@@ -11,7 +11,7 @@ import IcMedia from '@/app/(loggedIn)/_component/svg/IcMedia'
 import IcBack from '@/app/(loggedIn)/_component/svg/IcBack'
 import NameButton from '@/app/(loggedIn)/_component/NameButton'
 import CircleProfile from '@/app/(loggedIn)/_component/CircleProfile'
-import EmojiButton from '@/app/(loggedIn)/_component/svg/EmojiButton'
+import EmojiButton from '@/app/(loggedIn)/_component/svg/Emoji/EmojiButton'
 import style from './postForm.module.scss'
 
 function PostForm() {

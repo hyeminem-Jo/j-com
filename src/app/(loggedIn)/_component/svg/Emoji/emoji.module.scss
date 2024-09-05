@@ -1,0 +1,16 @@
+.emojiButton {
+  position: relative;
+  padding-left: 0;
+  padding-right: 5px;
+
+  .emojiPickerWrap {
+    position: absolute;
+    bottom: calc(100% + 3px);
+    left: 50%;
+    transform: translateX(-50%);
+
+    aside {
+      height: 350px !important;
+    }
+  }
+}
