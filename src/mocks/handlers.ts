@@ -5,7 +5,7 @@ export const handlers = [
     console.log('로그인');
     return HttpResponse.json({
       userId: 1,
-      nickname: '제로초',
+      nickname: '혜지닝',
       id: 'konnimey',
       image: '/5Udwvqim.jpg',
     }, {

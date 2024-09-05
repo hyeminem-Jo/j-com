@@ -1,6 +1,6 @@
 'use client'
 
-import { FormEventHandler, useCallback, useRef, useState } from 'react'
+import React, { FormEventHandler, useCallback, useRef, useState } from 'react'
 import { Button } from '@/app/_component/common/Button/Button'
 import cx from 'classnames'
 import Image from 'next/image'
@@ -15,7 +15,7 @@ import EmojiButton from '@/app/(loggedIn)/_component/svg/Emoji/EmojiButton'
 import style from './postForm.module.scss'
 
 function PostForm() {
-  const { watch, control, handleSubmit, reset } = useForm({
+  const { watch, control, handleSubmit, reset, setValue } = useForm({
     mode: 'onChange',
     defaultValues: {
       post: '',
@@ -58,7 +58,8 @@ function PostForm() {
     [watch()],
   )
 
-  const uploadBtn = () => {
+  const uploadBtn = (e) => {
+    e.stopPropagation(); // 이벤트 전파 방지
     imageRef.current?.click()
     setIsUploaded(true)
   }
@@ -181,7 +182,7 @@ function PostForm() {
                   height="200px"
                 />
                 <div className={style.formAreaBottom}>
-                  <EmojiButton size={20} />
+                  <EmojiButton size={20} formName="post" setValue={setValue} value={watch('post')} />
                   <span className={style.textLength}>
                     {watch('post').length} / 1000
                   </span>

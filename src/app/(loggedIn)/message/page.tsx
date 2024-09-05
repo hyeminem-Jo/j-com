@@ -26,23 +26,23 @@ function MessagePage() {
 
   return (
     <div>
+      메시지 페이지
+      {/*<form onSubmit={handleSubmit(onSubmit)}>*/}
+      {/*  <input {...register("firstName")} placeholder="First Name" />*/}
+      {/*  <button type="submit" onClick={() => {setFocus("firstName")}}>wpcnf</button>*/}
 
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input {...register("firstName")} placeholder="First Name" />
-        <button type="submit" onClick={() => {setFocus("firstName")}}>wpcnf</button>
-
-        <Input
-          name="email"
-          control={control}
-          maxLength="30"
-          type="text"
-          placeholder="아이디"
-          rules={{
-            required: '아이디를 입력해주세요',
-          }}
-        />
-        <div>{JSON.stringify(errors)}</div>
-      </form>
+      {/*  <Input*/}
+      {/*    name="email"*/}
+      {/*    control={control}*/}
+      {/*    maxLength="30"*/}
+      {/*    type="text"*/}
+      {/*    placeholder="아이디"*/}
+      {/*    rules={{*/}
+      {/*      required: '아이디를 입력해주세요',*/}
+      {/*    }}*/}
+      {/*  />*/}
+      {/*  <div>{JSON.stringify(errors)}</div>*/}
+      {/*</form>*/}
     </div>
   );
 }

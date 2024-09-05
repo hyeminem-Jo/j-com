@@ -18,7 +18,7 @@ function MoreMenu() {
     // MouseEvent 타입 매개변수를 받고, 아무것도 반환하지 않는 함수
     const handleOutsideClose = (e: MouseEvent): void => {
       // useRef current에 담긴 엘리먼트 바깥을 클릭 시 드롭메뉴 닫힘
-      if (isOpen && !dialogRef.current.contains(e.target as Node))
+      if (isOpen && !dialogRef.current?.contains(e.target as Node))
         setIsOpened(false)
     }
     document.addEventListener('click', handleOutsideClose)

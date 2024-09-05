@@ -37,4 +37,76 @@
     font-size: 24px;
     font-weight: 600;
   }
+
+  .sidebarContent {
+    width: 400px;
+    border-top: 1px solid #eee;
+  }
+
+  .sidebarSubTitle {
+    display: flex;
+    justify-content: space-between;
+    margin: 22px 0 18px;
+    padding: 0 24px;
+
+    span {
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: 600;
+    }
+  }
+
+  .searchList {
+
+    .searchItem {
+      &:hover {
+        background-color: rgba(0, 0, 0, .03);
+      }
+      .searchLink {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 24px;
+        height: 60px;
+      }
+      .searchItemInfo {
+        display: flex;
+        align-items: center;
+      }
+      .searchUser {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 12px;
+        row-gap: 2px;
+
+        strong{
+          font-weight: 600;
+        }
+        span {
+          color: #737373;
+        }
+        strong, span {
+          font-size: 14px;
+          line-height: 18px;
+        }
+      }
+      .searchWord {
+        margin-left: 12px;
+        font-size: 14px;
+      }
+      .deleteBtn {
+
+      }
+      .searchIcon {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background-color: #eee;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+  }
 }

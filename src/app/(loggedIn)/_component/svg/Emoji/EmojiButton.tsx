@@ -2,7 +2,7 @@ import React, {useCallback, useEffect, useRef, useState} from 'react'
 import EmojiPicker from 'emoji-picker-react'
 import style from './emoji.module.scss'
 
-function EmojiButton({ size, color, formName, setValue, value }) {
+function EmojiButton({ size = 24, color, formName, setValue, value }) {
   const [isOpenEmoji, setIsOpenEmoji] = useState<boolean>(false)
   const emojiRef = useRef<HTMLDivElement | null>(null)
 
@@ -49,7 +49,6 @@ function EmojiButton({ size, color, formName, setValue, value }) {
           <title>이모티콘</title>
           <path d="M15.83 10.997a1.167 1.167 0 1 0 1.167 1.167 1.167 1.167 0 0 0-1.167-1.167Zm-6.5 1.167a1.167 1.167 0 1 0-1.166 1.167 1.167 1.167 0 0 0 1.166-1.167Zm5.163 3.24a3.406 3.406 0 0 1-4.982.007 1 1 0 1 0-1.557 1.256 5.397 5.397 0 0 0 8.09 0 1 1 0 0 0-1.55-1.263ZM12 .503a11.5 11.5 0 1 0 11.5 11.5A11.513 11.513 0 0 0 12 .503Zm0 21a9.5 9.5 0 1 1 9.5-9.5 9.51 9.51 0 0 1-9.5 9.5Z"></path>
         </svg>
-        {/* TODO: 이모지 붙이는 기능 만들기 */}
         {isOpenEmoji && (
           <div className={style.emojiPickerWrap} ref={emojiRef}>
             <EmojiPicker

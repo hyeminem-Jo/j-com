@@ -77,7 +77,6 @@ function StoryTab() {
 
   return (
     <div className={style.storyTab}>
-      {/* TODO: react-slick 으로 만들기 */}
       <div className={style.storyTabList}>
         <SliderWrapper
           dots={false}
@@ -89,7 +88,7 @@ function StoryTab() {
             <div>
               <div className={style.storyTabListItem} key={user.id}>
                 <Link
-                  href="src/app/(loggedIn)/_component#"
+                  href={`/${user?.id}`}
                   className={style.profileImageLink}
                 >
                   <CircleProfile

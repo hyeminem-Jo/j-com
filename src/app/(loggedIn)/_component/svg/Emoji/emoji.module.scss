@@ -2,6 +2,9 @@
   position: relative;
   padding-left: 0;
   padding-right: 5px;
+  &:hover {
+    color: #737373;
+  }
 
   .emojiPickerWrap {
     position: absolute;

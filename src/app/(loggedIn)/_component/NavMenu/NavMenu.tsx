@@ -29,7 +29,8 @@ function NavMenu() {
 
   const segment = useSelectedLayoutSegment()
   const [currentSegment, setCurrentSegment] = useState('')
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const [isAlarmOpen, setIsAlarmOpen] = useState(false)
 
   const isMoreMenuOpen = useMenuStore((state: any) => state.isMoreMenuOpen)
   const setIsMoreMenuOpen = useMenuStore(
@@ -40,22 +41,15 @@ function NavMenu() {
     setCurrentSegment(segment)
   }, [segment])
 
-  useEffect(() => {
-    if (currentSegment === 'search' || currentSegment === 'alarm') {
-      setIsSidebarOpen(true)
-    } else {
-      setIsSidebarOpen(false)
-    }
-  }, [currentSegment])
-
   const segmentHandler = (url) => {
-    // 'search' 나 'alarm' 버튼의 경우, 활성화된 상태에서 버튼을 한번 더 클릭시 현재 페이지(segment) 기준으로 버튼 활성화
-    // 'search' <-> 'alarm' 서로 버튼을 연달아 누르면 현재 페이지(segment) 기준 버튼 활성화 x
-    if ((currentSegment === 'search' || 'alarm') && url === currentSegment) {
+    if (url === currentSegment) {
       setCurrentSegment(segment) // 검색이나 알림을 누를시 기존의 segment 로 변환
     } else {
       setCurrentSegment(url)
     }
+    // setIsSidebarOpen(false)
+    setIsSearchOpen(false)
+    setIsAlarmOpen(false)
   }
 
   const navArr = [
@@ -71,17 +65,17 @@ function NavMenu() {
   return (
     <nav
       role="navigation"
-      className={cx(isSidebarOpen && style.sidebarOpened, style.navMenu)}
+      className={cx((isSearchOpen || isAlarmOpen) && style.sidebarOpened, style.navMenu)}
     >
       <Link href="/home" className={style.logo}>
         <Image
-          className={cx(isSidebarOpen && style.hide, style.logoBig)}
+          className={cx((isSearchOpen || isAlarmOpen) && style.hide, style.logoBig)}
           src={logo}
           width={110}
           alt="logo"
         />
         <Image
-          className={cx(!isSidebarOpen && style.hide, style.logoSmall)}
+          className={cx(!(isSearchOpen || isAlarmOpen) && style.hide, style.logoSmall)}
           src={logoIcon}
           width={24}
           alt="logo"
@@ -90,24 +84,24 @@ function NavMenu() {
       <ul className={style.menuList}>
         {navArr?.map((nav) => (
           <li className={style.menuItem} key={nav.url}>
-            {nav?.link ? (
+            {nav?.link ? ( // 페이지 이동 버튼
               <Link
                 href={`/${nav.url}`}
                 className={style.menuButton}
                 onClick={() => segmentHandler(nav.url)}
               >
-                <IcMenu type={nav.url} active={currentSegment === nav.url} />
+                <IcMenu type={nav.url} active={currentSegment === nav.url && !(isSearchOpen || isAlarmOpen)} />
                 <span
                   className={cx(
-                    isSidebarOpen && style.sidebarOpened,
-                    currentSegment === nav.url && style.bold,
+                    (isSearchOpen || isAlarmOpen) && style.sidebarOpened,
+                    (currentSegment === nav.url && !(isSearchOpen || isAlarmOpen)) && style.bold,
                     style.navMenuTitle,
                   )}
                 >
                   {nav.title}
                 </span>
               </Link>
-            ) : (
+            ) : ( // 찾기, 알림 사이드바 버튼
               <button
                 type="button"
                 className={cx(
@@ -115,13 +109,19 @@ function NavMenu() {
                   currentSegment === nav.url && style.active,
                 )}
                 onClick={() => {
-                  segmentHandler(nav.url)
+                  if (nav?.url === 'search') {
+                    setIsSearchOpen((prev) => !prev)
+                    setIsAlarmOpen(false)
+                  } else {
+                    setIsAlarmOpen((prev) => !prev)
+                    setIsSearchOpen(false)
+                  }
                 }}
               >
-                <IcMenu type={nav.url} active={currentSegment === nav.url} />
+                <IcMenu type={nav.url} active={nav.url === 'search' ? isSearchOpen : isAlarmOpen} />
                 <span
                   className={cx(
-                    isSidebarOpen && style.sidebarOpened,
+                    (isSearchOpen || isAlarmOpen) && style.sidebarOpened,
                     style.navMenuTitle,
                   )}
                 >
@@ -131,6 +131,7 @@ function NavMenu() {
             )}
           </li>
         ))}
+        {/* 게시물 작성하기 -------------------------------- */}
         <li className={style.menuItem} key="write">
           <button
             type="button"
@@ -144,6 +145,7 @@ function NavMenu() {
           </button>
           {/* TODO: PostForm 컴포넌트 바깥으로 뺀 후 zustand 를 이용하여 state 관리  */}
         </li>
+        {/* 내 프로필 보기 -------------------------------- */}
         <li className={style.menuItem} key={me?.id}>
           <Link
             href={`/${me?.id}`}
@@ -166,6 +168,7 @@ function NavMenu() {
             </span>
           </Link>
         </li>
+        {/* 더 보기 -------------------------------- */}
         <li className={style.moreMenuBtn}>
           <button
             className={style.menuButton}
@@ -183,8 +186,8 @@ function NavMenu() {
         </li>
       </ul>
       <MoreMenu />
-      <SearchSidebar isOpen={currentSegment === 'search'} />
-      <AlarmSidebar isOpen={currentSegment === 'alarm'} />
+      <SearchSidebar isOpen={isSearchOpen} />
+      <AlarmSidebar isOpen={isAlarmOpen} />
     </nav>
   )
 }
