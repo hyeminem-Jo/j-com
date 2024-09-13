@@ -41,15 +41,18 @@ function NavMenu() {
     setCurrentSegment(segment)
   }, [segment])
 
+  const closeSlideBar = () => {
+    setIsSearchOpen(false)
+    setIsAlarmOpen(false)
+  }
+
   const segmentHandler = (url) => {
     if (url === currentSegment) {
       setCurrentSegment(segment) // 검색이나 알림을 누를시 기존의 segment 로 변환
     } else {
       setCurrentSegment(url)
     }
-    // setIsSidebarOpen(false)
-    setIsSearchOpen(false)
-    setIsAlarmOpen(false)
+    closeSlideBar()
   }
 
   const navArr = [
@@ -67,7 +70,7 @@ function NavMenu() {
       role="navigation"
       className={cx((isSearchOpen || isAlarmOpen) && style.sidebarOpened, style.navMenu)}
     >
-      <Link href="/home" className={style.logo}>
+      <Link href="/home" className={style.logo} onClick={closeSlideBar}>
         <Image
           className={cx((isSearchOpen || isAlarmOpen) && style.hide, style.logoBig)}
           src={logo}

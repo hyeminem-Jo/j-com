@@ -2,14 +2,7 @@
 
 import cx from 'classnames'
 import style from '../sidebar.module.scss'
-import { Button, TextButton } from '@/app/_component/common/Button/Button'
-import CircleProfile from '@/app/(loggedIn)/_component/CircleProfile'
-import IcSearch from '@/app/(loggedIn)/_component/svg/IcSearch'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import IcClose from '@/app/(loggedIn)/_component/svg/IcClose'
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
 import AlarmList from "@/app/(loggedIn)/_component/AlarmSidebar/AlarmList";
 
 function AlarmSidebar({ isOpen }) {
@@ -271,17 +264,12 @@ function AlarmSidebar({ isOpen }) {
       // 이번 주의 첫 번째 날 (일요일)
       const firstDayOfThisWeek = new Date(today.setDate(today.getDate() - today.getDay()));
 
-      // console.log(222222, firstDayOfThisWeek.getFullYear() === day.getFullYear(),
-      //   firstDayOfThisWeek.getMonth() === day.getMonth(),
-      //   firstDayOfThisWeek.getDate() <= day.getDate(),
-      //   firstDayOfThisWeek.getTime() <= day.getTime(), data.User[0]?.id)
-
       if (
-        // 오늘
         nowYear === day.getFullYear() &&
         nowMonth === day.getMonth() &&
         nowDate === day.getDate()
       ) {
+        // 오늘
         if (!tempTodayAlarm.some((alarm) => alarm === data)) {
           tempTodayAlarm.push(data)
         }
@@ -290,10 +278,10 @@ function AlarmSidebar({ isOpen }) {
         firstDayOfThisWeek.getMonth() === day.getMonth() &&
         firstDayOfThisWeek.getDate() <= day.getDate()
       ) {
-        // 이번주
-        console.log(55555, data.User[0]?.id)
+        // 이번 주
         tempThisWeekAlarm.push(data)
       } else if (firstDayOfThisWeek.getFullYear() === day.getFullYear()) {
+        // 이번 달
         tempThisMonthAlarm.push(data)
       }
     })
@@ -302,8 +290,6 @@ function AlarmSidebar({ isOpen }) {
     setThisWeekAlarm(tempThisWeekAlarm)
     setThisMonthAlarm(tempThisMonthAlarm)
   }, [alarmData.length])
-
-  console.log('이번주 알림 리스트: ', thisWeekAlarm)
 
   return (
     <div
@@ -322,14 +308,12 @@ function AlarmSidebar({ isOpen }) {
           <div className={style.sideBarContent}>
             <h4 className={style.sidebarSubTitle}>
               <span>이번 주</span>
-              {/*const firstDayOfThisWeek = new Date(today.setDate(today.getDate() - today.getDay()));*/}
             </h4>
             <AlarmList data={thisWeekAlarm} />
           </div>
           <div className={style.sideBarContent}>
             <h4 className={style.sidebarSubTitle}>
               <span>이번 달</span>
-              {/*const firstDayOfThisWeek = new Date(today.setDate(today.getDate() - today.getDay()));*/}
             </h4>
             <AlarmList data={thisMonthAlarm} />
           </div>
