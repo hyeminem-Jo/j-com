@@ -2,9 +2,7 @@
 
 import { useForm } from 'react-hook-form'
 import cx from 'classnames'
-// import { useCallback } from 'react'
 import SearchInput from '@/app/(loggedIn)/_component/SearchInput/SearchInput'
-import IcDelete from '@/app/(loggedIn)/_component/svg/IcDelete'
 import style from '../sidebar.module.scss'
 import { TextButton } from '@/app/_component/common/Button/Button'
 import CircleProfile from '@/app/(loggedIn)/_component/CircleProfile'
@@ -15,7 +13,6 @@ import IcClose from "@/app/(loggedIn)/_component/svg/IcClose";
 
 function SearchSidebar({ isOpen }) {
   const {
-    watch,
     control,
     reset,
     formState: { isDirty },

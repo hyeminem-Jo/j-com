@@ -80,7 +80,7 @@ function StoryTab() {
       <div className={style.storyTabList}>
         <SliderWrapper
           dots={false}
-          slidesToShow={8}
+          slidesToShow={7}
           slidesToScroll={3}
           className="multipleSlider"
         >
@@ -93,9 +93,10 @@ function StoryTab() {
                 >
                   <CircleProfile
                     src={user?.image}
-                    size={60}
+                    size={70}
                     alt={user?.id}
                     ring
+                    ringWeight={3}
                     active={user?.updatedStory}
                   />
                 </Link>

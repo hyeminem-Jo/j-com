@@ -9,8 +9,9 @@ function CircleProfile({
   userId = null,
   size,
   ring,
+  ringWeight = 2,
   active,
-  border,
+  border = '1px solid #ddd',
   isButton = true,
 }) {
   const style = {
@@ -19,9 +20,9 @@ function CircleProfile({
       height: `${size}px`,
       borderRadius: '50%',
       outline: ring
-        ? `2px solid ${active ? 'orange' : '#ddd'}`
-        : border || '1px solid #ddd',
-      outlineOffset: ring ? '2px' : 'none',
+        ? `${ringWeight}px solid ${active ? 'orange' : '#ddd'}`
+        : border,
+      outlineOffset: ring ? `3px` : 'none',
       overflow: 'hidden',
       cursor: isButton ? 'pointer' : 'auto',
     },

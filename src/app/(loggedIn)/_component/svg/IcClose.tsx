@@ -1,6 +1,6 @@
 import React from 'react'
 
-function IcClose({ size = 24, color }) {
+function IcClose({ size = 24, color = 'gray' }) {
   return (
     <svg
       aria-label="닫기"

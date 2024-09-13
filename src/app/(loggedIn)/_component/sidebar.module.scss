@@ -10,7 +10,6 @@
   border-left: none;
   background-color: #fff;
   z-index: 10;
-  //transition: width .3s ease, opacity .3s ease, visibility 0s .3s;
   transition: width .3s, visibility .5s, opacity .5s;
   transition-delay: .1s;
   box-shadow: 8px 0 14px rgba(0, 0, 0, 0.15);
@@ -20,9 +19,9 @@
   &.opened {
     width: 400px;
     border-left: 1px solid #eee;
-    //transition-delay: 0s;
     opacity: 1;
     visibility: visible;
+    overflow-y: auto;
   }
 
   .sidebarInner {
@@ -57,7 +56,6 @@
   }
 
   .searchList {
-
     .searchItem {
       &:hover {
         background-color: rgba(0, 0, 0, .03);
@@ -90,6 +88,115 @@
           line-height: 18px;
         }
       }
+      .searchWord {
+        margin-left: 12px;
+        font-size: 14px;
+      }
+      .deleteBtn {
+
+      }
+      .searchIcon {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background-color: #eee;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
+.sidebar.alarm {
+  .sidebarTitle {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  .sideBarContentWrap {
+    width: 400px;
+  }
+  .sidebarSubTitle {
+    span {
+      font-weight: 700;
+    }
+  }
+  .sideBarContent {
+    padding-bottom: 10px;
+    &:not(:last-child) {
+      border-bottom: 1px solid #eee;
+    }
+  }
+  .alarmList {
+    .alarmItem {
+      &:hover {
+        background-color: rgba(0, 0, 0, .03);
+      }
+      .alarmLink {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 8px 24px;
+        height: 60px;
+      }
+      .alarmItemInfo {
+        display: flex;
+        align-items: center;
+        width: 100%;
+      }
+      .alarmUserWrap {
+        position: relative;
+        width: 42px;
+        height: 42px;
+        button {
+          position: absolute;
+        }
+        button:first-of-type {
+          top: 0;
+          left: 0;
+          outline: none !important;
+        }
+        button:last-of-type {
+          bottom: 0;
+          right: 0;
+          z-index: 1;
+          outline: #fff solid 2px !important;
+        }
+      }
+      .alarmUser {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        column-gap: 10px;
+        margin-left: 12px;
+
+        strong{
+          font-weight: 600;
+        }
+        strong, span {
+          font-size: 14px;
+          line-height: 18px;
+        }
+
+        .desc {
+          font-size: 14px;
+        }
+        .media {
+          flex-basis: 45px;
+          flex-shrink: 0;
+          height: 45px;
+          border-radius: 8px;
+          overflow: hidden;
+        }
+        .followBtn {
+          flex-basis: 80px;
+          flex-shrink: 0;
+          button {
+            margin-top: 0;
+          }
+        }
+      }
+
       .searchWord {
         margin-left: 12px;
         font-size: 14px;
