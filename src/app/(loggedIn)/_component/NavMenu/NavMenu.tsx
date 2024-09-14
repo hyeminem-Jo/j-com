@@ -6,8 +6,8 @@ import { useEffect, useState } from 'react'
 import CircleProfile from '@/app/(loggedIn)/_component/CircleProfile'
 import IcMenu from '@/app/(loggedIn)/_component/svg/IcMenu'
 import IcNavMenuWrite from '@/app/(loggedIn)/_component/svg/IcNavMenuWrite'
-import SearchSidebar from '@/app/(loggedIn)/_component/SearchSidebar/SearchSidebar'
-import AlarmSidebar from '@/app/(loggedIn)/_component/AlarmSidebar/AlarmSidebar'
+import SearchSidebar from '@/app/(loggedIn)/_component/SlideBar/SearchSidebar'
+import AlarmSidebar from '@/app/(loggedIn)/_component/SlideBar/AlarmSidebar'
 import cx from 'classnames'
 import Image from 'next/image'
 import MoreMenu from '@/app/(loggedIn)/_component/MoreMenu/MoreMenu'
@@ -17,6 +17,7 @@ import { useModalStore } from '@/store/modal'
 import style from './navMenu.module.scss'
 import logo from '../../../../../public/logo.png'
 import logoIcon from '../../../../../public/logo-icon.png'
+import SlideBarWrap from "@/app/(loggedIn)/_component/SlideBar/SlideBarWrap";
 
 function NavMenu() {
   const me = {
@@ -189,8 +190,10 @@ function NavMenu() {
         </li>
       </ul>
       <MoreMenu />
-      <SearchSidebar isOpen={isSearchOpen} />
-      <AlarmSidebar isOpen={isAlarmOpen} />
+      <SlideBarWrap isOpen={isSearchOpen || isAlarmOpen} onClose={closeSlideBar}>
+        <SearchSidebar isOpen={isSearchOpen} />
+        <AlarmSidebar isOpen={isAlarmOpen} />
+      </SlideBarWrap>
     </nav>
   )
 }

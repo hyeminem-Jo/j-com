@@ -3,7 +3,7 @@
 import cx from 'classnames'
 import style from '../sidebar.module.scss'
 import React, { useEffect, useState } from 'react'
-import AlarmList from "@/app/(loggedIn)/_component/AlarmSidebar/AlarmList";
+import AlarmList from "@/app/(loggedIn)/_component/SlideBar/AlarmList";
 
 function AlarmSidebar({ isOpen }) {
   // 1. 내 댓글에 좋아요 누름
@@ -292,31 +292,26 @@ function AlarmSidebar({ isOpen }) {
   }, [alarmData.length])
 
   return (
-    <div
-      role="dialog"
-      className={cx(style.sidebar, isOpen && style.opened, style.alarm)}
-    >
-      <div className={style.sidebarInner}>
-        <h3 className={style.sidebarTitle}>알림</h3>
-        <div className={style.sideBarContentWrap}>
-          <div className={style.sideBarContent}>
-            <h4 className={style.sidebarSubTitle}>
-              <span>오늘</span>
-            </h4>
-            <AlarmList data={todayAlarm} />
-          </div>
-          <div className={style.sideBarContent}>
-            <h4 className={style.sidebarSubTitle}>
-              <span>이번 주</span>
-            </h4>
-            <AlarmList data={thisWeekAlarm} />
-          </div>
-          <div className={style.sideBarContent}>
-            <h4 className={style.sidebarSubTitle}>
-              <span>이번 달</span>
-            </h4>
-            <AlarmList data={thisMonthAlarm} />
-          </div>
+    <div className={cx(style.sidebarInner, style.alarm, isOpen && style.openedBar)}>
+      <h3 className={style.sidebarTitle}>알림</h3>
+      <div className={style.sideBarContentWrap}>
+        <div className={style.sideBarContent}>
+          <h4 className={style.sidebarSubTitle}>
+            <span>오늘</span>
+          </h4>
+          <AlarmList data={todayAlarm} />
+        </div>
+        <div className={style.sideBarContent}>
+          <h4 className={style.sidebarSubTitle}>
+            <span>이번 주</span>
+          </h4>
+          <AlarmList data={thisWeekAlarm} />
+        </div>
+        <div className={style.sideBarContent}>
+          <h4 className={style.sidebarSubTitle}>
+            <span>이번 달</span>
+          </h4>
+          <AlarmList data={thisMonthAlarm} />
         </div>
       </div>
     </div>

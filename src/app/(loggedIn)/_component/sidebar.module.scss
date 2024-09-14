@@ -25,9 +25,13 @@
   }
 
   .sidebarInner {
+    display: none;
     width: 100%;
     background-color: #fff;
     height: 100%;
+  }
+  .sidebarInner.openedBar {
+    display: block;
   }
 
   .sidebarTitle {
@@ -106,7 +110,7 @@
     }
   }
 }
-.sidebar.alarm {
+.sidebarInner.alarm {
   .sidebarTitle {
     padding-bottom: 0;
     margin-bottom: 0;
