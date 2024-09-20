@@ -47,9 +47,9 @@ function CommentForm({ id, isCommentFocus, setIsCommentFocus }: Props) {
     [watch()],
   )
 
-  useEffect(() => {
-    console.log('부모 value: ', watch('comment'))
-  }, [watch('comment')])
+  // useEffect(() => {
+  //   console.log('부모 value: ', watch('comment'))
+  // }, [watch('comment')])
 
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} className={style.commentForm}>
