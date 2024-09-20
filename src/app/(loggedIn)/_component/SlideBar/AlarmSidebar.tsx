@@ -3,7 +3,7 @@
 import cx from 'classnames'
 import style from '../sidebar.module.scss'
 import React, { useEffect, useState } from 'react'
-import AlarmList from "@/app/(loggedIn)/_component/SlideBar/AlarmList";
+import AlarmList from '@/app/(loggedIn)/_component/SlideBar/AlarmList'
 
 function AlarmSidebar({ isOpen }) {
   // 1. 내 댓글에 좋아요 누름
@@ -126,7 +126,9 @@ function AlarmSidebar({ isOpen }) {
         desc: '잘나왔네',
         image: '/media02.png',
       },
-      createdAt: new Date(new Date(new Date().setDate(new Date().getDate() - 6))), // 12일 전
+      createdAt: new Date(
+        new Date(new Date().setDate(new Date().getDate() - 7)),
+      ), // 7일 전
     },
     {
       User: [
@@ -142,7 +144,9 @@ function AlarmSidebar({ isOpen }) {
         desc: '잘나왔네',
         image: '/media02.png',
       },
-      createdAt: new Date(new Date(new Date().setDate(new Date().getDate() - 6))), // 12일 전
+      createdAt: new Date(
+        new Date(new Date().setDate(new Date().getDate() - 7)),
+      ), // 7일 전
     },
     {
       User: [
@@ -158,7 +162,9 @@ function AlarmSidebar({ isOpen }) {
         desc: '잘나왔네',
         image: '/media02.png',
       },
-      createdAt: new Date(new Date(new Date().setDate(new Date().getDate() - 6))), // 12일 전
+      createdAt: new Date(
+        new Date(new Date().setDate(new Date().getDate() - 7)),
+      ), // 7일 전
     },
     {
       User: [
@@ -174,7 +180,9 @@ function AlarmSidebar({ isOpen }) {
         desc: '잘나왔네',
         image: '/media02.png',
       },
-      createdAt: new Date(new Date(new Date().setDate(new Date().getDate() - 6))), // 12일 전
+      createdAt: new Date(
+        new Date(new Date().setDate(new Date().getDate() - 7)),
+      ), // 7일 전
     },
     {
       User: [
@@ -190,7 +198,9 @@ function AlarmSidebar({ isOpen }) {
         desc: '잘나왔네',
         image: '/media02.png',
       },
-      createdAt: new Date(new Date(new Date().setDate(new Date().getDate() - 6))), // 12일 전
+      createdAt: new Date(
+        new Date(new Date().setDate(new Date().getDate() - 7)),
+      ), // 7일 전
     },
     {
       User: [
@@ -206,7 +216,9 @@ function AlarmSidebar({ isOpen }) {
         desc: '잘나왔네',
         image: '/media02.png',
       },
-      createdAt: new Date(new Date(new Date().setDate(new Date().getDate() - 6))), // 12일 전
+      createdAt: new Date(
+        new Date(new Date().setDate(new Date().getDate() - 7)),
+      ), // 7일 전
     },
     {
       User: [
@@ -222,7 +234,9 @@ function AlarmSidebar({ isOpen }) {
         desc: '잘나왔네',
         image: '/media02.png',
       },
-      createdAt: new Date(new Date(new Date().setDate(new Date().getDate() - 6))), // 12일 전
+      createdAt: new Date(
+        new Date(new Date().setDate(new Date().getDate() - 7)),
+      ), // 7일 전
     },
     {
       User: [
@@ -238,8 +252,10 @@ function AlarmSidebar({ isOpen }) {
         desc: '잘나왔네',
         image: '/media02.png',
       },
-      createdAt: new Date(new Date(new Date().setDate(new Date().getDate() - 6))), // 12일 전
-    }
+      createdAt: new Date(
+        new Date(new Date().setDate(new Date().getDate() - 7)),
+      ), // 7일 전
+    },
   ]
 
   const [todayAlarm, setTodayAlarm] = useState([])
@@ -262,7 +278,9 @@ function AlarmSidebar({ isOpen }) {
       const today = new Date(nowYear, nowMonth, nowDate)
 
       // 이번 주의 첫 번째 날 (일요일)
-      const firstDayOfThisWeek = new Date(today.setDate(today.getDate() - today.getDay()));
+      const firstDayOfThisWeek = new Date(
+        today.setDate(today.getDate() - today.getDay()),
+      )
 
       if (
         nowYear === day.getFullYear() &&
@@ -292,27 +310,41 @@ function AlarmSidebar({ isOpen }) {
   }, [alarmData.length])
 
   return (
-    <div className={cx(style.sidebarInner, style.alarm, isOpen && style.openedBar)}>
+    <div
+      className={cx(style.sidebarInner, style.alarm, isOpen && style.openedBar)}
+    >
       <h3 className={style.sidebarTitle}>알림</h3>
       <div className={style.sideBarContentWrap}>
-        <div className={style.sideBarContent}>
-          <h4 className={style.sidebarSubTitle}>
-            <span>오늘</span>
-          </h4>
-          <AlarmList data={todayAlarm} />
-        </div>
-        <div className={style.sideBarContent}>
-          <h4 className={style.sidebarSubTitle}>
-            <span>이번 주</span>
-          </h4>
-          <AlarmList data={thisWeekAlarm} />
-        </div>
-        <div className={style.sideBarContent}>
-          <h4 className={style.sidebarSubTitle}>
-            <span>이번 달</span>
-          </h4>
-          <AlarmList data={thisMonthAlarm} />
-        </div>
+        {alarmData.length > 0 ? (
+          <>
+            {todayAlarm.length > 0 && (
+              <div className={style.sideBarContent}>
+                <h4 className={style.sidebarSubTitle}>
+                  <span>오늘</span>
+                </h4>
+                <AlarmList data={todayAlarm} />
+              </div>
+            )}
+            {thisWeekAlarm.length > 0 && (
+              <div className={style.sideBarContent}>
+                <h4 className={style.sidebarSubTitle}>
+                  <span>이번 주</span>
+                </h4>
+                <AlarmList data={thisWeekAlarm} />
+              </div>
+            )}
+            {thisMonthAlarm.length > 0 && (
+              <div className={style.sideBarContent}>
+                <h4 className={style.sidebarSubTitle}>
+                  <span>이번 달</span>
+                </h4>
+                <AlarmList data={thisMonthAlarm} />
+              </div>
+            )}
+          </>
+        ) : (
+          <h4 className={cx(style.sidebarSubTitle, style.noData)}>알림이 없습니다</h4>
+        )}
       </div>
     </div>
   )

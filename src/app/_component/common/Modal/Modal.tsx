@@ -23,7 +23,7 @@ function Modal({
   }
 
   useEffect(() => {
-    console.log(modalList)
+    // console.log(modalList)
   }, [modalList])
 
   useEffect(() => {

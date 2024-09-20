@@ -12,6 +12,7 @@ import IcClose from "@/app/(loggedIn)/_component/svg/IcClose";
 
 function SearchSidebar({ isOpen }) {
   const {
+    watch,
     control,
     reset,
     formState: { isDirty },
@@ -93,7 +94,7 @@ function SearchSidebar({ isOpen }) {
             )
           })}
         </ul>
-        {/*검색어: {watch('searchWord')}*/}
+        <span style={{ padding: "30px 24px 0" }}>검색어: {JSON.stringify(watch('searchWord'))}</span>
       </div>
     </div>
   )

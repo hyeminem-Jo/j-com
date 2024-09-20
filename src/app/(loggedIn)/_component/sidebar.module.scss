@@ -51,6 +51,15 @@
     margin: 22px 0 18px;
     padding: 0 24px;
 
+    &.noData {
+      color: gray;
+      font-weight: 500;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     span {
       font-size: 16px;
       line-height: 20px;

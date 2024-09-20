@@ -49,7 +49,7 @@ function PostForm() {
     },
   ]
 
-  const onSubmit: FormEventHandler<HTMLFormElement> = useCallback(
+  const handleFormSubmit: FormEventHandler<HTMLFormElement> = useCallback(
     (data) => {
       console.log(data)
       alert(data)
@@ -82,7 +82,7 @@ function PostForm() {
   return (
     <form
       className={cx(style.postForm, step === 2 && style.postStep)}
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(handleFormSubmit)}
     >
       <div className={style.postStep}>
         {isUploaded && (
