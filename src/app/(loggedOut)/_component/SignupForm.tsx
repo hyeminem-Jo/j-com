@@ -1,23 +1,22 @@
 'use client'
 
-import { useForm } from 'react-hook-form'
-import { useCallback, useEffect } from 'react'
-import Input from '@/app/_component/common/Input/Input'
-import { Button } from '@/app/_component/common/Button/Button'
+import { useFormState, useFormStatus } from 'react-dom'
 import style from './signupForm.module.scss'
+import onSubmit from '../_lib/signup'
+import Input from "@/app/_component/common/Input/Input";
+import {useForm} from "react-hook-form";
+import React, {useCallback, useEffect, useRef} from "react";
+import {Button} from "@/app/_component/common/Button/Button";
 
-function SignupForm() {
+function SignupFormTest() {
   const {
     watch,
     control,
-    setValue,
     getValues,
-    handleSubmit,
-    reset,
     setError,
     clearErrors,
     setFocus,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm({
     mode: 'onChange',
     defaultValues: {
@@ -28,7 +27,10 @@ function SignupForm() {
     },
   })
 
-  // [비밀번호] value 수정 시 이미 입력된 [비밀번호 확인] value 도 같이 유효성 체크
+  const [state, formAction] = useFormState(onSubmit, { message: null })
+  const { pending } = useFormStatus()
+
+  // "비밀번호" value 수정 시 이미 입력된 "비밀번호 확인" value 도 같이 유효성 체크
   useEffect(() => {
     if (
       watch('password') !== watch('passwordCheck') &&
@@ -43,90 +45,130 @@ function SignupForm() {
     }
   }, [watch('password'), watch('passwordCheck')])
 
-  const onSubmit = useCallback(
-    (data) => {
-      console.log(data)
-      alert(`가입을 환영합니다, ${data.user} 님!`)
-      // dispatch(userActions.loginAction(data))
-      reset()
-      setValue('term', false)
-    },
-    [watch()],
-  )
-
+  // 아이디 input 포커싱
   useEffect(() => {
     setFocus("user")
-  }, [setFocus])
+  }, [])
+
+  // const handleFormSubmit = useCallback((data) => {
+  //     console.log(data);
+  //     alert(`가입을 환영합니다, ${data.user} 님!`);
+  //     reset();
+  //     setValue('term', false);
+  //   },
+  //   [watch()],
+  // );
+
+  const imageRef = useRef<HTMLInputElement>(null)
+  const uploadBtn = (e) => {
+    e.stopPropagation(); // 이벤트 전파 방지
+    imageRef.current?.click()
+  }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={style.signupForm}>
-      {/* TODO: rule 대신 yup 라이브러리 쓰기 */}
-      <Input
-        name="user"
-        control={control}
-        label="아이디"
-        maxLength="30"
-        type="text"
-        placeholder="아이디(5자 이상)"
-        rules={{
-          required: '아이디를 입력해주세요',
-          minLength: {
-            value: 5,
-            message: '5자 이상으로 입력해주세요',
-          },
-          validate: {
-            noAdmin: (value) =>
-              value !== 'admin' || 'admin 이라는 아이디는 사용할 수 없습니다.',
-          },
-        }}
-      />
-      <Input
-        name="password"
-        control={control}
-        label="비밀번호"
-        maxLength="15"
-        type="password"
-        placeholder="비밀번호(영문, 숫자, 특수문자 포함 8자 ~ 20자)"
-        rules={{
-          required: '비밀번호를 입력해주세요',
-          pattern: {
-            value:
-              /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/,
-            message: '영문, 숫자, 특수문자 포함 8 ~ 20자로 입력해주세요',
-          },
-        }}
-      />
-      <Input
-        name="passwordCheck"
-        control={control}
-        label="비밀번호 확인"
-        type="password"
-        maxLength="15"
-        placeholder="비밀번호 확인"
-        rules={{
-          required: '비밀번호를 확인해주세요',
-          validate: {
-            matchPassword: (value) => {
-              const { password } = getValues()
-              return password === value || '비밀번호가 일치하지 않습니다'
-            },
-          },
-        }}
-      />
-      <Input
-        name="term"
-        control={control}
-        label="약관에 동의합니다"
-        type="checkbox"
-        rules={{
-          required: '약관에 동의해주세요',
-        }}
-      />
-      <Button type="submit" size="md" color="secondary">
+    // <form onSubmit={handleSubmit(handleFormSubmit)} className={style.signupForm}>
+    <form action={formAction} className={style.signupForm}>
+      <div>
+        <div>
+          <Input
+            name="user"
+            control={control}
+            label="아이디"
+            maxLength="30"
+            type="text"
+            placeholder="아이디(5자 이상)"
+            rules={{
+              required: '아이디를 입력해주세요',
+              minLength: {
+                value: 5,
+                message: '5자 이상으로 입력해주세요',
+              },
+              validate: {
+                noAdmin: (value) =>
+                  value !== 'admin' || 'admin 이라는 아이디는 사용할 수 없습니다.',
+                noSpacesOnly: (value) =>
+                  value.trim().length > 0 || '공백만으로는 입력할 수 없습니다.',
+              },
+            }}
+          />
+          <Input
+            name="password"
+            control={control}
+            label="비밀번호"
+            maxLength="15"
+            type="password"
+            placeholder="비밀번호(영문, 숫자, 특수문자 포함 8자 ~ 20자)"
+            rules={{
+              required: '비밀번호를 입력해주세요',
+              pattern: {
+                value:
+                  /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/,
+                message: '영문, 숫자, 특수문자 포함 8 ~ 20자로 입력해주세요',
+              },
+            }}
+          />
+          <Input
+            name="passwordCheck"
+            control={control}
+            label="비밀번호 확인"
+            type="password"
+            maxLength="15"
+            placeholder="비밀번호 확인"
+            rules={{
+              required: '비밀번호를 확인해주세요',
+              validate: {
+                matchPassword: (value) => {
+                  const { password } = getValues()
+                  return password === value || '비밀번호가 일치하지 않습니다'
+                },
+              },
+            }}
+          />
+          <Input
+            name="nickname"
+            control={control}
+            label="닉네임"
+            maxLength="30"
+            type="text"
+            placeholder="닉네임"
+            rules={{
+              required: '닉네임을 입력해주세요',
+              validate: {
+                noAdmin: (value) =>
+                  value !== 'admin' || 'admin 이라는 아이디는 사용할 수 없습니다.',
+                noSpacesOnly: (value) =>
+                  value.trim().length > 0 || '공백만으로는 입력할 수 없습니다.',
+              },
+            }}
+          />
+          <Input
+            name="term"
+            control={control}
+            label="(필수)약관에 동의합니다"
+            type="checkbox"
+            rules={{
+              required: '약관에 동의해주세요',
+            }}
+          />
+          <input
+            id="imageFiles"
+            name="imageFiles"
+            type="file"
+            multiple
+            hidden
+            accept="image/*"
+            ref={imageRef}
+          />
+          <Button type="button" onClick={uploadBtn} size="md" color="primary">
+            프로필 이미지 업로드 (선택)
+          </Button>
+        </div>
+      </div>
+      <Button type="submit" size="md" color="secondary" disabled={pending || !isValid}>
         가입하기
       </Button>
     </form>
   )
 }
 
-export default SignupForm
+export default SignupFormTest

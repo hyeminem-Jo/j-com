@@ -21,5 +21,17 @@ export const handlers = [
         'Set-Cookie': 'connect.sid=;HttpOnly;Path=/;Max-Age=0'
       }
     })
-  })
+  }),
+  http.post('/api/users', async ({ request }) => {
+    console.log('회원가입');
+    return HttpResponse.text(JSON.stringify('ok'), {
+      headers: {
+        'Set-Cookie': 'connect.sid=msw-cookie;HttpOnly;Path=/;Max-Age=0'
+      }
+    })
+    // 에러 났을 경우 (해당 id 는 이미 회원이 존재)
+    // return HttpResponse.text(JSON.stringify('user_exists'), {
+    //   status: 403,
+    // })
+  }),
 ];

@@ -35,9 +35,9 @@ function Input({
         {label && <label htmlFor={name}>{label}</label>}
         <input
           id={name}
+          name={name}
           type={type}
           className="input"
-          name={name}
           value={field.value}
           onChange={field.onChange}
           ref={field.ref}

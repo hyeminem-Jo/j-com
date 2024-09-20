@@ -4,7 +4,7 @@ import SignupForm from '@/app/(loggedOut)/_component/SignupForm'
 
 function SignupModal() {
   return (
-    <Modal modalName="signup" title="회원가입 하기">
+    <Modal modalName="signup" title="회원가입">
       <SignupForm />
     </Modal>
   )
