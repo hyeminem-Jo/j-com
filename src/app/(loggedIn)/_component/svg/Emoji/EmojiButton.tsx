@@ -11,9 +11,9 @@ function EmojiButton({ size = 24, color, formName, setValue, value }) {
     setIsOpenEmoji((prev) => !prev)
   }
 
-  useEffect(() => {
-    console.log('value: ', value)
-  }, [value])
+  // useEffect(() => {
+  //   console.log('value: ', value)
+  // }, [value])
 
   const dd = useCallback(
     (data) => {

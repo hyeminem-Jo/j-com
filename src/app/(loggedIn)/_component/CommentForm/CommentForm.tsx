@@ -31,7 +31,7 @@ function CommentForm({ id, isCommentFocus, setIsCommentFocus }: Props) {
   })
 
   useEffect(() => {
-    console.log(isCommentFocus)
+    // console.log(isCommentFocus)
     if (isCommentFocus) {
       setFocus('comment')
       setIsCommentFocus(false)
