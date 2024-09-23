@@ -11,6 +11,7 @@ import phoneImage from '../../../../public/phone.png'
 import logo from '../../../../public/logo.png'
 import React from "react";
 import style from "@/app/(loggedOut)/_component/signupOrLoginForm.module.scss";
+import Link from "next/link";
 
 export default function Main() {
   const { control } = useForm({
@@ -55,14 +56,7 @@ export default function Main() {
               로그인
             </Button>
             <div className={styles.goSignup}>
-              <TextButton
-                type="buttton"
-                onClick={() => {
-                  openModal('signup')
-                }}
-              >
-                회원가입 하러가기
-              </TextButton>
+              <Link href="/signup">회원가입 하러가기</Link>
             </div>
           </ButtonGroup>
         </div>

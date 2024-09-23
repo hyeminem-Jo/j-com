@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation'
 import IcClose from '@/app/(loggedIn)/_component/svg/IcClose'
 import style from './modal.module.scss'
 
-function ModalPage({ children, title }) {
+function ModalPage({ children, title, customStyle }) {
   const router = useRouter()
 
   const onClickClose = () => {
@@ -13,7 +13,7 @@ function ModalPage({ children, title }) {
 
   return (
     <div className={style.modalWrap}>
-      <div className={style.modal} style={{ width: '900px', height: 'auto' }}>
+      <div className={style.modal} style={customStyle}>
         <div className={style.modalHeader}>
           {title}
           <button
