@@ -7,8 +7,11 @@ import Input from "@/app/_component/common/Input/Input";
 import {useForm} from "react-hook-form";
 import React, {useCallback, useEffect, useRef} from "react";
 import {Button} from "@/app/_component/common/Button/Button";
+import {signIn} from "next-auth/react";
+import {useRouter} from "next/navigation";
 
 function SignupFormTest() {
+  const router = useRouter();
   const {
     watch,
     control,
@@ -16,7 +19,10 @@ function SignupFormTest() {
     setError,
     clearErrors,
     setFocus,
-    formState: { errors, isValid },
+    handleSubmit,
+    reset,
+    setValue,
+    formState: { errors, isValid, isLoading },
   } = useForm({
     mode: 'onChange',
     defaultValues: {
@@ -27,8 +33,8 @@ function SignupFormTest() {
     },
   })
 
-  const [state, formAction] = useFormState(onSubmit, { message: null })
-  const { pending } = useFormStatus()
+  // const [state, formAction] = useFormState(onSubmit, { message: null })
+  // const { pending } = useFormStatus()
 
   // "비밀번호" value 수정 시 이미 입력된 "비밀번호 확인" value 도 같이 유효성 체크
   useEffect(() => {
@@ -50,14 +56,25 @@ function SignupFormTest() {
     setFocus("user")
   }, [])
 
-  // const handleFormSubmit = useCallback((data) => {
-  //     console.log(data);
-  //     alert(`가입을 환영합니다, ${data.user} 님!`);
-  //     reset();
-  //     setValue('term', false);
-  //   },
-  //   [watch()],
-  // );
+  const handleFormSubmit = useCallback(async (data) => {
+      console.log(data);
+      alert(`가입을 환영합니다, ${data.user} 님!`);
+      reset();
+      try {
+        await signIn("credentials", {
+          username: data?.user,
+          password: data?.password,
+          redirect: false, // 클라이언트에서 호출되는데, 서버쪽에서 redirect 되면 안되기 때문
+        })
+        router.replace('/home'); // 클라이언트 측 redirect
+      } catch (err) {
+        console.error(err);
+        console.log('아이디와 비밀번호가 일치하지 않습니다.');
+      }
+      setValue('term', false);
+    },
+    [watch()],
+  );
 
   const imageRef = useRef<HTMLInputElement>(null)
   const uploadBtn = (e) => {
@@ -66,8 +83,8 @@ function SignupFormTest() {
   }
 
   return (
-    // <form onSubmit={handleSubmit(handleFormSubmit)} className={style.signupForm}>
-    <form action={formAction} className={style.signupForm}>
+    <form onSubmit={handleSubmit(handleFormSubmit)} className={style.signupForm}>
+    {/*<form action={formAction} className={style.signupForm}>*/}
       <div>
         <div>
           <Input
@@ -164,7 +181,8 @@ function SignupFormTest() {
           </Button>
         </div>
       </div>
-      <Button type="submit" size="md" color="secondary" disabled={pending || !isValid}>
+      <Button type="submit" size="md" color="secondary" disabled={isLoading || !isValid}>
+      {/*<Button type="submit" size="md" color="secondary" disabled={pending || !isValid}>*/}
         가입하기
       </Button>
     </form>
