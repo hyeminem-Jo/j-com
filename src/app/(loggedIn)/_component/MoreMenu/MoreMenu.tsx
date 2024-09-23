@@ -8,8 +8,11 @@ import IcSaved from '@/app/(loggedIn)/_component/svg/IcSaved'
 import IcThema from '@/app/(loggedIn)/_component/svg/IcThema'
 import IcReport from '@/app/(loggedIn)/_component/svg/IcReport'
 import style from './moreMenu.module.scss'
+import {signOut} from "next-auth/react";
+import {useRouter} from "next/navigation";
 
 function MoreMenu() {
+  const router = useRouter()
   const isOpen = useMenuStore((state: any) => state.isMoreMenuOpen)
   const setIsOpened = useMenuStore((state: any) => state.setIsMoreMenuOpen)
   const dialogRef = useRef<HTMLUListElement | null>(null)
@@ -25,6 +28,20 @@ function MoreMenu() {
 
     return () => document.removeEventListener('click', handleOutsideClose)
   }, [isOpen])
+
+
+  useEffect(() => {
+    return () => {
+      setIsOpened(false)
+    }
+  }, [])
+
+  const onLogOut = () => {
+    signOut({ redirect: false }) // 서버쪽 redirect 꺼줌 (클라이언트기 때문)
+      .then(() => {
+        router.replace('/') // 로그아웃 시 메인 화면으로 redirect
+      })
+  }
 
   return (
     <>
@@ -59,7 +76,7 @@ function MoreMenu() {
           </li>
           <hr />
           <li>
-            <button type="button" className={style.moreMenuItem}>
+            <button type="button" onClick={onLogOut} className={style.moreMenuItem}>
               <span>로그아웃</span>
             </button>
           </li>
