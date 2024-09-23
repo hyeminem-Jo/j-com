@@ -16,6 +16,7 @@ export default async (prevState: any, formData: FormData) => {
     }
     console.log(await response.json())
     shouldRedirect = true;
+
   } catch (err) {
     console.error(err);
     return;

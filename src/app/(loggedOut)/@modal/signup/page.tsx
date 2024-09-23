@@ -1,13 +1,19 @@
 import React from 'react';
-import SignupModal from "@/app/(loggedIn)/_component/Modals/SignupModal";
-import PostDetail from "@/app/(loggedIn)/_component/PostDetail/PostDetail";
 import ModalPage from "@/app/_component/common/Modal/ModalPage";
 import SignupForm from "@/app/(loggedOut)/_component/SignupForm";
 import Main from "@/app/(loggedOut)/_component/Main";
+import {auth} from "@/auth";
+import {redirect} from "next/navigation";
 
-const Page = () => {
+const Page = async () => {
+  const session = await auth(); // useSession 의 서버 버전
+
+  if (session?.user) {
+    redirect('/home');
+    return null;
+  }
+
   return (
-    // <SignupModal />
     <>
       <ModalPage title="회원가입">
         <SignupForm />

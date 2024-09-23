@@ -26,10 +26,10 @@ function SignupFormTest() {
   } = useForm({
     mode: 'onChange',
     defaultValues: {
-      user: '',
+      id: '',
       password: '',
       passwordCheck: '',
-      term: false,
+      // term: false,
     },
   })
 
@@ -53,25 +53,25 @@ function SignupFormTest() {
 
   // 아이디 input 포커싱
   useEffect(() => {
-    setFocus("user")
+    setFocus("id")
   }, [])
 
   const handleFormSubmit = useCallback(async (data) => {
       console.log(data);
-      alert(`가입을 환영합니다, ${data.user} 님!`);
+      alert(`가입을 환영합니다, ${data.id} 님!`);
       reset();
       try {
         await signIn("credentials", {
-          username: data?.user,
+          username: data?.id,
           password: data?.password,
           redirect: false, // 클라이언트에서 호출되는데, 서버쪽에서 redirect 되면 안되기 때문
         })
         router.replace('/home'); // 클라이언트 측 redirect
       } catch (err) {
         console.error(err);
-        console.log('아이디와 비밀번호가 일치하지 않습니다.');
+        console.log('회원가입이 불가합니');
       }
-      setValue('term', false);
+      // setValue('term', false);
     },
     [watch()],
   );
@@ -88,7 +88,7 @@ function SignupFormTest() {
       <div>
         <div>
           <Input
-            name="user"
+            name="id"
             control={control}
             label="아이디"
             maxLength="30"
@@ -158,15 +158,15 @@ function SignupFormTest() {
               },
             }}
           />
-          <Input
-            name="term"
-            control={control}
-            label="(필수)약관에 동의합니다"
-            type="checkbox"
-            rules={{
-              required: '약관에 동의해주세요',
-            }}
-          />
+          {/*<Input*/}
+          {/*  name="term"*/}
+          {/*  control={control}*/}
+          {/*  label="(필수)약관에 동의합니다"*/}
+          {/*  type="checkbox"*/}
+          {/*  rules={{*/}
+          {/*    required: '약관에 동의해주세요',*/}
+          {/*  }}*/}
+          {/*/>*/}
           <input
             id="imageFiles"
             name="imageFiles"

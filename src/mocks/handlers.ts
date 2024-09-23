@@ -5,9 +5,9 @@ export const handlers = [
     console.log('로그인');
     return HttpResponse.json({
       userId: 1,
-      nickname: '혜지닝',
       id: 'konnimey',
-      image: '/5Udwvqim.jpg',
+      nickname: '혜지닝',
+      image: '/profile_image.jpg',
     }, {
       headers: { // HTTP 응답 헤더에 쿠키를 설정하는 부분
         'Set-Cookie': 'connect.sid=msw-cookie;HttpOnly;Path=/'
