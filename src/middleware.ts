@@ -1,7 +1,13 @@
-import { auth as middleware } from "./auth"
+import { auth } from "./auth"
 import {NextResponse} from "next/server";
 
-// See "Matching Paths" below to learn more
+export async function middleware() {
+  const session = await auth();
+  if (!session) {
+    return NextResponse.redirect('http://localhost:3000/');
+  }
+}
+
 export const config = {
   matcher: ['/stories', '/home', '/explore', '/message', '/search'],
 }
