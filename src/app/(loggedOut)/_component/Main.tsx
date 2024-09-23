@@ -6,21 +6,40 @@ import Input from '@/app/_component/common/Input/Input'
 import { useForm } from 'react-hook-form'
 import ButtonGroup from '@/app/_component/common/ButtonGroup/ButtonGroup'
 import { Button, TextButton } from '@/app/_component/common/Button/Button'
-import { useModalStore } from '@/store/modal'
 import phoneImage from '../../../../public/phone.png'
 import logo from '../../../../public/logo.png'
-import React from "react";
+import React, {useCallback} from "react";
 import style from "@/app/(loggedOut)/_component/signupOrLoginForm.module.scss";
 import Link from "next/link";
+import {signIn} from "next-auth/react";
+import {useRouter} from "next/navigation";
 
 export default function Main() {
-  const { control } = useForm({
+  const router = useRouter()
+  const { control, handleSubmit, reset, watch } = useForm({
     defaultValues: {
-      email: '',
+      id: '',
       password: '',
     },
   })
-  const openModal = useModalStore((state: any) => state.openModal)
+
+  const handleFormSubmit = useCallback(async (data) => {
+      try {
+        await signIn("credentials", {
+          username: data?.id,
+          password: data?.password,
+          redirect: false, // 클라이언트에서 호출되는데, 서버쪽에서 redirect 되면 안되기 때문
+        })
+        router.replace('/home'); // 클라이언트 측 redirect
+        reset();
+      } catch (err) {
+        console.error(err);
+        console.log('아이디와 비밀번호가 일치하지 않습니다.');
+      }
+      console.log(data);
+    },
+    [watch()],
+  );
 
   return (
     <>
@@ -28,10 +47,10 @@ export default function Main() {
         <Image src={phoneImage} width={450} alt="logo" />
       </div>
       <div className={styles.right}>
-        <div className={style.signupOrLoginForm}>
+        <form onSubmit={handleSubmit(handleFormSubmit)} className={style.signupOrLoginForm}>
           <Image src={logo} width={220} alt="logo" />
           <Input
-            name="email"
+            name="id"
             control={control}
             maxLength="30"
             type="text"
@@ -59,7 +78,7 @@ export default function Main() {
               <Link href="/signup">회원가입 하러가기</Link>
             </div>
           </ButtonGroup>
-        </div>
+        </form>
       </div>
     </>
   )

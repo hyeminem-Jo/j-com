@@ -70,6 +70,7 @@ function PostOptionModal() {
           신고
         </button>
         <button className={cx(style.optionBtn, style.highlight)} type="button">
+          {/* TODO: 팔로우 안했을 땐 "팔로우 하기" 로 수정, "팔로우 하기" 버튼 클릭시 로그아웃 상태면 로그인 페이지로 이동 */}
           팔로우 취소
         </button>
         <button onClick={onClick} className={style.optionBtn} type="button">
