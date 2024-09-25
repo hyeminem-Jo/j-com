@@ -62,6 +62,7 @@ function CommentForm({ id, isCommentFocus, setIsCommentFocus }: Props) {
         placeholder="댓글 달기..."
         size="sm"
         rows="1"
+        isDirty={isDirty}
       />
       {/* 이모지만 입력했을 땐 isDirty 가 true 가 안됨 */}
       {(isDirty || !!watch('comment')) && <TextButton>게시</TextButton>}

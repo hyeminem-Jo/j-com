@@ -21,6 +21,7 @@ function Textarea({
   onChange = () => {},
   onBlur = () => {},
   onFocus = () => {},
+  isDirty = false,
   ...rest
 }) {
   const {
@@ -33,7 +34,7 @@ function Textarea({
   })
 
   return (
-    <div className={style.textAreaForm}>
+    <div className={cx(style.textAreaForm, isDirty ? style.dirty : '')}>
       {label && (
         <label className={style.textAreaLabel} htmlFor={name}>
           {label}
