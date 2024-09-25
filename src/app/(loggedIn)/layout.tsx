@@ -3,6 +3,7 @@ import { ReactNode } from 'react'
 import PostOptionModal from '@/app/(loggedIn)/_component/Modals/PostOptionModal'
 import WritePostModal from '@/app/(loggedIn)/_component/Modals/WritePostModal'
 import style from './layout.module.scss'
+import RQProvider from "@/app/(loggedIn)/_component/RGProvider";
 
 type Props = { children: ReactNode; modal: ReactNode }
 
@@ -23,9 +24,11 @@ export default function LoggedInLayout({ children, modal }: Props) {
           </div>
         </section>
       </header>
-      <div className={style.rightWrapper}>
-        <main className={style.main}>{children}</main>
-      </div>
+      <RQProvider>
+        <div className={style.rightWrapper}>
+          <main className={style.main}>{children}</main>
+        </div>
+      </RQProvider>
     </div>
   )
 }
