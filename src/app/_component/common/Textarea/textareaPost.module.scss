@@ -3,12 +3,19 @@
 
   .textAreaLabel {}
 
+  &.dirty {
+    textarea {
+      overflow-y: auto !important;
+    }
+  }
+
   textarea {
     width: 100%;
     padding: 0 16px;
     border: none;
     outline: none;
     font-size: 16px;
+    overflow-y: hidden !important;
 
     &::placeholder {
       font-size: 16px;
