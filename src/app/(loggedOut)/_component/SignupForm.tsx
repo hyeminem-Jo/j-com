@@ -1,8 +1,6 @@
 'use client'
 
-import { useFormState, useFormStatus } from 'react-dom'
 import style from './signupForm.module.scss'
-import onSubmit from '../_lib/signup'
 import Input from "@/app/_component/common/Input/Input";
 import {useForm} from "react-hook-form";
 import React, {useCallback, useEffect, useRef} from "react";
@@ -21,20 +19,15 @@ function SignupFormTest() {
     setFocus,
     handleSubmit,
     reset,
-    setValue,
-    formState: { errors, isValid, isLoading },
+    formState: { isValid, isLoading },
   } = useForm({
     mode: 'onChange',
     defaultValues: {
       id: '',
       password: '',
       passwordCheck: '',
-      // term: false,
     },
   })
-
-  // const [state, formAction] = useFormState(onSubmit, { message: null })
-  // const { pending } = useFormStatus()
 
   // "비밀번호" value 수정 시 이미 입력된 "비밀번호 확인" value 도 같이 유효성 체크
   useEffect(() => {
@@ -69,9 +62,8 @@ function SignupFormTest() {
         router.replace('/home'); // 클라이언트 측 redirect
       } catch (err) {
         console.error(err);
-        console.log('회원가입이 불가합니');
+        console.log('회원가입이 불가합니다');
       }
-      // setValue('term', false);
     },
     [watch()],
   );
@@ -84,7 +76,6 @@ function SignupFormTest() {
 
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} className={style.signupForm}>
-    {/*<form action={formAction} className={style.signupForm}>*/}
       <div>
         <div>
           <Input
@@ -158,15 +149,6 @@ function SignupFormTest() {
               },
             }}
           />
-          {/*<Input*/}
-          {/*  name="term"*/}
-          {/*  control={control}*/}
-          {/*  label="(필수)약관에 동의합니다"*/}
-          {/*  type="checkbox"*/}
-          {/*  rules={{*/}
-          {/*    required: '약관에 동의해주세요',*/}
-          {/*  }}*/}
-          {/*/>*/}
           <input
             id="imageFiles"
             name="imageFiles"
@@ -182,7 +164,6 @@ function SignupFormTest() {
         </div>
       </div>
       <Button type="submit" size="md" color="secondary" disabled={isLoading || !isValid}>
-      {/*<Button type="submit" size="md" color="secondary" disabled={pending || !isValid}>*/}
         가입하기
       </Button>
     </form>
