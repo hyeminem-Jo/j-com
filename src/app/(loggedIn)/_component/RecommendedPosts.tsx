@@ -1,4 +1,9 @@
+'use client'
+
 import Post from '@/app/(loggedIn)/_component/Post/Post'
+import {useQuery} from "@tanstack/react-query";
+import {getPostRecommends} from "@/app/(loggedIn)/home/_lib/getPostRecommends";
+import { Post as IPost } from '@/model/Post';
 
 function RecommendedPosts() {
   const style = {
@@ -10,13 +15,15 @@ function RecommendedPosts() {
     fontWeight: '600',
     marginBottom: '15px',
   }
+
+  const { data } = useQuery<IPost[]>({queryKey: ['posts', 'recommends'], queryFn: getPostRecommends})
+
   return (
     <div style={style}>
       <h4 style={fontStyle}>추천 게시물</h4>
-      <Post />
-      <Post />
-      <Post />
-      <Post />
+      {data?.map((post) => {
+        return <Post key={post.postId} post={post} />
+      })}
     </div>
   )
 }
