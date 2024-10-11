@@ -10,7 +10,7 @@ function FollowerRecommend({ users }) {
           모두 보기
         </a>
       </div>
-      {users?.map((user) => <ProfileButton user={user} ring={false} />)}
+      {users?.map((user) => <ProfileButton user={user} ring={false} key={user?.id} />)}
     </div>
   )
 }

@@ -112,7 +112,6 @@ function PostDetail({ isModal }) {
                   alt={img.alt}
                   width={550}
                   height={600}
-                  objectFit="cover"
                 />
               </div>
             ))}
@@ -124,7 +123,6 @@ function PostDetail({ isModal }) {
               alt={Images[0].alt}
               width={550}
               height={600}
-              objectFit="cover"
             />
           </div>
         )}

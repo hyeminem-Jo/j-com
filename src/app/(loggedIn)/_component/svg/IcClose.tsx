@@ -16,16 +16,16 @@ function IcClose({ size = 24, color = 'gray' }) {
         fill="none"
         points="20.643 3.357 12 12 3.353 20.647"
         stroke={color}
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="3"
       ></polyline>
       <line
         fill="none"
         stroke={color}
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="3"
         x1="20.649"
         x2="3.354"
         y1="20.649"

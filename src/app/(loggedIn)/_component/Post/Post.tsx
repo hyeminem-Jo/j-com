@@ -15,10 +15,11 @@ dayjs.locale('ko')
 dayjs.extend(relativeTime)
 
 type Prop = {
-  post: Post
+  post: Post,
+  postIndex: number
 }
 
-function Post({ post }:Prop) {
+function Post({ post, postIndex }:Prop) {
   console.log(post?.User)
 
   // const { User, content, createdAt, Images, Comments, numOfLike } = target
@@ -47,15 +48,15 @@ function Post({ post }:Prop) {
             slidesToShow={1}
             slidesToScroll={1}
             className="slickPost slickPostPagination"
-            ㅁ
           >
             {post?.Images?.map((img) => (
-              <div className={style.postImage}>
+              <div className={style.postImage} key={img?.imageId}>
                 <Image
                   src={img?.src!}
                   alt={img?.alt!}
-                  layout="fill"
-                  objectFit="cover"
+                  fill
+                  priority={postIndex === 0}
+                  sizes="(max-width: 720px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
             ))}
@@ -66,8 +67,9 @@ function Post({ post }:Prop) {
           <Image
             src={post?.Images[0]?.src!}
             alt={post?.Images[0]?.alt!}
-            layout="fill"
-            objectFit="cover"
+            fill
+            priority={postIndex === 0}
+            sizes="(max-width: 720px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
       )}
@@ -80,9 +82,11 @@ function Post({ post }:Prop) {
           <p className={style.desc}>{post?.content}</p>
           {/* TODO: 좋아요 수가 10개 이상인 댓글은 최대 2개까지 노출하기 */}
         </div>
-        <button type="button" className={style.moreComment}>
-          댓글 {post?.Comments?.length}개 {post?.Comments?.length > 1 && '모두 '}보기
-        </button>
+        {post?.Comments?.length !== 0 &&
+          <button type="button" className={style.moreComment}>
+            댓글 {post?.Comments?.length}개 {post?.Comments?.length > 1 && '모두 '}보기
+          </button>
+        }
         <CommentForm id={post?.User?.id} />
       </div>
     </article>

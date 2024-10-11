@@ -255,7 +255,7 @@ function PostPage() {
             <Image
               src={post?.Images[0]?.src}
               fill
-              objectFit="cover"
+              sizes="(max-width: 720px) 100vw, (max-width: 1200px) 50vw, 33vw"
               alt={`post-${post?.postId}`}
             />
             <div className={style.postInfo}>

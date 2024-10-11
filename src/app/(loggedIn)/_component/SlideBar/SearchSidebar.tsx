@@ -25,16 +25,19 @@ function SearchSidebar({ isOpen }) {
 
   const searchList = [
     {
+      searchId: 1,
       searchWord: '케이크',
       isUser: false,
     },
     {
+      searchId: 2,
       id: 'veenoo',
       nickname: '조수빈',
       image: '/user.jpg',
       isUser: true,
     },
     {
+      searchId: 3,
       id: 'jin_woo',
       nickname: '김김진진우우',
       image: '/user.jpg',
@@ -60,9 +63,9 @@ function SearchSidebar({ isOpen }) {
           <TextButton>모두 지우기</TextButton>
         </h4>
         <ul className={style.searchList}>
-          {searchList.map((item, index) => {
+          {searchList.map((item) => {
             return (
-              <li className={style.searchItem}>
+              <li className={style.searchItem} key={item?.searchId}>
                 <Link href={item?.isUser ? `/${item?.id}` : `/search?q=${item?.searchWord}`} className={style.searchLink}>
                   {item?.isUser ? (
                     <div className={style.searchItemInfo}>

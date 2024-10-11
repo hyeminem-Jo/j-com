@@ -144,7 +144,6 @@ function PostForm() {
                         alt={img.alt}
                         width={550}
                         height={550}
-                        objectFit="cover"
                       />
                     </div>
                   ))}
@@ -156,7 +155,6 @@ function PostForm() {
                     alt={imageArr[0].alt}
                     width={550}
                     height={600}
-                    objectFit="cover"
                   />
                 </div>
               )}

@@ -16,6 +16,7 @@ function AlarmSidebar({ isOpen }) {
 
   const alarmData = [
     {
+      alarmId: 1,
       User: [
         {
           id: 'min_00a',
@@ -29,6 +30,7 @@ function AlarmSidebar({ isOpen }) {
       // createdAt: new Date(new Date().setDate(new Date().getDate() - 0)), // 오늘
     },
     {
+      alarmId: 2,
       User: [
         {
           id: 'nawm_eeee',
@@ -45,6 +47,7 @@ function AlarmSidebar({ isOpen }) {
       createdAt: new Date(new Date().setDate(new Date().getDate() - 0)), //  오늘
     },
     {
+      alarmId: 3,
       User: [
         {
           id: 'veenoo',
@@ -61,6 +64,7 @@ function AlarmSidebar({ isOpen }) {
       createdAt: new Date(new Date().setDate(new Date().getDate() - 3)), // 3일 전
     },
     {
+      alarmId: 4,
       User: [
         {
           id: 'jj_jinny',
@@ -97,6 +101,7 @@ function AlarmSidebar({ isOpen }) {
       createdAt: new Date(new Date().setDate(new Date().getDate() - 4)), // 4일 전
     },
     {
+      alarmId: 5,
       User: [
         {
           id: 'h._seung',
@@ -113,6 +118,7 @@ function AlarmSidebar({ isOpen }) {
       createdAt: new Date(new Date().setDate(new Date().getDate() - 5)), // 5일 전
     },
     {
+      alarmId: 6,
       User: [
         {
           id: 'jin_woo',
@@ -131,6 +137,7 @@ function AlarmSidebar({ isOpen }) {
       ), // 7일 전
     },
     {
+      alarmId: 7,
       User: [
         {
           id: 'jin_woo',
@@ -149,6 +156,7 @@ function AlarmSidebar({ isOpen }) {
       ), // 7일 전
     },
     {
+      alarmId: 8,
       User: [
         {
           id: 'jin_woo',
@@ -167,6 +175,7 @@ function AlarmSidebar({ isOpen }) {
       ), // 7일 전
     },
     {
+      alarmId: 9,
       User: [
         {
           id: 'jin_woo',
@@ -185,6 +194,7 @@ function AlarmSidebar({ isOpen }) {
       ), // 7일 전
     },
     {
+      alarmId: 10,
       User: [
         {
           id: 'jin_woo',
@@ -203,6 +213,7 @@ function AlarmSidebar({ isOpen }) {
       ), // 7일 전
     },
     {
+      alarmId: 11,
       User: [
         {
           id: 'jin_woo',
@@ -221,6 +232,7 @@ function AlarmSidebar({ isOpen }) {
       ), // 7일 전
     },
     {
+      alarmId: 12,
       User: [
         {
           id: 'jin_woo',
@@ -239,6 +251,7 @@ function AlarmSidebar({ isOpen }) {
       ), // 7일 전
     },
     {
+      alarmId: 13,
       User: [
         {
           id: 'jin_woo',

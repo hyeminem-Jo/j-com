@@ -10,7 +10,7 @@ const AlarmList = ({ data }) => {
     <ul className={style.alarmList}>
       {data.map((alarm) => {
         return (
-          <li className={style.alarmItem}>
+          <li className={style.alarmItem} key={alarm?.alarmId}>
             <Link href={`#`} className={style.alarmLink}>
               <div className={style.alarmItemInfo}>
                 {alarm?.User?.length === 1 ? (
