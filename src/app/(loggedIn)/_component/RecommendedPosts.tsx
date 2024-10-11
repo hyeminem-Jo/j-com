@@ -16,7 +16,12 @@ function RecommendedPosts() {
     marginBottom: '15px',
   }
 
-  const { data } = useQuery<IPost[]>({queryKey: ['posts', 'recommends'], queryFn: getPostRecommends})
+  const { data } = useQuery<IPost[]>({
+    queryKey: ['posts', 'recommends'],
+    queryFn: getPostRecommends,
+    staleTime: 60 * 1000,
+    gcTime: 300 * 1000,
+  })
 
   return (
     <div style={style}>

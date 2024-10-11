@@ -101,7 +101,7 @@ export const handlers = [
               content: '술먹자',
               createdAt: generateDate(),
             },
-          ],
+          ]
         },
         {
           postId: 2,
@@ -113,7 +113,14 @@ export const handlers = [
           ],
           createdAt: generateDate(),
           numOfLike: 5,
-          Comments: []
+          Comments: [
+            {
+              commentId: 1,
+              User: User[0],
+              content: '모찌리도후가 먹고싶엉',
+              createdAt: generateDate(),
+            }
+          ]
         },
         {
           postId: 3,
@@ -152,73 +159,109 @@ export const handlers = [
           ],
           createdAt: generateDate(),
           numOfLike: 5,
-          Comments: []
+          Comments: [
+            {
+              commentId: 1,
+              User: User[0],
+              content: '모찌리도후가 먹고싶엉',
+              createdAt: generateDate(),
+            }
+          ]
         },
       ]
     )
   }),
-  // http.get('/api/followingPosts', ({ request }) => {
-  //   return HttpResponse.json(
-  //     [
-  //       {
-  //         postId: 1,
-  //         User: User[0],
-  //         content: `${1} 내일은 더 멋진 나로 💫`,
-  //         Images: [{imageId: 1, src: faker.image.urlLoremFlickr(), alt: '이미지 정보'}],
-  //         createdAt: generateDate(),
-  //         numOfLike: 5,
-  //         Comments: [
-  //           {
-  //             commentId: 1,
-  //             User: User[0],
-  //             content: '모찌리도후가 먹고싶엉',
-  //             createdAt: generateDate(),
-  //           },
-  //           {
-  //             commentId: 2,
-  //             User: User[1],
-  //             content: '술먹자',
-  //             createdAt: generateDate(),
-  //           },
-  //         ]
-  //       },
-  //       {
-  //         postId: 2,
-  //         User: User[1],
-  //         content: `${2} 오늘도 내가 제일 빛나는 순간 ✨`,
-  //         Images: [{imageId: 1, src: faker.image.urlLoremFlickr(), alt: '이미지 정보'}],
-  //         createdAt: generateDate(),
-  //         numOfLike: 5,
-  //         Comments: []
-  //       },
-  //       {
-  //         postId: 3,
-  //         User: User[2],
-  //         content: `${3} 작은 행복, 매일 쌓아가는 중 🧡`,
-  //         Images: [{imageId: 1, src: faker.image.urlLoremFlickr(), alt: '이미지 정보'}],
-  //         createdAt: generateDate(),
-  //         numOfLike: 5,
-  //         Comments: []
-  //       },
-  //       {
-  //         postId: 4,
-  //         User: User[3],
-  //         content: `${4} 일상이 화보라면 이런 느낌!`,
-  //         Images: [{imageId: 1, src: faker.image.urlLoremFlickr(), alt: '이미지 정보'}],
-  //         createdAt: generateDate(),
-  //         numOfLike: 5,
-  //         Comments: []
-  //       },
-  //       {
-  //         postId: 5,
-  //         User: User[4],
-  //         content: `${5} 여기서 시작하는 또 다른 이야기 🌈`,
-  //         Images: [{imageId: 1, src: faker.image.urlLoremFlickr(), alt: '이미지 정보'}],
-  //         createdAt: generateDate(),
-  //         numOfLike: 5,
-  //         Comments: []
-  //       },
-  //     ]
-  //   )
-  // }),
+  http.get('/api/followingPosts', ({ request }) => {
+    return HttpResponse.json(
+      [
+        {
+          postId: 1,
+          User: User[0],
+          content: `${1} 나를 팔로우 하다니, 탁월하신 선택입니다!! 🌿`,
+          Images: [{imageId: 1, src: faker.image.urlLoremFlickr(), alt: '이미지 정보'}],
+          createdAt: generateDate(),
+          numOfLike: 5,
+          Comments: [
+            {
+              commentId: 1,
+              User: User[0],
+              content: '모찌리도후가 먹고싶엉',
+              createdAt: generateDate(),
+            },
+            {
+              commentId: 2,
+              User: User[1],
+              content: '술먹자',
+              createdAt: generateDate(),
+            },
+          ]
+        },
+        {
+          postId: 2,
+          User: User[1],
+          content: `${2} 바쁜 하루 속에서 잠깐의 여유를 즐기며, 내가 좋아하는 것들로 마음을 채우는 시간. 오늘도 소소한 행복 가득 ☕️`,
+          Images: [
+            {imageId: 1, src: faker.image.urlLoremFlickr(), alt: '이미지 정보'},
+            {imageId: 2, src: faker.image.urlLoremFlickr(), alt: '이미지 정보'},
+          ],
+          createdAt: generateDate(),
+          numOfLike: 5,
+          Comments: [
+            {
+              commentId: 1,
+              User: User[0],
+              content: '모찌리도후가 먹고싶엉',
+              createdAt: generateDate(),
+            }
+          ]
+        },
+        {
+          postId: 3,
+          User: User[2],
+          content: `${3} 나를 팔로우 하다니, 탁월하신 선택입니다!! 하하하하하하하 🌷`,
+          Images: [
+            {imageId: 1, src: faker.image.urlLoremFlickr(), alt: '이미지 정보'},
+            {imageId: 2, src: faker.image.urlLoremFlickr(), alt: '이미지 정보'},
+          ],
+          createdAt: generateDate(),
+          numOfLike: 5,
+          Comments: []
+        },
+        {
+          postId: 4,
+          User: User[3],
+          content: `${4} 달콤한 커피와 함께하는 여유 ☕`,
+          Images: [
+            {imageId: 1, src: faker.image.urlLoremFlickr(), alt: '이미지 정보'},
+            {imageId: 2, src: faker.image.urlLoremFlickr(), alt: '이미지 정보'},
+            {imageId: 3, src: faker.image.urlLoremFlickr(), alt: '이미지 정보'},
+            {imageId: 4, src: faker.image.urlLoremFlickr(), alt: '이미지 정보'},
+          ],
+          createdAt: generateDate(),
+          numOfLike: 5,
+          Comments: []
+        },
+        {
+          postId: 5,
+          User: User[4],
+          content: `${5} 우리, 오늘도 좋은 하루였지?`,
+          Images: [
+            {imageId: 1, src: faker.image.urlLoremFlickr(), alt: '이미지 정보'},
+            {imageId: 2, src: faker.image.urlLoremFlickr(), alt: '이미지 정보'},
+            {imageId: 3, src: faker.image.urlLoremFlickr(), alt: '이미지 정보'},
+          ],
+          createdAt: generateDate(),
+          numOfLike: 5,
+          Comments: [
+            {
+              commentId: 1,
+              User: User[0],
+              content: '모찌리도후가 먹고싶엉',
+              createdAt: generateDate(),
+            }
+          ]
+        },
+      ]
+    )
+  }),
 ];

@@ -1,4 +1,4 @@
-import FollowedRecentPosts from '@/app/(loggedIn)/_component/followedRecentPosts'
+import FollowingRecentPosts from '@/app/(loggedIn)/_component/FollowingRecentPosts'
 import RecommendedPosts from '@/app/(loggedIn)/_component/RecommendedPosts'
 import StoryTab from '@/app/(loggedIn)/_component/StoryTab/StoryTab'
 import style from './home.module.scss'
@@ -20,7 +20,7 @@ async function HomePage() {
           <StoryTab />
           <div className={style.postArea}>
             {/* 팔로우한 최근 게시물 (최근 3일 동안 새롭게 올라온 게시물) */}
-            <FollowedRecentPosts />
+            <FollowingRecentPosts />
             {/* 팔로우한 최근 게시물 모두 확인함 표시 */}
             <CheckedAllFollowedRecentPost />
             {/* 추천 게시물 나열 시작 */}
